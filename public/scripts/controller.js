@@ -24,7 +24,7 @@ $scope.signUp = function(){
 			password: $scope.password
 			};
 
-		$http.post("https://apitool.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
+		$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
 			$scope.displayName = res.data.displayName;
 			$scope.userEmail = res.data.email;
 			$scope.userDtCreated = res.data.dt_create;
@@ -42,13 +42,14 @@ $scope.reset = function(){
 	$scope.userId = "";
 };
 
-//LOGIN USER//
-	$scope.login = function(email,password){
-		var user = new Stamplay.User().Model;
-		user.login(email, password).then(function(){
-  			window.location = "home.html";
-		});
-	};
+//LOGOUT USER//
+$scope.logout = function(){
+	$http.get("https://apiapp.stamplayapp.com/auth/v1/logout").then(function(res){
+		console.log(res);
+	});
+};
+
+
 
 }]);
 

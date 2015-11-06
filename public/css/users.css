@@ -156,3 +156,13 @@ body, html {
 #switchViews{
 	cursor: pointer;
 }
+#codeContent{
+	overflow: auto;
+	height: 100px;
+	margin-top: 30px;
+	background-color: #FFFFFF;
+}
+#requestPath{
+	background-color: #000000;
+	color: #FFFFFF;
+}

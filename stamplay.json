@@ -1,6 +1,6 @@
 {
-  "appId": "apitool",
-  "apiKey": "48b1ad706067c1f1286bd3785b64699d1c64c9c864aac421737fc9df13829a1b",
+  "appId": "apiapp",
+  "apiKey": "23046fe8b7978274c249295cecab8bea8608c3417ed2c6825016719b3ab5fefc",
   "public": "./",
   "ignore": [
     "stamplay.json",
