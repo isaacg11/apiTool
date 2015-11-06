@@ -1,0 +1,10 @@
+{
+  "appId": "apitool",
+  "apiKey": "48b1ad706067c1f1286bd3785b64699d1c64c9c864aac421737fc9df13829a1b",
+  "public": "./",
+  "ignore": [
+    "stamplay.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
