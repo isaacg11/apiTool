@@ -1,40 +1,158 @@
-html, body {
+body, html {
+	font-family: "Roboto";
 	min-height: 100vh;
-	background: url("../images/backgroundimg.png") no-repeat;
-	background-size: cover;
-	background-position: center center;
+	min-width: 100vw;
+	position: cover;
+	background-color: #EEEEEE;
+}
+#navbar{
+	background-color: #3D3F4D;
+	height: 80px;
 }
 #logo{
+  	padding: 10px;
+    height: 60px;
+	margin-top: 5px;
+}
+#wordLogo{
+	padding: 10px;
+    height: 45px;
+	margin-top: 15px;
+}
+#lzHeader{
+	margin-top: 8px;
+	font-family: "Roboto";
+}
+#gradCap{
+	color: #FBC02D;
+}
+#lz{
+	color: #FFFFFF;
+}
+#resourceMenu{
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#objectNav{
+	margin-right: 30px;
+}
+#viewCode{
+	color: #000000;
+	background-color: #FBC02D;
+}
+#tutorial{
+	color: #000000;
+	background-color: #FBC02D;
+}
+#sdkdocs{
+	color: #000000;
+	background-color: #FBC02D;
+}
+.divider{
+	background-color: #000000;
+}
+.indicator {
+	background-color: #FBC02D !important;
+}
+.github{
+	background-color: #FBC02D;
+	color: #000;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.github:hover{
+	background-color: #FBC02D;
+	color: #000;
+}
+.rsrcbtn{
+	background-color: #FBC02D;
+	color: #000;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.rsrcbtn:hover{
+	background-color: #FBC02D;
+	color: #000;
+}
+.inputBoxLocal{
+	background-color: #FFFFFF;
+}
+#btn{
+	background-color: #7A7F99;
+	font-family: "Roboto"; 
+	width: 100%;
+}
+.inputBoxFB{
+	cursor: pointer;
+	width: 30%;
+	background-color: #FFFFFF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+#userOutput{
+	margin-top: 30px;
+}
+.data{
+	color: #B0B2B5;
+}
+.fbprop{
+	color: #415095;
+}
+#userOutputName{
+	color: #415095;
+}
+#userOutputDate{
+	color: #415095;
+}
+#userOutputEmail{
+	color: #415095;
+}
+#userOutputID{
+	color: #415095;
+}
+  /* label color */
+.input-field label {
+     color: #FBC02D;
+}
+   /* label focus color */
+.input-field input[type=text]:focus + label {
+     color: #FBC02D;
+}
+   /* label underline focus color */
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #FBC02D;
+     box-shadow: 0 1px 0 0 #FBC02D;
+}
+   /* valid color */
+.input-field input[type=text].valid {
+     border-bottom: 1px solid #FBC02D;
+     box-shadow: 0 1px 0 0 #FBC02D;
+}
+.tabs{
+	margin: none;
+	min-width: 100vw;
+}   
+.tabs .tab a{
+	color: #272D4E;
+}
+.tabs .tab a:hover{
+	color: #272D4E;
+}
+.tab-row {
+	padding:0 !important;
+}
+.indicator {
+	background-color: #FBC02D !important;
+}
+#fbPhoto{
+	border-radius: 50%;
 	height: 100px;
 	width: 100px;
-	margin-top: 50px;
+	border:1px solid;
+	border-color: #EEEEEE;
 }
-#header{
-	color: #FFFFFF;
-	font-family: "Roboto";
-	font-size: 40px;
-}
-#navBox{
-	background-color: #EEEEEE;
-	height: 300px;
-	width: 40%;
-	border-radius: 4px;
-}
-#navBoxHeader{
-	font-size: 20px;
-	font-weight: bold;
-}
-.btn{
-	width: 80%;
-	background-color: #7A7F99;
-	color: #FFFFFF;
-	text-align: center;
-}
-.btn:hover{
-	width: 80%;
-	background-color: #7A7F99;
-	color: #FFFFFF;
-	text-align: center;
-	
-
+#switchViews{
+	cursor: pointer;
 }
