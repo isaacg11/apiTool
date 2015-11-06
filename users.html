@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="stamplay">
 <head>
   <title>Stamplay | Users</title>
   <link rel="stylesheet" type="text/css" href="public/css/materialize.css">
@@ -37,21 +37,21 @@
     </div>
 </div>
 
-<div class="row">
+<div ng-controller="userController" class="row">
  <!--EMAIL & PASSWORD USER OUTPUT SECTION-->
 <div class="col s4">
     <ul id="userOutput" class="collection z-depth-1">
-        <li class="collection-item data"><b>Display Name:</b>
-            <span id="userOutputName"></span>
+        <li class="collection-item data"><b>Display Name: </b>
+            <span id="userOutputName">{{displayName}}</span>
         </li>
         <li class="collection-item data"><b>Email: </b>
-            <span id="userOutputEmail"></span>
+            <span id="userOutputEmail">{{userEmail}}</span>
         </li>
         <li class="collection-item data"><b>Dt_Created: </b>
-            <span id="userOutputDate"></span>
+            <span id="userOutputDate">{{userDtCreated}}</span>
         </li>
         <li class="collection-item data"><b>ID: </b>
-            <span id="userOutputID"></span>
+            <span id="userOutputID">{{userId}}</span>
         </li>
     </ul>
     <br>
@@ -59,17 +59,20 @@
     <div id="local" class="row z-depth-1 inputBoxLocal left col s12">
         <div>
             <div class="row">
-                <div onclick="resetSignUp()" class="input-field col s12">
+                <div class="input-field col s12">
                 <br>
-                  <input  
-                   placeholder="Display Name"
-                   id="name"
-                   type="text">
+                  <input
+                    ng-click="reset()"
+                    ng-model="name"  
+                    placeholder="Display Name"
+                    id="name"
+                    type="text">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                  <input 
+                  <input
+                   ng-model="email" 
                    placeholder="Email"
                    id="email"
                    type="text">
@@ -77,7 +80,8 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                  <input 
+                  <input
+                  ng-model="password" 
                   id="password"
                   placeholder="Password" 
                   type="text">
@@ -86,7 +90,7 @@
             <div class="row">
               <div class="input-field col s12 center">
                   <a 
-                  onclick="signUp()" 
+                  ng-click="signUp()" 
                   id="btn" 
                   class="waves-effect waves-light btn-large">
                   <i class="fa fa-rocket right"></i>Sign Up
