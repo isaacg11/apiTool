@@ -159,11 +159,13 @@ body, html {
 .hidden{
 	display: none;
 }
-#codeContent{
+.codeContent{
 	overflow: auto;
 	height: 100px;
 	margin-top: 30px;
 	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 10px;
 }
 #requestPath{
 	background-color: #FFFFE5;
@@ -175,5 +177,62 @@ body, html {
 	background-color: #FFFFFF;
 	height: 205px;
 	overflow: auto;
-	
+}
+#logoutBtnHidden{
+	padding-bottom: 20px;
+}
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 15px;
+  color: #2E3D48;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
 }
