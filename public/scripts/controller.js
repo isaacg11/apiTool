@@ -25,13 +25,20 @@ $scope.signUp = function(){
 			};
 
 		$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
+			console.log(res.data);
 			$scope.displayName = res.data.displayName;
 			$scope.userEmail = res.data.email;
 			$scope.userDtCreated = res.data.dt_create;
 			$scope.userId = res.data._id;
+			$scope.status = res.status;
+			$scope.text = res.statusText;
+			$scope.body = registrationData;
+			$scope.response = res.data;
 			$scope.name = "";
 			$scope.email = "";
 			$scope.password = "";
+			document.getElementById('logoutBtn').className = "";
+			document.getElementById('signUpBtn').className = "hidden";
 		});
 	};
 

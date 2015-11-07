@@ -156,6 +156,9 @@ body, html {
 #switchViews{
 	cursor: pointer;
 }
+.hidden{
+	display: none;
+}
 #codeContent{
 	overflow: auto;
 	height: 100px;
@@ -163,6 +166,14 @@ body, html {
 	background-color: #FFFFFF;
 }
 #requestPath{
-	background-color: #000000;
-	color: #FFFFFF;
+	background-color: #FFFFE5;
+}
+#sourceCode{
+	background-color: #FFFFE5;
+}
+#console{
+	background-color: #FFFFFF;
+	height: 205px;
+	overflow: auto;
+	
 }

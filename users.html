@@ -88,7 +88,7 @@
                   type="text">
                 </div>
             </div>
-            <div class="row">
+            <div id="signUpBtn" class="row">
               <div class="input-field col s12 center">
                   <a 
                   ng-click="signUp()" 
@@ -98,7 +98,7 @@
                   </a>
               </div>
             </div>
-            <div class="row hiddenLogoutBtn">
+            <div id="logoutBtn" class="row hidden">
               <div class="input-field col s12 center">
                   <a 
                   ng-click="logout()" 
@@ -111,15 +111,41 @@
           </div>
         </div>
     </div>
-    <div class= "col s4">
+    <div class= "col s8">
       <p>The Code</p>
       <div id="codeContent" class="z-depth-1">
-        <pre> API Request Path<i class="fa fa-clipboard right"> Copy</i>
+        <pre> API Request Path - Create User<i class="fa fa-clipboard right"> Copy</i>
           <br><span id="requestPath">"https://yourappid.stamplayapp.com/api/user/v1/users"</span>
         </pre>
       </div>
-      <div class="z-depth-1">
-        <pre> Source Code</pre>
+      <div id="sourceCode" class="z-depth-1"> 
+<!--........................................................-->
+<pre>//REGISTER NEW USER
+$scope.signUp = function(){
+
+    var registrationData = {
+      displayName:$scope.name,
+      email: $scope.email,
+      password: $scope.password
+      };
+
+    $http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData);
+    });
+  };
+</pre>
+<!--........................................................-->
+      </div>
+      <div id="console" class="z-depth-1">
+<!--........................................................-->
+<pre> Console
+<br> Status: {{status}} {{text}}
+<br> Body: {{body}}
+<br> Response: {{response}}
+
+
+
+</pre>
+<!--........................................................-->
       </div>
 
     </div>
