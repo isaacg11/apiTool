@@ -140,20 +140,21 @@
 <!--........................................................-->
 <pre> <b>Console</b>
  <span id="consoleCursor" class="blinking-cursor">_</span>
-<br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}
-<br><span id="consoleBody" class="hidden"> Body: {{body}}
-<br><span id="consoleRes" class="hidden"> Response: {{response}}
+<br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
+<br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
+<br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
 </pre>
 <!--........................................................-->
-      </div>
+    </div>
+  </div>
 </div>
 
 <!--//////////////////////////FACEBOOK TAB///////////////////////////-->
 
 <!--FACEBOOK USER OUTPUT SECTION-->
-    <div id="facebook">
-      <div class="col s12">
-         <ul id="userOutput" class="collection container z-depth-1">
+    <div id="facebook" ng-controller="userController" class="row">
+      <div class="col s4">
+         <ul id="userOutput" class="collection z-depth-1">
             <li class="collection-item data center">
             <img src="public/images/fb avatar.gif" id="fbPhoto"/></li>
             <li class="collection-item data"><b>Display Name:</b>
@@ -168,19 +169,17 @@
             <span class="fbprop" id="fbID"></span></li>
         </ul>
         <br>
-      </div>
-<!--FACEBOOK USER SIGN UP SECTION-->
-        <div 
-        class="col s12 container z-depth-1 center inputBoxFB">
+        <!--FACEBOOK USER SIGN UP SECTION-->
+        <div class="z-depth-1 inputBoxFB">
              <a 
-              onclick="facebook()" 
-              id="btn" 
-              class="waves-effect waves-light btn-large">
-              <i class="fa fa-facebook-square right"></i>
-              Sign Up
+                onclick="facebook()" 
+                id="btn" 
+                class="waves-effect waves-light btn-large">
+                <i class="fa fa-facebook-square right"></i>Sign Up
               </a>
         </div>
       </div>
+    </div>
 
 
 <!--SCRIPTS-->
