@@ -69,26 +69,6 @@ body, html {
 .indicator {
 	background-color: #FBC02D !important;
 }
-.github{
-	background-color: #FBC02D;
-	color: #000;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-.github:hover{
-	background-color: #FBC02D;
-	color: #000;
-}
-.rsrcbtn{
-	background-color: #FBC02D;
-	color: #000;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-.rsrcbtn:hover{
-	background-color: #FBC02D;
-	color: #000;
-}
 .inputBoxLocal{
 	background-color: #FFFFFF;
 }
@@ -96,6 +76,9 @@ body, html {
 	background-color: #7A7F99;
 	font-family: "Roboto"; 
 	width: 100%;
+}
+#logoutBtnHidden{
+	padding-bottom: 30px;
 }
 .inputBoxFB{
 	cursor: pointer;
@@ -106,7 +89,7 @@ body, html {
 	padding-left: 20px;
 }
 #userOutput{
-	margin-top: 30px;
+	margin-top:15px;
 }
 .data{
 	color: #B0B2B5;
@@ -174,12 +157,11 @@ body, html {
 	display: none;
 }
 .codeContent{
+	margin-top: 15px;
 	overflow: auto;
 	height: 100px;
-	margin-top: 30px;
 	background-color: #FFFFFF;
 	padding-left: 10px;
-	padding-right: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -189,7 +171,7 @@ body, html {
 	background-color: #FFFFE5;
 	border-radius: 4px;
 	padding-left: 10px;
-	padding-right: 5px;
+	padding-right: 10px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -210,8 +192,13 @@ body, html {
 	cursor: pointer;
 	color: #FBC02D;
 }
-#logoutBtnHidden{
-	padding-bottom: 20px;
+.github{
+	color: #3D3F4D;
+	cursor: pointer;
+}
+.youtube{
+	color: #3D3F4D;
+	cursor: pointer;
 }
 .blinking-cursor {
   font-weight: 100;
