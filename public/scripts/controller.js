@@ -1,4 +1,4 @@
-var app = angular.module('stamplay', ['ngStamplay']);
+var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
 
 //CONTROLLER
 app.controller('objectController', ["$scope", "$stamplay", "appFactory", function($scope, $stamplay, appFactory){
@@ -25,7 +25,6 @@ $scope.signUp = function(){
 			};
 
 		$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
-			console.log(res.data);
 			$scope.displayName = res.data.displayName;
 			$scope.userEmail = res.data.email;
 			$scope.userDtCreated = res.data.dt_create;
@@ -59,6 +58,23 @@ $scope.logout = function(){
 		console.log(res);
 	});
 };
+
+$scope.facebook = function(){
+	console.log('hit');
+	$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+		console.log(res);
+	});
+};
+
+        $scope.textToCopy = "https://apiapp.stamplayapp.com/auth/v1/facebook/connect";
+ 
+        $scope.success = function () {
+            console.log('Copied!');
+        };
+ 
+        $scope.fail = function (err) {
+            console.error('Error!', err);
+        };
 
 
 

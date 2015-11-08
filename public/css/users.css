@@ -177,6 +177,13 @@ body, html {
 	height: 205px;
 	overflow: auto;
 }
+#copyEP{
+	cursor: pointer;
+}
+#copyEP:hover{
+	cursor: pointer;
+	color: #FBC02D;
+}
 #logoutBtnHidden{
 	padding-bottom: 20px;
 }
@@ -235,3 +242,22 @@ body, html {
     color: black;
   }
 }
+
+/*FACEBOOK SECTION*/
+
+#copyFB{
+	cursor: pointer;
+}
+#copyFB:hover{
+	cursor: pointer;
+	color: #FBC02D;
+}
+#copyBtn{
+	cursor: pointer;
+	height: 40px;
+	width: 70px;
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
+	border:none;
+}
+
