@@ -33,6 +33,21 @@ body, html {
 	margin-top: 10px;
 	margin-right: 10px;
 }
+.dropdownitem{
+	background-color: #FBC02D;
+}
+#dropdownText1{
+	color: #000000;
+}
+#dropdownText1:hover{
+	color: #000000;
+}
+#dropdownText2{
+	color: #000000;
+}
+#dropdownText3{
+	color: #000000;
+}
 #objectNav{
 	margin-right: 30px;
 }
@@ -163,17 +178,28 @@ body, html {
 	height: 100px;
 	margin-top: 30px;
 	background-color: #FFFFFF;
-	padding-left: 5px;
-	padding-right: 10px;
-}
-#requestPath{
-	background-color: #FFFFE5;
+	padding-left: 10px;
+	padding-right: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
 }
 #sourceCode{
 	background-color: #FFFFE5;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
 }
 #console{
 	background-color: #FFFFFF;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 5px;
 	height: 205px;
 	overflow: auto;
 }
@@ -272,18 +298,11 @@ body, html {
 	background-color: #3C3E4C;
 	z-index: none;
 }
-#dropdown1{
-	width: 200px;
+#navSelect:hover{
+	background-color: #3C3E4C;
+	z-index: none;
+	color: #FBC02D;
 }
-.dropdownitem{
-	background-color: #FBC02D;
-}
-#dropdownText1{
-	color: #000000;
-}
-#dropdownText2{
-	color: #000000;
-}
-#dropdownText3{
-	color: #000000;
+#clipboard1PS:hover{
+
 }

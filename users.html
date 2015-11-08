@@ -140,7 +140,7 @@
             <i class="fa fa-clipboard"></i>
         </button>
         <pre> API Request Path - Create User
-          <input class="left" type="text" ng-model="textToCopyEP">
+          <input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
           <br>
         </pre>
       </div>
@@ -217,7 +217,7 @@
             text="textToCopy" 
             on-copied="success()" 
             on-error="fail(err)">
-            <i class="fa fa-clipboard"></i>
+            <i id="clipboard1PS" class="fa fa-clipboard"></i>
           </button>
           <pre> API Request Path - Create User
           <input class="left" type="text" ng-model="textToCopy">
