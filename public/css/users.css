@@ -268,3 +268,22 @@ body, html {
 	border-color: #FFFFFF;
 	border:none;
 }
+#navSelect{
+	background-color: #3C3E4C;
+	z-index: none;
+}
+#dropdown1{
+	width: 200px;
+}
+.dropdownitem{
+	background-color: #FBC02D;
+}
+#dropdownText1{
+	color: #000000;
+}
+#dropdownText2{
+	color: #000000;
+}
+#dropdownText3{
+	color: #000000;
+}

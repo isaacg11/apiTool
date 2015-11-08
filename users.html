@@ -17,9 +17,23 @@
 			<i id="gradCap" class="fa fa-graduation-cap"> <b id="lz">Learning Zone</b></i>
       	</a>
       	<ul id="resourceMenu" class="right">
-        	<li>
-          		<a>Rest API - User</a>
-        	</li>
+        	  <li><a
+                  id="navSelect" 
+                  class='dropdown-button' 
+                  href='#' 
+                  data-activates='dropdown1'>
+                  <i class="fa fa-caret-down right"></i>Rest API - User
+                </a>
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li class="dropdownitem"><a id="dropdownText1" href="index.html">Main Menu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdownitem"><a id="dropdownText2" href="#!"><i class="fa fa-cubes right"></i>Rest API - Object</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdownitem"><a id="dropdownText2" href="#!"><i class="fa fa-user right"></i>SDK - User</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdownitem"><a id="dropdownText3" href="#!"><i class="fa fa-cubes right"></i>SDK - Object</a></li>
+                </ul> 
+        	  </li>
       	</ul>
     </div>
 </nav>

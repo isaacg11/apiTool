@@ -66,11 +66,11 @@ $scope.facebook = function(){
 	});
 };
 
-$scope.textToCopyEP = "https://apiapp.stamplayapp.com/api/user/v1/users";
-$scope.textToCopy = "https://apiapp.stamplayapp.com/auth/v1/facebook/connect";
+$scope.textToCopyEP = "https://[appid].stamplayapp.com/api/user/v1/users";
+$scope.textToCopy = "https://[appid].stamplayapp.com/auth/v1/facebook/connect";
  
 $scope.success = function () {
-    Materialize.toast('Copied', 3000, 'rounded');
+    Materialize.toast('Copied to clipboard!', 3000, 'rounded');
     };
  
 $scope.fail = function (err) {
@@ -78,6 +78,8 @@ $scope.fail = function (err) {
     };
 
 }]);
+
+
 
 
 //FACTORY----------------------------------------------------------------------------//
