@@ -51,18 +51,6 @@ body, html {
 #objectNav{
 	margin-right: 30px;
 }
-#viewCode{
-	color: #000000;
-	background-color: #FBC02D;
-}
-#tutorial{
-	color: #000000;
-	background-color: #FBC02D;
-}
-#sdkdocs{
-	color: #000000;
-	background-color: #FBC02D;
-}
 .divider{
 	background-color: #000000;
 }
@@ -185,19 +173,20 @@ body, html {
 	height: 205px;
 	overflow: auto;
 }
-#copyEP{
-	cursor: pointer;
-}
-#copyEP:hover{
-	cursor: pointer;
-	color: #FBC02D;
-}
 .github{
 	color: #3D3F4D;
 	cursor: pointer;
 }
+.github:hover{
+	color: #FBC02D;
+	cursor: pointer;
+}
 .youtube{
 	color: #3D3F4D;
+	cursor: pointer;
+}
+.youtube:hover{
+	color: #FBC02D;
 	cursor: pointer;
 }
 .blinking-cursor {

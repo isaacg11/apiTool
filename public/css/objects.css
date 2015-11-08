@@ -1,0 +1,99 @@
+body, html {
+	font-family: "Roboto";
+	min-height: 100vh;
+	min-width: 100vw;
+	position: cover;
+	background-color: #EEEEEE;
+}
+#navbar{
+	background-color: #3D3F4D;
+	height: 80px;
+}
+#logo{
+  	padding: 10px;
+    height: 60px;
+	margin-top: 5px;
+}
+#wordLogo{
+	padding: 10px;
+    height: 45px;
+	margin-top: 15px;
+}
+#lzHeader{
+	margin-top: 8px;
+	font-family: "Roboto";
+}
+#gradCap{
+	color: #FBC02D;
+}
+#lz{
+	color: #FFFFFF;
+}
+#resourceMenu{
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#navSelect{
+	background-color: #3C3E4C;
+	z-index: none;
+}
+#navSelect:hover{
+	background-color: #3C3E4C;
+	z-index: none;
+	color: #FBC02D;
+}
+.dropdownitem{
+	background-color: #FBC02D;
+}
+#dropdownText1{
+	color: #000000;
+}
+#dropdownText1:hover{
+	color: #000000;
+}
+#dropdownText2{
+	color: #000000;
+}
+#dropdownText3{
+	color: #000000;
+}
+#objectNav{
+	margin-right: 30px;
+}
+.divider{
+	background-color: #000000;
+}
+  /* label color */
+.input-field label {
+     color: #FBC02D;
+}
+   /* label focus color */
+.input-field input[type=text]:focus + label {
+     color: #FBC02D;
+}
+   /* label underline focus color */
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #FBC02D;
+     box-shadow: 0 1px 0 0 #FBC02D;
+}
+   /* valid color */
+.input-field input[type=text].valid {
+     border-bottom: 1px solid #FBC02D;
+     box-shadow: 0 1px 0 0 #FBC02D;
+}
+.tabs{
+	margin: none;
+	min-width: 100vw;
+}   
+.tabs .tab a{
+	color: #272D4E;
+}
+.tabs .tab a:hover{
+	color: #272D4E;
+}
+.tab-row {
+	padding:0 !important;
+}
+.indicator {
+	background-color: #FBC02D !important;
+}
