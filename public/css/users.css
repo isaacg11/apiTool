@@ -260,4 +260,11 @@ body, html {
 	border-color: #FFFFFF;
 	border:none;
 }
-
+#copyBtnEP{
+	cursor: pointer;
+	height: 40px;
+	width: 70px;
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
+	border:none;
+}

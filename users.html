@@ -115,8 +115,19 @@
     <div class= "col s8">
       <p>CODE</p>
       <div class="z-depth-1 codeContent">
-        <pre> API Request Path - Create User<i id="copyEP" class="fa fa-clipboard right"> Copy</i>
-          <br><span id="requestPath">"https://yourappid.stamplayapp.com/api/user/v1/users"</span>
+        <button
+            type="btn"
+            id="copyBtnEP"
+            class="right" 
+            clipboard 
+            text="textToCopyEP" 
+            on-copied="success()" 
+            on-error="fail(err)">
+            <i class="fa fa-clipboard"></i>
+        </button>
+        <pre> API Request Path - Create User
+          <input class="left" type="text" ng-model="textToCopyEP">
+          <br>
         </pre>
       </div>
       <div id="sourceCode" class="z-depth-1"> 
