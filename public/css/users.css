@@ -124,6 +124,7 @@ body, html {
 }
 .tabs .tab a:hover{
 	color: #272D4E;
+    background-color: #FFFFE5;
 }
 .tab-row {
 	padding:0 !important;

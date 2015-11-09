@@ -90,6 +90,7 @@ body, html {
 }
 .tabs .tab a:hover{
 	color: #272D4E;
+     background-color: #FFFFE5;
 }
 .tab-row {
 	padding:0 !important;
@@ -266,16 +267,11 @@ body, html {
     color: black;
   }
 }
-#options{
-	margin-top: 30px;
-	width: 40%;
-}
 .queryheader{
 	color: #414B82;
 }
 #queryResults{
-	width: 40%;
-	margin-top: 17px;
+	margin-top: 15px;
 }
 .ptag{
 	padding-top: 10px;

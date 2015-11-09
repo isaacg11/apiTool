@@ -10,6 +10,7 @@ jQuery('.datepicker').pickadate({
 });
 
 $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/user/v1/users";
+$scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/user/v1/users";
  
 $scope.success = function () {
     Materialize.toast('Copied to clipboard!', 3000, 'rounded');
