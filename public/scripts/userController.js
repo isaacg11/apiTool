@@ -1,19 +1,11 @@
 var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
 
-//CONTROLLER
-app.controller('objectController', ["$scope", "$stamplay", "appFactory", function($scope, $stamplay, appFactory){
 
- //GET USER INFO ON PAGE LOAD
-//   appFactory.getUser().then(function(user) {
-//   	var email = user.get("email");
-//   	$scope.email = email;
-//   });
-
-}]);
 
 //CONTROLLER
 app.controller('userController', ["$http","$scope", "$stamplay", "appFactory", function($http, $scope, $stamplay, appFactory){
 
+ console.log('hit');
 
 //REGISTER NEW USER
 $scope.signUp = function(){
@@ -82,19 +74,4 @@ $scope.fail = function (err) {
 
 
 
-//FACTORY----------------------------------------------------------------------------//
-app.factory('appFactory', ["$q", function($q) {
-  return {
-    getUser : function(){
-      // var q = $q.defer();
-      // var user = new Stamplay.User().Model;
-      // user.currentUser().then(function(){
-      //   q.resolve(user);
-      // });
-      // return q.promise;
-    }
 
-
-
-  };
-}]);
