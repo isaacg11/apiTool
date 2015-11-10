@@ -165,7 +165,7 @@
       password: $scope.password
       };
 
-    $http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData);
+    <b>$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData);</b>
     });
   };
 
@@ -173,7 +173,6 @@
   $scope.logout = function(){
     var token = window.localStorage.getItem("http://localhost:8080-jwt");
     token.setToken("").then(function(res){
-      console.log(res);
     }, 
     function(err) {
       console.error(err);
@@ -256,7 +255,7 @@
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //REGISTER WITH FACEBOOK
   $scope.facebook = function(){
-    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+    <b>$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect")</b>.then(function(res){
     });
   };
         </pre>

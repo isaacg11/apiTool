@@ -10,7 +10,6 @@ $scope.signUp = function(){
 
 		var registrationData = {
 			displayName:$scope.name,
-
 			email: $scope.email,
 			password: $scope.password
 			};

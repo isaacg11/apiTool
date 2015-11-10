@@ -72,7 +72,7 @@
       <li class="collection-item data"><b>Dt_Created: </b>
       <span class="outputData" id="objectOutputDate"></span></li>
       <li class="collection-item data"><b>ID: </b>
-      <span class="outputData" id="objectOutputID"></span></li>
+      <span class="outputData" id="objectOutputId"></span></li>
   </ul>
 <!--CREATE OBJECT INPUT-->
   <div class="row z-depth-1 createSection">
@@ -84,34 +84,35 @@
         <div 
           id="input"
           class="input-field col s12">
-          <input  
+          <input
+            ng-model="objectName"  
             placeholder="Book Title..." 
             id="objectName" 
             type="text">
         </div>
         <div 
           id="input"
-          onclick="reset()" 
           class="input-field col s12">
-        <input  
+        <input
+          ng-model="objectAuthor"  
           placeholder="Author..." 
           id="objectAuthor" 
           type="text">
         </div>
         <div 
           id="input"
-          onclick="reset()" 
           class="input-field col s12">
-        <input  
+        <input
+          ng-model="objectPrice"  
           placeholder="Price..." 
           id="objectPrice" 
           type="text">
         </div>
-         <div 
+        <div 
           id="input"
-          onclick="reset()" 
           class="input-field col s12">
           <input
+            ng-model="objectDate"
             placeholder="Date Published..." 
             id="objectDate" 
             type="date" 
@@ -121,7 +122,7 @@
       <div class="row center">
         <div class="input-field col s12">
           <a 
-            onclick="createObject()" 
+            ng-click="createObject()" 
             id="btn" 
             class="waves-effect waves-light btn-large">
           <i class="fa fa-plus-circle right"></i>Create Book</a>
@@ -151,13 +152,27 @@
             <br><span id="requestPath"></span>
           </pre>
         </div>
-        <div id="sourceCode" class="z-depth-1"> 
+        <div id="sourceCodeCreate" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //CREATE BOOK OBJECT
-  $scope.facebook = function(){
-    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+  $scope.createObject = function(){
+    var title = $scope.objectName;
+    var author = $scope.objectAuthor;
+    var objectPrice = $scope.objectPrice;
+    var objectDate = document.getElementById('objectDate').value;
+    var price = parseFloat(objectPrice);
+    var published = new Date(objectDate);
+
+    var newObject = {
+      title: title,
+      author: author,
+      price: price,
+      datePublished: published
+    };
+
+    <b>$http.post("https://apiapp.stamplayapp.com/api/cobject/v1/book", newObject)</b>.success(function(res){
     });
   };
 </pre>
@@ -167,7 +182,7 @@
 <!--........................................................-->
 <pre> <b>Console</b>
   <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
+  <br><span id="consoleStatus" class="hidden"> Status: 200 OK</span>
   <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
   <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
 </pre>
@@ -280,7 +295,7 @@
 <!--..............................TAB 3...............................-->
 
 <!--QUERY OUTPUT-->
-<div id="query" class="row">
+<div id="query" class="row" ng-controller="objectController">
   <div class="col s4">
     <div class="chip">
         <i class="fa fa-eye"></i>
@@ -400,7 +415,7 @@
 <!--..............................TAB 4...............................-->
 
 <!--RATING/VOTING OUTPUT-->
-<div id="rate" class="row">
+<div id="rate" class="row" ng-controller="objectController">
   <div class="col s4">
     <div class="chip">
         <i class="fa fa-eye"></i>
@@ -569,6 +584,13 @@
     </div>
   </div>
 </div>
+
+<!--FOOTER-->
+<br>
+<br>
+<footer id="footer" class="page-footer z-depth-1">
+  <div class="container"></div>
+</footer>
 
 
 <!--SCRIPTS-->
