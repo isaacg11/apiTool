@@ -397,6 +397,179 @@
   </div>
 </div>
 
+<!--..............................TAB 4...............................-->
+
+<!--RATING/VOTING OUTPUT-->
+<div id="rate" class="row">
+  <div class="col s4">
+    <div class="chip">
+        <i class="fa fa-eye"></i>
+        User View
+    </div>
+    <ul id="queryResults" class="collection z-depth-1">
+      <li class="collection-item center queryheader"><b>Example Resturaunt Data</b>
+      <li class="collection-item category"><b>Resturaunt:</b>
+      <span class="queryheader" id="rateOutputName"></span></li>
+      <li class="collection-item category"><b>Rating: </b>
+      <span class="queryheader" id="rateOutputRatings"></span></li>
+      <li class="collection-item category"><b>Likes: </b>
+      <span class="queryheader" id="rateOutputLikes"></span></li>
+      <li class="collection-item category"><b>Review: </b>
+      <span class="queryheader" id="rateOutputReview"></span></li>
+    </ul>
+
+<!--RATING-->
+    <div id="ratingSection" class="row z-depth-1">
+      <form action="#" class="col s12">
+        <div class="row queryheader">
+          <p class="center">
+            <i class="fa fa-star-o"></i>
+            <b>Rate this resturaunt</b>
+          </p>
+        </div>
+        <div class="row center">
+          <div class="input-field col s2">
+            <p>
+              <input
+                onclick = "rateFive()" 
+                type="checkbox" 
+                id="fiveStars" />
+                <label for="fiveStars"> 5</label>
+            </p>
+          </div>
+          <div class="input-field col s2">
+            <p>
+              <input
+                onclick = "rateFour()" 
+                type="checkbox" 
+                id="fourStars" />
+                <label for="fourStars"> 4</label>
+            </p>
+          </div>
+          <div class="input-field col s2">
+            <p>
+              <input
+                onclick = "rateThree()" 
+                type="checkbox" 
+                id="threeStars" />
+                <label for="threeStars"> 3</label>
+            </p>
+          </div>
+          <div class="input-field col s2">
+            <p>
+              <input
+                onclick = "rateTwo()" 
+                type="checkbox" 
+                id="twoStars"/>
+                <label for="twoStars"> 2</label>
+            </p>
+          </div>
+          <div class="input-field col s2">
+            <p>
+              <input
+                onclick = "rateOne()" 
+                type="checkbox" 
+                id="oneStar" />
+                <label for="oneStar"> 1</label>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+<!--UPVOTE/DOWNVOTE-->
+  <div id="voteSection" class="row center z-depth-1">
+      <div class="input-field col s6">
+        <a 
+          onclick="upvote()" 
+          class="waves-effect waves-light btn-large thumbs">
+        <i class="fa fa-thumbs-o-up center"></i></a>
+      </div>
+      <div class="input-field col s6">
+        <a 
+          onclick="downvote()" 
+          class="waves-effect waves-light btn-large thumbs">
+        <i class="fa fa-thumbs-o-down center"></i></a>
+      </div>
+  </div>
+
+<!--REVIEW SECTION-->
+  <div class="row z-depth-1 createSection">
+    <form class="col s12">
+      <div class="row">
+        <p class="center ptag">
+          <b class='queryheader'>Leave a review</b>
+        </p>
+      </div>
+      <div class="row">
+        <div 
+        onclick="reset()" 
+        id="input"
+        class="input-field col s12">
+          <input  
+          placeholder="Review..." 
+          id="review" 
+          type="text">
+        </div>
+      </div>
+      <div class="row center">
+        <div class="input-field col s12">
+          <a 
+            onclick="review()" 
+            id="btn" 
+            class="waves-effect waves-light btn-large">
+            <i class="fa fa-check-square-o right"></i>SUBMIT</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class= "col s8">
+        <div class="chip">
+          <i class="fa fa-code"></i>
+          Code Details
+        </div>
+        <div class="z-depth-1 codeContent">
+          <button
+            type="btn"
+            id="copyBtn"
+            class="right" 
+            clipboard 
+            text="textToCopyRate" 
+            on-copied="success()" 
+            on-error="fail(err)">
+            <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
+          </button>
+          <pre> API Request Path - Rate Object
+          <input class="left" type="text" ng-model="textToCopyRate">
+            <br><span id="requestPath"></span>
+          </pre>
+        </div>
+        <div id="sourceCode" class="z-depth-1"> 
+<!--........................................................-->
+<pre>
+  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+ //RATE RESTAURANT OBJECT
+  $scope.facebook = function(){
+    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+    });
+  };
+</pre>
+<!--........................................................-->
+        </div>
+        <div id="console" class="z-depth-1">
+<!--........................................................-->
+<pre> <b>Console</b>
+  <span id="consoleCursor" class="blinking-cursor">_</span>
+  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
+  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
+  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+</pre>
+<!--........................................................-->
+    </div>
+  </div>
+</div>
+
 
 <!--SCRIPTS-->
 <script src="./bower_components/angular/angular.js"></script>
