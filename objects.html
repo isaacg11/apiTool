@@ -66,19 +66,19 @@
   <ul class="collection z-depth-1 objectOutput">
       <li class="collection-item center header"><b>New Book Data</b>
       <li class="collection-item data"><b>Book Title:</b>
-      <span class="outputData" id="objectOutputName"></span></li>
+      <span class="outputData" id="objectOutputName">{{createTitle}}</span></li>
       <li class="collection-item data"><b>Author:</b>
-      <span class="outputData" id="objectOutputAuthor"></span></li>
+      <span class="outputData" id="objectOutputAuthor">{{createAuthor}}</span></li>
       <li class="collection-item data"><b>Dt_Created: </b>
-      <span class="outputData" id="objectOutputDate"></span></li>
+      <span class="outputData" id="objectOutputDate">{{createDate}}</span></li>
       <li class="collection-item data"><b>ID: </b>
-      <span class="outputData" id="objectOutputId"></span></li>
+      <span class="outputData" id="objectOutputId">{{createId}}</span></li>
   </ul>
 <!--CREATE OBJECT INPUT-->
   <div class="row z-depth-1 createSection">
     <div class="col s12">
       <div class='row'>
-        <p class="center header"><b>Create Book Data</b></p>
+        <p class="center header"><b>Create Book</b></p>
       </div>
       <div class="row">
         <div 
@@ -204,13 +204,13 @@
   			<ul class="collection z-depth-1 objectOutput">
       			<li class="collection-item center header"><b>Book Data</b>
       			<li class="collection-item category"><b>Book Title:</b>
-      			<span class="outputData" id="updateOutputName"></span></li>
+      			<span class="outputData" id="updateOutputName">{{updateTitle}}</span></li>
       			<li class="collection-item category"><b>Author:</b>
-      			<span class="outputData" id="updateOutputAuthor"></span></li>
+      			<span class="outputData" id="updateOutputAuthor">{{updateAuthor}}</span></li>
       			<li class="collection-item category"><b>Dt_Updated: </b>
-      			<span class="outputData" id="updateOutputDate"></span></li>
+      			<span class="outputData" id="updateOutputDate">{{updateDate}}</span></li>
       			<li class="collection-item category"><b>ID: </b>
-      			<span class="outputData" id="updateOutputID"></span></li>
+      			<span class="outputData" id="updateOutputID">{{updateId}}</span></li>
   			</ul>
 <!--UPDATE OBJECT INPUT-->
   <div class="row z-depth-1 createSection">
@@ -221,12 +221,14 @@
       <div class="row">
         <div id="input" class="input-field col s12">
           <input
+            ng-model="newTitle"
             placeholder="New Book Title..."  
             id="title" 
             type="text">
         </div>
         <div id="input" class="input-field col s12">
           <input
+            ng-model="newAuthor"
             placeholder="New Author..."  
             id="author" 
             type="text">
@@ -235,7 +237,7 @@
       <div class="row center">
         <div class="input-field col s12">
           <a 
-            onclick="updateObject()" 
+            ng-click="updateObject()" 
             id="btn" 
             class="waves-effect waves-light btn-large">
           <i class="fa fa-pencil-square-o right"></i>Update Book</a>
@@ -267,7 +269,7 @@
             <br><span id="requestPath"></span>
           </pre>
         </div>
-        <div id="sourceCode" class="z-depth-1"> 
+        <div id="sourceCodeUpdate" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
@@ -387,7 +389,7 @@
             <br><span id="requestPath"></span>
           </pre>
         </div>
-        <div id="sourceCode" class="z-depth-1"> 
+        <div id="sourceCodeQuery" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
@@ -560,7 +562,7 @@
             <br><span id="requestPath"></span>
           </pre>
         </div>
-        <div id="sourceCode" class="z-depth-1"> 
+        <div id="sourceCodeRate" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
