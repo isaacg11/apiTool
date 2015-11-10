@@ -3,15 +3,14 @@ var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
 
 
 //CONTROLLER
-app.controller('userController', ["$http","$scope", "$stamplay", "appFactory", function($http, $scope, $stamplay, appFactory){
-
- console.log('hit');
+app.controller('userController', ["$http","$scope", "$stamplay", function($http, $scope, $stamplay){
 
 //REGISTER NEW USER
 $scope.signUp = function(){
 
 		var registrationData = {
 			displayName:$scope.name,
+
 			email: $scope.email,
 			password: $scope.password
 			};
@@ -46,8 +45,11 @@ $scope.reset = function(){
 
 //LOGOUT USER//
 $scope.logout = function(){
-	$http.get("https://apiapp.stamplayapp.com/auth/v1/logout").then(function(res){
+	var token = window.localStorage.getItem("http://localhost:8080-jwt");
+	token.setToken("").then(function(res){
 		console.log(res);
+	}, function(err) {
+		console.error(err);
 	});
 };
 

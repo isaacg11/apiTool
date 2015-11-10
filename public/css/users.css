@@ -5,6 +5,7 @@ body, html {
 	position: cover;
 	background-color: #EEEEEE;
 }
+
 #navbar{
 	background-color: #3D3F4D;
 	height: 80px;
@@ -69,6 +70,7 @@ body, html {
 	padding-bottom: 30px;
 }
 .inputBoxFB{
+	margin-top: 12px;
 	cursor: pointer;
 	background-color: #FFFFFF;
 	padding-top: 20px;
@@ -125,6 +127,7 @@ body, html {
 .tabs .tab a:hover{
 	color: #272D4E;
     background-color: #FFFFE5;
+    font-weight: bold;
 }
 .tab-row {
 	padding:0 !important;
@@ -157,6 +160,7 @@ body, html {
 	border-style:double;
 }
 #sourceCode{
+	overflow: auto;
 	background-color: #FFFFE5;
 	border-radius: 4px;
 	padding-left: 10px;
@@ -165,6 +169,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
+	max-height: 41vh;
 }
 #console{
 	background-color: #FFFFFF;
@@ -280,4 +285,9 @@ body, html {
 	z-index: none;
 	color: #FBC02D;
 }
-
+#footer{
+	background-color: #E4E4E4;
+	display: flex;
+    min-height: 7vh;
+    flex-direction: column;
+}

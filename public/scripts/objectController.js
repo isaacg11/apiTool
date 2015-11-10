@@ -1,7 +1,7 @@
 var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
 
 //CONTROLLER
-app.controller('objectController', ["$scope", "$stamplay", "appFactory", function($scope, $stamplay, appFactory){
+app.controller('objectController', ["$scope", "$stamplay", "objectFactory", function($scope, $stamplay, objectFactory){
 
 //DATE PICKER
 jQuery('.datepicker').pickadate({
@@ -24,11 +24,10 @@ $scope.fail = function (err) {
     };
 
 
-
 }]);
 
 //FACTORY----------------------------------------------------------------------------//
-app.factory('appFactory', ["$q", function($q) {
+app.factory('objectFactory', ["$q", function($q) {
   return {
     getUser : function(){
       // var q = $q.defer();

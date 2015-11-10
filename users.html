@@ -168,6 +168,17 @@
     $http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData);
     });
   };
+
+ //LOGOUT USER
+  $scope.logout = function(){
+    var token = window.localStorage.getItem("http://localhost:8080-jwt");
+    token.setToken("").then(function(res){
+      console.log(res);
+    }, 
+    function(err) {
+      console.error(err);
+    });
+  };
 </pre>
 <!--........................................................-->
       </div>
@@ -195,6 +206,7 @@
         </div>
          <ul id="userOutput" class="collection z-depth-1">
             <li class="collection-item data center">
+            <br>
             <img src="public/images/fb avatar.gif" id="fbPhoto"/></li>
             <li class="collection-item data"><b>Display Name:</b>
             <span class="fbprop" id="fbName"></span></li>
@@ -217,38 +229,37 @@
                 <i class="fa fa-facebook-square right"></i>Sign Up
               </a>
         </div>
-      </div>
-      <div class= "col s8">
-        <div class="chip">
-          <i class="fa fa-code"></i>
-          Code Details
         </div>
-        <div class="z-depth-1 codeContent">
-          <button
-            type="btn"
-            id="copyBtn"
-            class="right" 
-            clipboard 
-            text="textToCopy" 
-            on-copied="success()" 
-            on-error="fail(err)">
-            <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
-          </button>
-          <pre> API Request Path - Create User
-          <input class="left" type="text" ng-model="textToCopy">
-            <br><span id="requestPath"></span>
-          </pre>
-        </div>
+        <div class= "col s8">
+          <div class="chip">
+            <i class="fa fa-code"></i>
+            Code Details
+          </div>
+          <div class="z-depth-1 codeContent">
+            <button
+              type="btn"
+              id="copyBtn"
+              class="right" 
+              clipboard text="textToCopy" 
+              on-copied="success()" 
+              on-error="fail(err)">
+              <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
+            </button>
+            <pre> API Request Path - Create User
+              <input class="left" type="text" ng-model="textToCopy">
+              <br><span id="requestPath"></span>
+            </pre>
+          </div>
         <div id="sourceCode" class="z-depth-1"> 
 <!--........................................................-->
-<pre>
+        <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //REGISTER WITH FACEBOOK
   $scope.facebook = function(){
     $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
     });
   };
-</pre>
+        </pre>
 <!--........................................................-->
         </div>
         <div id="console" class="z-depth-1">
@@ -260,13 +271,19 @@
   <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
 </pre>
 <!--........................................................-->
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
+<!--FOOTER-->
+<br>
+<br>
+<footer id="footer" class="page-footer z-depth-1">
+  <div class="container"></div>
+</footer>
 
 <!--SCRIPTS-->
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script> -->
+
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-clipboard/angular-clipboard.js"></script>
 <script src="./bower_components/angular-stamplay/angular-stamplay.js"></script>
