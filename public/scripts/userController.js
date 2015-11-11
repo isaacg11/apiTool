@@ -1,14 +1,13 @@
-var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
-
-app.config(function($httpProvider) {
-    $httpProvider.defaults.headers.common = {
-    "Content-Type" : "application/json",
-    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-  };
-});
 
 //CONTROLLER
-app.controller('userController', ["$http","$scope", "$stamplay", function($http, $scope, $stamplay){
+(function() {
+	'use strict';
+	angular.module('stamplay')
+	.controller('userController', userController);
+	userController.$inject = ['$state',"$http","$scope", "$stamplay"];
+
+  function userController($state, $http, $scope, $stamplay){
+
 
 //REGISTER NEW USER
 $scope.signUp = function(){
@@ -76,8 +75,8 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
-}]);
-
+}
+})();
 
 
 
