@@ -12,7 +12,7 @@ jQuery('.datepicker').pickadate({
 //COPY TO CLIPBOARD FIELDS
 $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/cobject/v1/post";
 $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id";
-$scope.textToCopyQuery = "http://[appid].stamplayapp.com/api/cobject/v1/post?field=val";
+$scope.textToCopyQuery = "http://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
 $scope.textToCopyRate = "https://[appid].stamplayapp.com/api/user/v1/users";
  
 $scope.success = function () {
@@ -168,7 +168,8 @@ app.factory('objectFactory', ["$http","$q", function($http, $q) {
     },
     upvoteFive: function(){
       var q = $q.defer();
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/'{"rate": 5}'").success(function(res){
+      var data = {rate: 3};
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9",data).success(function(res){
         q.resolve(res);
       });
       return q.promise;
