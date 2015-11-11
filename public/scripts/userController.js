@@ -1,6 +1,11 @@
 var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
 
-
+app.config(function($httpProvider) {
+    $httpProvider.defaults.headers.common = {
+    "Content-Type" : "application/json",
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+  };
+});
 
 //CONTROLLER
 app.controller('userController', ["$http","$scope", "$stamplay", function($http, $scope, $stamplay){
@@ -15,6 +20,7 @@ $scope.signUp = function(){
 			};
 
 		$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
+			window.localStorage.setItem("x-stamplay-jwt", res.headers("x-stamplay-jwt"));
 			$scope.displayName = res.data.displayName;
 			$scope.userEmail = res.data.email;
 			$scope.userDtCreated = res.data.dt_create;

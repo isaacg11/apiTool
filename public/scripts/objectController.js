@@ -1,5 +1,10 @@
 var app = angular.module('stamplay', ['ngStamplay','angular-clipboard']);
-
+app.config(function($httpProvider) {
+  $httpProvider.defaults.headers.common = {
+    "Content-Type" : "application/json",
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+  };
+});
 //CONTROLLER
 app.controller('objectController', ["$http", "$scope", "$stamplay", "objectFactory", function($http, $scope, $stamplay, objectFactory){
 
@@ -13,7 +18,7 @@ jQuery('.datepicker').pickadate({
 $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/cobject/v1/post";
 $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id";
 $scope.textToCopyQuery = "http://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
-$scope.textToCopyRate = "https://[appid].stamplayapp.com/api/user/v1/users";
+$scope.textToCopyRate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/rate";
  
 $scope.success = function () {
     Materialize.toast('Copied to clipboard!', 3000, 'rounded');
@@ -23,7 +28,7 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
-//ON PAGE LOAD GET DATA FOR QUERIES
+//ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
   $scope.updateTitle = res.title;
   $scope.updateAuthor = res.author;
@@ -37,7 +42,7 @@ objectFactory.getRestaurant().then(function(res){
   var upvotes = res.actions.votes.users_upvote.length;
   var downvotes = res.actions.votes.users_downvote.length;
   $scope.rateLikesOutput = upvotes - downvotes;
-  $scope.rateReviewOutput = res.actions.comments.length;
+  $scope.rateReviewOutput = res.actions.comments;
 });
 
 //CREATE OBJECT
@@ -167,9 +172,16 @@ app.factory('objectFactory', ["$http","$q", function($http, $q) {
       return q.promise;
     },
     upvoteFive: function(){
+      var data = {"rate": 3};
+      var token = window.localStorage.getItem("x-stamplay-jwt");
+      var headers = {
+        "x-stamplay-jwt" : token,
+        "content-type" : "application/json"
+      };
+      console.log(headers);
       var q = $q.defer();
-      var data = {rate: 3};
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9",data).success(function(res){
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data)
+      .then(function(res){
         q.resolve(res);
       });
       return q.promise;
