@@ -182,9 +182,9 @@
 <!--........................................................-->
 <pre> <b>Console</b>
   <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: 200 OK</span>
-  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
-  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+  <br><span id="createConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="createConsoleBody" class="hidden"> Body: {{createBody}}</span>
+  <br><span id="createConsoleResponse" class="hidden"> Response: {{createResponse}}</span>
 </pre>
 <!--........................................................-->
     </div>
@@ -274,10 +274,26 @@
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //UPDATE BOOK OBJECT
-  $scope.facebook = function(){
-    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+  $scope.updateObject = function(){
+    var title = $scope.newTitle;
+    var author = $scope.newAuthor;
+
+    newData = {
+      title: title,
+      author: author
+    };
+
+    objectFactory.editObject(newData).then(function(res){
     });
   };
+
+  editObject: function(newData){
+    var q = $q.defer();
+    <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData)</b>.success(function(res){
+      q.resolve(res);
+    });
+      return q.promise;
+  }
 </pre>
 <!--........................................................-->
         </div>
@@ -285,9 +301,9 @@
 <!--........................................................-->
 <pre> <b>Console</b>
   <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
-  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
-  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+  <br><span id="updateConsoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
+  <br><span id="updateConsoleBody" class="hidden"> Body: {{updateBody}}</span>
+  <br><span id="updateConsoleResponse" class="hidden"> Response: {{updateResponse}}</span>
 </pre>
 <!--........................................................-->
     </div>
@@ -305,15 +321,15 @@
     </div>
       <ul id="queryResults" class="collection z-depth-1">
         <li class="collection-item center queryheader">
-        <b>Resturaunt Query Results</b>
-        <li class="collection-item category"><b>Resturaunt:</b>
-        <span class="queryheader" id="queryOutputName"></span></li>
+        <b>Restaurant Query Results</b>
+        <li class="collection-item category"><b>Restaurant:</b>
+        <span class="queryheader" id="queryOutputName">{{queryRestaurantOutput}}</span></li>
         <li class="collection-item category"><b>Cuisine: </b>
-        <span class="queryheader" id="queryOutputCuisine"></span></li>
+        <span class="queryheader" id="queryOutputCuisine">{{queryCuisineOutput}}</span></li>
         <li class="collection-item category"><b>City: </b>
-        <span class="queryheader" id="queryOutputCity"></span></li>
+        <span class="queryheader" id="queryOutputCity">{{queryCityOutput}}</span></li>
         <li class="collection-item category"><b>Address: </b>
-        <span class="queryheader" id="queryOutputAddress"></span></li>
+        <span class="queryheader" id="queryOutputAddress">{{queryAddressOutput}}</span></li>
       </ul>
 <!--QUERY OPTIONS-->
       <ul id="options" class="collection z-depth-1">
@@ -335,15 +351,15 @@
         <form class="col s12">
           <div class="row">
             <p class="center ptag">
-              <b class='queryheader'>Find a resturaunt!</b>
+              <b class='queryheader'>Find a restaurant!</b>
             </p>
           </div>
           <div class="row">
             <div 
-              onclick="reset()" 
               id="input"
               class="input-field col s12">
-              <input  
+              <input
+                ng-model="queryCuisine"  
                 placeholder="Cuisine..." 
                 id="cuisine" 
                 type="text">
@@ -351,14 +367,15 @@
           <div 
             id="input"
             class="input-field col s12">
-            <input  
+            <input
+              ng-model="queryCity"  
               placeholder="City..." 
               id="city" 
               type="text">
           </div>
           <div class="input-field col s12">
             <a 
-              onclick="queryObject()" 
+              ng-click="queryObject()" 
               id="btn" 
               class="waves-effect waves-light btn-large">
               <i class="fa fa-search right"></i>Query Object
@@ -394,20 +411,34 @@
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //QUERY RESTAURANT OBJECT
-  $scope.facebook = function(){
-    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
+  $scope.queryObject = function(){
+    var queryParams = {
+      cuisine: $scope.queryCuisine,
+      city: $scope.queryCity
+    };
+
+    objectFactory.findObject(queryParams).then(function(res){
     });
-  };
+
+    findObject: function(queryParams){
+      var q = $q.defer();
+      <b>$http.get('http://apiapp.stamplayapp.com/api/cobject/v1/restaurant?where={"$and":[{"cuisine":"'+queryParams.cuisine+'"},{"city":"'+queryParams.city+'"}]}')</b>.success(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    }
+
+
 </pre>
 <!--........................................................-->
         </div>
         <div id="console" class="z-depth-1">
 <!--........................................................-->
 <pre> <b>Console</b>
-  <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
-  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
-  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+  <span id="queryConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="queryConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="queryConsoleBody" class="hidden"> Body: {{queryBody}}</span>
+  <br><span id="queryConsoleResponse" class="hidden"> Response: {{queryResponse}}</span>
 </pre>
 <!--........................................................-->
     </div>

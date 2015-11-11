@@ -201,7 +201,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 51vh;
+	max-height: 30vh;
 }
 #sourceCodeQuery{
 	overflow: auto;
@@ -213,7 +213,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 51vh;
+	max-height: 47vh;
 }
 #sourceCodeRate{
 	overflow: auto;
