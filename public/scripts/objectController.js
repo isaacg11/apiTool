@@ -23,12 +23,21 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
-//ON PAGE LOAD GET DATA
+//ON PAGE LOAD GET DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
   $scope.updateTitle = res.title;
   $scope.updateAuthor = res.author;
   $scope.updateDate = res.dt_update;
   $scope.updateId = res._id;
+});
+
+objectFactory.getRestaurant().then(function(res){
+  $scope.rateRestaurantOutput = res.restaurant;
+  $scope.rateRatingsOutput = res.actions.ratings.avg;
+  var upvotes = res.actions.votes.users_upvote.length;
+  var downvotes = res.actions.votes.users_downvote.length;
+  $scope.rateLikesOutput = upvotes - downvotes;
+  $scope.rateReviewOutput = res.actions.comments.length;
 });
 
 //CREATE OBJECT
@@ -76,7 +85,7 @@ $scope.updateObject = function(){
   };
 
   objectFactory.editObject(newData).then(function(res){
-    document.getElementById('consoleCursor').className = "hidden";
+    document.getElementById('updateConsoleCursor').className = "hidden";
     document.getElementById('updateConsoleStatus').className = "";
     document.getElementById('updateConsoleBody').className = "";
     document.getElementById('updateConsoleResponse').className = "";
@@ -114,7 +123,15 @@ $scope.queryObject = function(){
   });
 };
 
-
+//RATE OBJECT
+$scope.rateFive = function(){
+  var a = document.getElementById("fiveStars").checked;
+  if(a === true) {
+    objectFactory.upvoteFive().then(function(res){
+      console.log(res);
+    });
+  }
+};
 
 
 }]);
@@ -124,6 +141,13 @@ app.factory('objectFactory', ["$http","$q", function($http, $q) {
     getBook : function(){
       var q = $q.defer();
       $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88").success(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    },
+    getRestaurant : function(){
+      var q = $q.defer();
+      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9").success(function(res){
         q.resolve(res);
       });
       return q.promise;
@@ -138,6 +162,13 @@ app.factory('objectFactory', ["$http","$q", function($http, $q) {
     findObject: function(queryParams){
       var q = $q.defer();
       $http.get('http://apiapp.stamplayapp.com/api/cobject/v1/restaurant?where={"$and":[{"cuisine":"'+queryParams.cuisine+'"},{"city":"'+queryParams.city+'"}]}').success(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    },
+    upvoteFive: function(){
+      var q = $q.defer();
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/'{"rate": 5}'").success(function(res){
         q.resolve(res);
       });
       return q.promise;
