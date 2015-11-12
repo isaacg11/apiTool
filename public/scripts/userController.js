@@ -8,12 +8,6 @@
 
 function userController($state, $http, $scope, $stamplay){
 
-//TABS
-// jQuery(document).ready(function(){
-
-// });
-
-
 
 //REGISTER NEW USER
 $scope.signUp = function(){
