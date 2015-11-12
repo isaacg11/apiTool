@@ -1,16 +1,16 @@
 <div ng-controller="objectController">
   <nav>
-    <div id="navbar" class="nav-wrapper z-depth-2">
+    <div id="navbarObjects" class="nav-wrapper z-depth-2">
     	<a ui-sref="Landing">
         <img id="wordLogo" src="public/images/logo_White.png"/>
       </a>
       <a id="lzHeader" class="brand-logo center hide-on-med-and-down">
 		    <i id="gradCap" class="fa fa-graduation-cap"> <b id="lz">Learning Zone</b></i>
       </a>
-      <ul id="resourceMenu" class="right">
+      <ul id="resourceMenuObjects" class="right">
         <li>
           <a
-            id="navSelect" 
+            id="navSelectObjects" 
             class='dropdown-button' 
             href='#' 
             data-activates='dropdown1'>
@@ -23,19 +23,19 @@
             <li class="divider"></li>
             <li class="dropdownitem">
               <a id="dropdownText2" ui-sref="Users">
-              <i id="userAPI" class="fa fa-user right"></i>Rest API - Users
+              <i id="userAPI" class="fa fa-user right"></i>[API] - Users
               </a>
             </li>
             <li class="divider"></li>
             <li class="dropdownitem">
               <a id="dropdownText2" href="#!">
-              <i id="userSDK" class="fa fa-user right"></i>SDK - Users
+              <i id="userSDK" class="fa fa-user right"></i>[SDK] - Users
               </a>
             </li>
             <li class="divider"></li>
             <li class="dropdownitem">
               <a id="dropdownText3" href="#!">
-              <i id="objSDK" class="fa fa-cubes right"></i>SDK - Objects</a>
+              <i id="objSDK" class="fa fa-cubes right"></i>[SDK] - Objects</a>
             </li>
           </ul> 
         </li>
@@ -351,46 +351,33 @@
         </li>
       </ul>
 <!--QUERY OPTIONS-->
-      <ul id="options" class="collection z-depth-1">
-        <li class="collection-item center queryheader">
-          <b>Query Options</b>
-        </li>
-        <li class="collection-item data">
-          <b class="category">Cuisine: </b>
-          <span class="queryheader">American, Chinese, Italian, Mexican</span>
-        </li>
-        <li class="collection-item data">
-          <b class="category">Cities: </b> 
-          <span class="queryheader">San Fransisco, Los Angeles, New York City, Chicago</span>
-        </li>
-      </ul>
+      <div id="options">
+        <div class="input-field col s12">
+          <p class="center queryheader"><b>Search for a restaurant!</b></p>
+          <br>
+          <select id="cuisineDropdown">
+            <option id="cuisineOption" value="" disabled selected>Cuisine</option>
+            <option value="American">American</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Italian">Italian</option>
+            <option value="Mexican">Mexican</option>
+          </select>
+        </div>
+        <div class="input-field col s12">
+          <select id="cityDropdown">
+            <option value="" disabled selected>City</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="New York">New York</option>
+            <option value="Chicago">Chicago</option>
+            <option value="San Fransisco">San Fransisco</option>
+          </select>
+          <br>
+        </div>
+      </div>
 <!--QUERY INPUT-->
       <div class="row z-depth-1 createSection">
         <form class="col s12">
           <div class="row">
-            <p class="center ptag">
-              <b class='queryheader'>Find a restaurant!</b>
-            </p>
-          </div>
-          <div class="row">
-            <div 
-              id="input"
-              class="input-field col s12">
-              <input
-                ng-model="queryCuisine"  
-                placeholder="Cuisine..." 
-                id="cuisine" 
-                type="text">
-            </div>
-            <div 
-              id="input"
-              class="input-field col s12">
-              <input
-                ng-model="queryCity"  
-                placeholder="City..." 
-                id="city" 
-                type="text">
-            </div>
             <div class="input-field col s12">
               <a 
                 ng-click="queryObject()" 
@@ -426,11 +413,16 @@
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //QUERY RESTAURANT OBJECT
-  $scope.queryObject = function(){
-    var queryParams = {
-      cuisine: $scope.queryCuisine,
-      city: $scope.queryCity
-    };
+  var selectCuisine = document.getElementById("cuisineDropdown");
+  var cuisine = selectCuisine.options[selectCuisine.selectedIndex].value;
+
+  var selectCity = document.getElementById("cityDropdown");
+  var city = selectCity.options[selectCity.selectedIndex].value;
+
+  var queryParams = {
+    cuisine: cuisine,
+    city: city
+  };
 
     objectFactory.findObject(queryParams).then(function(res){
     });
@@ -654,4 +646,7 @@
       belowOrigin: true, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
     });
+  jQuery(document).ready(function() {
+    jQuery('select').material_select();
+  });
 </script>

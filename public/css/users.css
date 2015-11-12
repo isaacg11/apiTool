@@ -5,8 +5,8 @@ body, html {
 	position: cover;
 	background-color: #EEEEEE;
 }
-#navbar{
-	background-color: #3D3F4D;
+#navbarUsers{
+	background-color: #262D4D;
 	height: 80px;
 }
 #logo{
@@ -284,12 +284,12 @@ body, html {
 	border-color: #FFFFFF;
 	border:none;
 }
-#navSelect{
-	background-color: #3C3E4C;
+#navSelectUsers{
+	background-color: #262D4D;
 	z-index: none;
 }
-#navSelect:hover{
-	background-color: #3C3E4C;
+#navSelectUsers:hover{
+	background-color: #262D4D;
 	z-index: none;
 	color: #FBC02D;
 }

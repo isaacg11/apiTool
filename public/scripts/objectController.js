@@ -106,9 +106,15 @@ $scope.updateObject = function(){
 
 //QUERY OBJECT
 $scope.queryObject = function(){
+  var selectCuisine = document.getElementById("cuisineDropdown");
+  var cuisine = selectCuisine.options[selectCuisine.selectedIndex].value;
+
+  var selectCity = document.getElementById("cityDropdown");
+  var city = selectCity.options[selectCity.selectedIndex].value;
+
   var queryParams = {
-    cuisine: $scope.queryCuisine,
-    city: $scope.queryCity
+    cuisine: cuisine,
+    city: city
   };
 
   objectFactory.findObject(queryParams).then(function(res){

@@ -5,8 +5,8 @@ body, html {
 	position: cover;
 	background-color: #EEEEEE;
 }
-#navbar{
-	background-color: #3D3F4D;
+#navbarObjects{
+	background-color: #262D4D;
 	height: 80px;
 }
 #logo{
@@ -29,7 +29,7 @@ body, html {
 #lz{
 	color: #FFFFFF;
 }
-#resourceMenu{
+#resourceMenuObjects{
 	margin-top: 10px;
 	margin-right: 10px;
 }
@@ -42,12 +42,12 @@ body, html {
 #userSDK{
 	font-size: 20px;
 }
-#navSelect{
-	background-color: #3C3E4C;
+#navSelectObjects{
+	background-color: #262D4D;
 	z-index: none;
 }
-#navSelect:hover{
-	background-color: #3C3E4C;
+#navSelectObjects:hover{
+	background-color: #262D4D;
 	z-index: none;
 	color: #FBC02D;
 }
@@ -158,6 +158,12 @@ body, html {
      border-bottom: 1px solid #FFD700;
      box-shadow: 0 1px 0 0 #FFD700;
 }
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 1.2rem;
+    color: #414b82;
+    display: block;
+    padding: 1rem 1rem;
+}
 .hidden{
 	display: none;
 }
@@ -222,7 +228,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 47vh;
+	max-height: 33vh;
 }
 #sourceCodeRate{
 	overflow: auto;
