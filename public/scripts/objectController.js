@@ -36,6 +36,7 @@ objectFactory.getBook().then(function(res){
   $scope.updateAuthor = res.author;
   $scope.updateDate = res.dt_update;
   $scope.updateId = res._id;
+  $scope.updateImg = res.bookImage;
 });
 
 objectFactory.getRestaurant().then(function(res){
@@ -89,10 +90,12 @@ $scope.createObject = function(){
 $scope.updateObject = function(){
   var title = $scope.newTitle;
   var author = $scope.newAuthor;
+  var image = $scope.newImage;
 
   var newData = {
       title: title,
-      author: author
+      author: author,
+      bookImage: image
   };
 
   objectFactory.editObject(newData).then(function(res){
@@ -105,6 +108,7 @@ $scope.updateObject = function(){
     $scope.updateTitle = res.title;
     $scope.updateAuthor = res.author;
     $scope.updateDate = res.dt_update;
+    $scope.updateImg = res.bookImage;
     $scope.updateId = res._id;
     $scope.newTitle = "";
     $scope.newAuthor = "";

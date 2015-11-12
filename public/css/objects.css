@@ -152,6 +152,10 @@ body, html {
 	height: 100px;
 	width: 100px;
 }
+#updateImage{
+	height: 100px;
+	width: 100px;
+}
 .input-field label {
      color: #000;
 }
@@ -208,7 +212,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 51vh;
+	max-height: 81vh;
 }
 #sourceCodeUpdate{
 	overflow: auto;
@@ -220,7 +224,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 30vh;
+	max-height: 58vh;
 }
 #sourceCodeQuery{
 	overflow: auto;

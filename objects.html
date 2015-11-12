@@ -62,7 +62,7 @@
   <div id="create" class="row">
     <div class="col s4">
   		<div class="chip">
-          <i class="fa fa-eye"></i>User View
+          <i class="fa fa-eye"></i> User View
       </div>
     <ul class="collection z-depth-1 objectOutput">
       <li class="collection-item center header">
@@ -157,7 +157,7 @@
 </div>
 <div class= "col s8">
   <div class="chip">
-    <i class="fa fa-code"></i>Code Details
+    <i class="fa fa-code"></i> Code Details
   </div>
   <div class="z-depth-1 codeContent">
     <button
@@ -226,12 +226,15 @@
   <div id="update" class="row">
 	  <div class="col s4">
 		  <div class="chip">
-        <i class="fa fa-eye"></i>User View
+        <i class="fa fa-eye"></i> User View
       </div>
 		  <div id="update">
   			<ul class="collection z-depth-1 objectOutput">
       		<li class="collection-item center header">
             <b>Book Data</b>
+          </li>
+          <li class="collection-item category center">
+            <img id="updateImage" ng-src="{{updateImg}}" class="outputData" id="updateOutputName"/>
           </li>
       		<li class="collection-item category">
             <b>Book Title:</b>
@@ -271,6 +274,13 @@
                 id="author" 
                 type="text">
               </div>
+              <div id="input" class="input-field col s12">
+              <input
+                ng-model="newImage"
+                placeholder="New Image..."  
+                id="image" 
+                type="text">
+              </div>
             </div>
             <div class="row center">
               <div class="input-field col s12">
@@ -289,7 +299,7 @@
     </div>
     <div class= "col s8">
       <div class="chip">
-        <i class="fa fa-code"></i>Code Details
+        <i class="fa fa-code"></i> Code Details
       </div>
       <div class="z-depth-1 codeContent">
         <button
@@ -313,10 +323,12 @@
   $scope.updateObject = function(){
     var title = $scope.newTitle;
     var author = $scope.newAuthor;
+    var image = $scope.newImage;
 
     newData = {
       title: title,
       author: author
+      bookImage: image
     };
 
     objectFactory.editObject(newData).then(function(res){
@@ -349,7 +361,7 @@
   <div id="query" class="row">
     <div class="col s4">
       <div class="chip">
-        <i class="fa fa-eye"></i>User View
+        <i class="fa fa-eye"></i> User View
       </div>
       <ul id="queryResults" class="collection z-depth-1">
         <li class="collection-item center queryheader">
@@ -414,7 +426,7 @@
     </div>
     <div class= "col s8">
       <div class="chip">
-        <i class="fa fa-code"></i>Code Details
+        <i class="fa fa-code"></i> Code Details
       </div>
       <div class="z-depth-1 codeContent">
         <button
@@ -475,7 +487,7 @@
   <div id="rate" class="row">
     <div class="col s4">
       <div class="chip">
-        <i class="fa fa-eye"></i>User View
+        <i class="fa fa-eye"></i> User View
       </div>
       <ul id="queryResults" class="collection z-depth-1">
         <li class="collection-item center queryheader">
@@ -607,7 +619,7 @@
     </div>
     <div class= "col s8">
       <div class="chip">
-        <i class="fa fa-code"></i>Code Details
+        <i class="fa fa-code"></i> Code Details
       </div>
       <div class="z-depth-1 codeContent">
         <button
