@@ -33,6 +33,15 @@ body, html {
 	margin-top: 10px;
 	margin-right: 10px;
 }
+#userAPI{
+	font-size: 20px;
+}
+#objSDK{
+	font-size: 20px;
+}
+#userSDK{
+	font-size: 20px;
+}
 #navSelect{
 	background-color: #3C3E4C;
 	z-index: none;

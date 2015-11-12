@@ -33,8 +33,12 @@
     },
     findObject: function(queryParams){
       var q = $q.defer();
-      $http.get('http://apiapp.stamplayapp.com/api/cobject/v1/restaurant?where={"$and":[{"cuisine":"'+queryParams.cuisine+'"},{"city":"'+queryParams.city+'"}]}').success(function(res){
+     
+      $http.get('https://apiapp.stamplayapp.com/api/cobject/v1/restaurant?where={"$and":[{"cuisine":"'+queryParams.cuisine+'"},{"city":"'+queryParams.city+'"}]}')
+      .then(function success(res){
         q.resolve(res);
+      }, function error(err) {
+        console.log(err);
       });
       return q.promise;
     },

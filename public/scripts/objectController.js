@@ -83,9 +83,9 @@ $scope.updateObject = function(){
   var title = $scope.newTitle;
   var author = $scope.newAuthor;
 
-  newData = {
-    title: title,
-    author: author
+  var newData = {
+      title: title,
+      author: author
   };
 
   objectFactory.editObject(newData).then(function(res){
@@ -118,10 +118,10 @@ $scope.queryObject = function(){
     document.getElementById('queryConsoleResponse').className = "";
     $scope.queryBody = queryParams;
     $scope.queryResponse = res;
-    $scope.queryRestaurantOutput = res.data[0].restaurant;
-    $scope.queryCuisineOutput = res.data[0].cuisine;
-    $scope.queryCityOutput = res.data[0].city;
-    $scope.queryAddressOutput = res.data[0].address;
+    $scope.queryRestaurantOutput = res.data.data[0].restaurant;
+    $scope.queryCuisineOutput = res.data.data[0].cuisine;
+    $scope.queryCityOutput = res.data.data[0].city;
+    $scope.queryAddressOutput = res.data.data[0].address;
     $scope.queryCuisine = "";
     $scope.queryCity = "";
   });
