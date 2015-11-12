@@ -27,26 +27,33 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
-//GENERIC IMAGES
+//PLACEHOLDER IMAGES
 $scope.bookImg = "public/images/book.jpg";
 $scope.restaurantImg = "public/images/food.png";
+$scope.rateRestaurant = "public/images/rateRes.jpg";
 
 //ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
-  $scope.updateTitle = res.title;
-  $scope.updateAuthor = res.author;
-  $scope.updateDate = res.dt_update;
-  $scope.updateId = res._id;
-  $scope.updateImg = res.bookImage;
+  $scope.updateTitle = res.data.title;
+  $scope.updateAuthor = res.data.author;
+  $scope.updateDate = res.data.dt_update;
+  $scope.updateId = res.data._id;
+  $scope.updateImg = res.data.bookImage;
 });
 
 objectFactory.getRestaurant().then(function(res){
-  $scope.rateRestaurantOutput = res.restaurant;
-  $scope.rateRatingsOutput = res.actions.ratings.avg;
-  var upvotes = res.actions.votes.users_upvote.length;
-  var downvotes = res.actions.votes.users_downvote.length;
+  $scope.rateRestaurantOutput = res.data.restaurant;
+  $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+  var upvotes = res.data.actions.votes.users_upvote.length;
+  var downvotes = res.data.actions.votes.users_downvote.length;
   $scope.rateLikesOutput = upvotes - downvotes;
-  $scope.rateReviewOutput = res.actions.comments;
+  var arr = [];
+  if(res.data.actions.comments === arr){
+    $scope.rateReviewOutput = "";
+  }
+  else{
+    $scope.rateReviewOutput = res.data.actions.comments;
+  }
 });
 
 //CREATE OBJECT
@@ -138,7 +145,7 @@ $scope.queryObject = function(){
     $scope.queryResponse = res;
     $scope.restaurantImg = res.data.data[0].restaurantImage;
     $scope.queryRestaurantOutput = res.data.data[0].restaurant;
-    $scope.queryCuisineOutput = res.data.data[0].cuisine;
+    $scope.queryPhoneOutput = res.data.data[0].phone;
     $scope.queryCityOutput = res.data.data[0].city;
     $scope.queryAddressOutput = res.data.data[0].address;
     $scope.queryCuisine = "";
@@ -150,7 +157,7 @@ $scope.queryObject = function(){
 $scope.rateFive = function(){
   var five = 5;
   objectFactory.rate(five).then(function(res){
-    $scope.rateRatingsOutput = res.actions.ratings.avg;
+    $scope.rateRatingsOutput = res.data.actions.ratings.avg;
   });
 };
 $scope.rateFour = function(){
@@ -159,7 +166,24 @@ $scope.rateFour = function(){
     $scope.rateRatingsOutput = res.actions.ratings.avg;
   });
 };
-
+$scope.rateThree = function(){
+  var three = 3;
+  objectFactory.rate(three).then(function(res){
+    $scope.rateRatingsOutput = res.actions.ratings.avg;
+  });
+};
+$scope.rateTwo = function(){
+  var two = 2;
+  objectFactory.rate(two).then(function(res){
+    $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+  });
+};
+$scope.rateOne = function(){
+  var one = 1;
+  objectFactory.rate(one).then(function(res){
+    $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+  });
+};
 
 
 }

@@ -12,7 +12,7 @@
   return {
     getBook : function(){
       var q = $q.defer();
-      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88").success(function(res){
+      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88").then(function(res){
         q.resolve(res);
       });
       return q.promise;
@@ -26,7 +26,7 @@
     },
     getRestaurant : function(){
       var q = $q.defer();
-      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9").success(function(res){
+      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9").then(function(res){
         q.resolve(res);
       });
       return q.promise;
@@ -36,7 +36,7 @@
       var headers = { 
         "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
       };
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData, headers).success(function(res){
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData, headers).then(function(res){
         q.resolve(res);
       });
       return q.promise;
@@ -54,11 +54,15 @@
     },
     rate: function(num){
       var data = {"rate": num};
-      var token = window.localStorage.getItem("x-stamplay-jwt");
-      var headers = {
-        "x-stamplay-jwt" : token,
-        "Content-Type" : "application/json"
+      // var token = window.localStorage.getItem("x-stamplay-jwt");
+      // var headers = {
+      //   "x-stamplay-jwt" : token,
+      //   "Content-Type" : "application/json"
+      // };
+      var headers = { 
+        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
       };
+      
       var q = $q.defer();
       $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)
       .then(function(res){

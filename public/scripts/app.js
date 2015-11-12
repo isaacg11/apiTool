@@ -5,11 +5,13 @@
 	.config(Config);
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    // "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
 	app.config(function($httpProvider) {
   	$httpProvider.defaults.headers.common = {
-    "Content-Type" : "application/json"
-  };
+    	"Content-Type" : "application/json",
+  	};
+  	$httpProvider.defaults.headers.put = {
+    	"x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt") || false
+  	};
 });
 
 function Config($stateProvider, $urlRouterProvider) {

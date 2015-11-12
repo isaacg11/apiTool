@@ -375,8 +375,8 @@
           <span class="queryheader" id="queryOutputName">{{queryRestaurantOutput}}</span>
         </li>
         <li class="collection-item category">
-          <b>Cuisine: </b>
-          <span class="queryheader" id="queryOutputCuisine">{{queryCuisineOutput}}</span>
+          <b>Phone: </b>
+          <span class="queryheader" id="queryOutputPhone">{{queryPhoneOutput}}</span>
         </li>
         <li class="collection-item category">
           <b>City: </b>
@@ -496,6 +496,9 @@
         <li class="collection-item center queryheader">
           <b>Example Resturaunt Data</b>
         </li>
+        <li class="collection-item category center">
+          <img id="rateRestaurant" ng-src="{{rateRestaurant}}" class="queryheader" id="rateOutputName"/>
+        </li>
         <li class="collection-item category">
           <b>Resturaunt:</b>
           <span class="queryheader" id="rateOutputName">{{rateRestaurantOutput}}
@@ -548,7 +551,7 @@
             <div class="input-field col s2">
               <p>
                 <input
-                  onclick = "rateThree()" 
+                  ng-click = "rateThree()" 
                   type="checkbox" 
                   id="threeStars" />
                   <label for="threeStars"> 3</label>
@@ -557,7 +560,7 @@
             <div class="input-field col s2">
               <p>
                 <input
-                  onclick = "rateTwo()" 
+                  ng-click = "rateTwo()" 
                   type="checkbox" 
                   id="twoStars"/>
                   <label for="twoStars"> 2</label>
@@ -566,7 +569,7 @@
             <div class="input-field col s2">
               <p>
                 <input
-                  onclick = "rateOne()" 
+                  ng-click = "rateOne()" 
                   type="checkbox" 
                   id="oneStar" />
                   <label for="oneStar"> 1</label>
