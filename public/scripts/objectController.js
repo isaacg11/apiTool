@@ -27,8 +27,9 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
-//GENERIC BOOK IMAGE
+//GENERIC IMAGES
 $scope.bookImg = "public/images/book.jpg";
+$scope.restaurantImg = "public/images/food.png";
 
 //ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
@@ -135,6 +136,7 @@ $scope.queryObject = function(){
     document.getElementById('queryConsoleResponse').className = "";
     $scope.queryBody = queryParams;
     $scope.queryResponse = res;
+    $scope.restaurantImg = res.data.data[0].restaurantImage;
     $scope.queryRestaurantOutput = res.data.data[0].restaurant;
     $scope.queryCuisineOutput = res.data.data[0].cuisine;
     $scope.queryCityOutput = res.data.data[0].city;

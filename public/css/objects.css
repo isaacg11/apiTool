@@ -156,6 +156,11 @@ body, html {
 	height: 100px;
 	width: 100px;
 }
+#restaurantImage{
+	height: 150px;
+	width: 250px;
+	border-color: transparent;
+}
 .input-field label {
      color: #000;
 }
@@ -212,7 +217,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 81vh;
+	max-height: 76vh;
 }
 #sourceCodeUpdate{
 	overflow: auto;
@@ -224,7 +229,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 58vh;
+	max-height: 56vh;
 }
 #sourceCodeQuery{
 	overflow: auto;
@@ -236,7 +241,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 33vh;
+	max-height: 55vh;
 }
 #sourceCodeRate{
 	overflow: auto;
