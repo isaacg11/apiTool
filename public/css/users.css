@@ -5,7 +5,6 @@ body, html {
 	position: cover;
 	background-color: #EEEEEE;
 }
-
 #navbar{
 	background-color: #3D3F4D;
 	height: 80px;
@@ -33,6 +32,15 @@ body, html {
 #resourceMenu{
 	margin-top: 10px;
 	margin-right: 10px;
+}
+#objAPI{
+	font-size: 20px;
+}
+#objSDK{
+	font-size: 20px;
+}
+#userSDK{
+	font-size: 20px;
 }
 .dropdownitem{
 	background-color: #FBC02D;

@@ -6,7 +6,13 @@
 	.controller('userController', userController);
 	userController.$inject = ['$state',"$http","$scope", "$stamplay"];
 
-  function userController($state, $http, $scope, $stamplay){
+function userController($state, $http, $scope, $stamplay){
+
+//TABS
+// jQuery(document).ready(function(){
+
+// });
+
 
 
 //REGISTER NEW USER

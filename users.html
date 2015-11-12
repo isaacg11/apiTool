@@ -1,33 +1,48 @@
-
-
+<div ng-controller='userController'>
 <nav>
-    <div id="navbar" class="nav-wrapper z-depth-2">
-    	<a href="/">
-        	<img id="wordLogo" src="public/images/logo_White.png"/>
-      	</a>
-      	<a id="lzHeader" class="brand-logo center hide-on-med-and-down">
-			<i id="gradCap" class="fa fa-graduation-cap"> <b id="lz">Learning Zone</b></i>
-      	</a>
-      	<ul id="resourceMenu" class="right">
-        	  <li><a
-                  id="navSelect" 
-                  class='dropdown-button' 
-                  href='#' 
-                  data-activates='dropdown1'>
-                  <i class="fa fa-caret-down right"></i>Rest API - Users
+  <div id="navbar" class="nav-wrapper z-depth-2">
+    <a ui-sref="Landing">
+      <img id="wordLogo" src="public/images/logo_White.png"/>
+    </a>
+    <a id="lzHeader" class="brand-logo center hide-on-med-and-down">
+			<i id="gradCap" class="fa fa-graduation-cap"> 
+        <b id="lz">Learning Zone</b>
+      </i>
+    </a>
+    <ul id="resourceMenu" class="right">
+      <li><a
+            id="navSelect" 
+            class='dropdown-button' 
+            href='#' 
+            data-activates='dropdown1'>
+            <i class="fa fa-caret-down right"></i>Rest API - Users
+          </a>
+          <ul id='dropdown1' class='dropdown-content'>
+              <li class="dropdownitem">
+                <a id="dropdownText1" ui-sref="Landing">Main Menu</a>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdownitem">
+                <a id="dropdownText2" ui-sref="Objects">
+                  <i id='objAPI' class="fa fa-cubes right"></i>[API] - Objects
                 </a>
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li class="dropdownitem"><a id="dropdownText1" href="index.html">Main Menu</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdownitem"><a id="dropdownText2" href="objects.html"><i class="fa fa-cubes right"></i>Rest API - Objects</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdownitem"><a id="dropdownText2" href="#!"><i class="fa fa-user right"></i>SDK - Users</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdownitem"><a id="dropdownText3" href="#!"><i class="fa fa-cubes right"></i>SDK - Objects</a></li>
-                </ul> 
-        	  </li>
-      	</ul>
-    </div>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdownitem">
+                <a id="dropdownText2">
+                  <i id="userSDK" class="fa fa-user right"></i>[SDK] - Users
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdownitem">
+                <a id="dropdownText3">
+                  <i id="objSDK" class="fa fa-cubes right"></i>[SDK] - Objects
+                </a>
+              </li>
+          </ul> 
+      </li>
+    </ul>
+  </div>
 </nav>
 <!--TABS-->
 <div class="row">
@@ -44,106 +59,104 @@
 </div>
 
 <!--////////////////////////// EMAIL & PASSWORD TAB ///////////////////////////-->
-<div id="local" ng-controller="userController" class="row">
+<div id="local" class="row">
  <!--EMAIL & PASSWORD USER OUTPUT SECTION-->
-<div class="col s4">
-  <div class="chip">
-    <i class="fa fa-eye"></i>
-    User View
-  </div>
+  <div class="col s4">
+    <div class="chip">
+      <i class="fa fa-eye"></i>User View
+    </div>
     <ul id="userOutput" class="collection z-depth-1">
-        <li class="collection-item data"><b>Display Name: </b>
-            <span id="userOutputName">{{displayName}}</span>
-        </li>
-        <li class="collection-item data"><b>Email: </b>
-            <span id="userOutputEmail">{{userEmail}}</span>
-        </li>
-        <li class="collection-item data"><b>Dt_Created: </b>
-            <span id="userOutputDate">{{userDtCreated}}</span>
-        </li>
-        <li class="collection-item data"><b>ID: </b>
-            <span id="userOutputID">{{userId}}</span>
-        </li>
+      <li class="collection-item data"><b>Display Name: </b>
+          <span id="userOutputName">{{displayName}}</span>
+      </li>
+      <li class="collection-item data"><b>Email: </b>
+          <span id="userOutputEmail">{{userEmail}}</span>
+      </li>
+      <li class="collection-item data"><b>Dt_Created: </b>
+        <span id="userOutputDate">{{userDtCreated}}</span>
+      </li>
+      <li class="collection-item data"><b>ID: </b>
+        <span id="userOutputID">{{userId}}</span>
+      </li>
     </ul>
 <!--EMAIL & PASSWORD USER SIGN UP SECTION-->
     <div id="local" class="row z-depth-1 inputBoxLocal left col s12">
-        <div>
-            <div class="row">
-                <div class="input-field col s12">
-                <br>
-                  <input
-                    ng-click="reset()"
-                    ng-model="name"  
-                    placeholder="Display Name"
-                    id="name"
-                    type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                  <input
-                   ng-model="email" 
-                   placeholder="Email"
-                   id="email"
-                   type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                  <input
-                  ng-model="password" 
-                  id="password"
-                  placeholder="Password" 
-                  type="text">
-                </div>
-            </div>
-            <div id="signUpBtn" class="row">
-              <div class="input-field col s12 center">
-                <br>
-                <br>
-                  <a 
-                  ng-click="signUp()" 
-                  id="btn" 
-                  class="waves-effect waves-light btn-large">
-                  <i class="fa fa-rocket right"></i>Sign Up
-                  </a>
-              </div>
-            </div>
-            <div id="logoutBtn" class="row hidden">
-              <div id="logoutBtnHidden" class="input-field col s12 center">
-                <br>
-                <br>
-                  <a 
-                  ng-click="logout()" 
-                  id="btn" 
-                  class="waves-effect waves-light btn-large">
-                  <i class="fa fa-power-off right"></i>Logout
-                  </a>
-              </div>
-            </div>
+      <div>
+        <div class="row">
+          <div class="input-field col s12">
+            <br>
+              <input
+                ng-click="reset()"
+                ng-model="name"  
+                placeholder="Display Name"
+                id="name"
+                type="text">
           </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <input
+                ng-model="email" 
+                placeholder="Email"
+                id="email"
+                type="text">
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              ng-model="password" 
+              id="password"
+              placeholder="Password" 
+              type="text">
+          </div>
+        </div>
+        <div id="signUpBtn" class="row">
+          <div class="input-field col s12 center">
+            <br>
+            <br>
+            <a 
+              ng-click="signUp()" 
+              id="btn" 
+              class="waves-effect waves-light btn-large">
+              <i class="fa fa-rocket right"></i>Sign Up
+            </a>
+          </div>
+        </div>
+        <div id="logoutBtn" class="row hidden">
+          <div id="logoutBtnHidden" class="input-field col s12 center">
+            <br>
+            <br>
+            <a 
+              ng-click="logout()" 
+              id="btn" 
+              class="waves-effect waves-light btn-large">
+              <i class="fa fa-power-off right"></i>Logout
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class= "col s8">
-      <div class="chip">
-        <i class="fa fa-code"></i>
-        Code Details
-      </div>
-      <div class="z-depth-1 codeContent">
-        <button
-            type="btn"
-            id="copyBtnEP"
-            class="right" 
-            clipboard 
-            text="textToCopyEP" 
-            on-copied="success()" 
-            on-error="fail(err)">
-            <i class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
-        </button>
-        <pre> API Request Path - Create User<input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
-        </pre>
-      </div>
-      <div id="sourceCode" class="z-depth-1"> 
+  </div>
+  <div class= "col s8">
+    <div class="chip">
+      <i class="fa fa-code"></i>Code Details
+    </div>
+    <div class="z-depth-1 codeContent">
+      <button
+        type="btn"
+        id="copyBtnEP"
+        class="right" 
+        clipboard 
+        text="textToCopyEP" 
+        on-copied="success()" 
+        on-error="fail(err)">
+        <i class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
+      </button>
+      <pre> API Request Path - Create User<input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
+      </pre>
+    </div>
+    <div id="sourceCode" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
 <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span> 
@@ -171,8 +184,8 @@
   };
 </pre>
 <!--........................................................-->
-      </div>
-      <div id="console" class="z-depth-1">
+    </div>
+    <div id="console" class="z-depth-1">
 <!--........................................................-->
 <pre> <b>Console</b>
  <span id="consoleCursor" class="blinking-cursor">_</span>
@@ -188,94 +201,103 @@
 <!--//////////////////////////FACEBOOK TAB///////////////////////////-->
 
 <!--FACEBOOK USER OUTPUT SECTION-->
-    <div id="facebook" ng-controller="userController" class="row">
-      <div class="col s4">
-        <div class="chip">
-          <i class="fa fa-eye"></i>
-          User View
-        </div>
-         <ul id="userOutput" class="collection z-depth-1">
-            <li class="collection-item data center">
-            <br>
-            <img src="public/images/fb avatar.gif" id="fbPhoto"/></li>
-            <li class="collection-item data"><b>Display Name:</b>
-            <span class="fbprop" id="fbName"></span></li>
-            <li class="collection-item data"><b>Email: </b>
-            <span class="fbprop" id="fbEmail"></span></li>
-            <li class="collection-item data"><b>Gender: </b>
-            <span class="fbprop" id="fbGender"></span></li>
-            <li class="collection-item data"><b>Dt_Created: </b>
-            <span class="fbprop" id="fbDate"></span></li>
-            <li class="collection-item data"><b>ID: </b>
-            <span class="fbprop" id="fbID"></span></li>
-        </ul>
+<div id="facebook" class="row">
+  <div class="col s4">
+    <div class="chip">
+      <i class="fa fa-eye"></i>User View
+    </div>
+    <ul id="userOutput" class="collection z-depth-1">
+      <li class="collection-item data center">
         <br>
-        <!--FACEBOOK USER SIGN UP SECTION-->
-        <div class="z-depth-1 inputBoxFB">
-             <a 
-                ng-click="facebook()" 
-                id="btn" 
-                class="waves-effect waves-light btn-large">
-                <i class="fa fa-facebook-square right"></i>Sign Up
-              </a>
-        </div>
-        </div>
-        <div class= "col s8">
-          <div class="chip">
-            <i class="fa fa-code"></i>
-            Code Details
-          </div>
-          <div class="z-depth-1 codeContent">
-            <button
-              type="btn"
-              id="copyBtn"
-              class="right" 
-              clipboard text="textToCopy" 
-              on-copied="success()" 
-              on-error="fail(err)">
-              <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
-            </button>
-            <pre> API Request Path - Create User<input class="left" type="text" ng-model="textToCopy">
-            </pre>
-          </div>
-        <div id="sourceCode" class="z-depth-1"> 
+        <img src="public/images/fb avatar.gif" id="fbPhoto"/>
+      </li>
+      <li class="collection-item data"><b>Display Name:</b>
+        <span class="fbprop" id="fbName"></span>
+      </li>
+      <li class="collection-item data"><b>Email: </b>
+        <span class="fbprop" id="fbEmail"></span>
+      </li>
+      <li class="collection-item data"><b>Gender: </b>
+        <span class="fbprop" id="fbGender"></span>
+      </li>
+      <li class="collection-item data"><b>Dt_Created: </b>
+        <span class="fbprop" id="fbDate"></span>
+      </li>
+      <li class="collection-item data"><b>ID: </b>
+        <span class="fbprop" id="fbID"></span>
+      </li>
+    </ul>
+    <br>
+<!--FACEBOOK USER SIGN UP SECTION-->
+    <div class="z-depth-1 inputBoxFB">
+      <a 
+        ng-click="facebook()" 
+        id="btn" 
+        class="waves-effect waves-light btn-large">
+        <i class="fa fa-facebook-square right"></i>Sign Up
+      </a>
+    </div>
+  </div>
+  <div class= "col s8">
+    <div class="chip">
+      <i class="fa fa-code"></i>Code Details
+    </div>
+  <div class="z-depth-1 codeContent">
+    <button
+      type="btn"
+      id="copyBtn"
+      class="right" 
+      clipboard text="textToCopy" 
+      on-copied="success()" 
+      on-error="fail(err)">
+      <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
+    </button>
+    <pre> API Request Path - Create User<input class="left" type="text" ng-model="textToCopy">
+    </pre>
+  </div>
+  <div id="sourceCode" class="z-depth-1"> 
 <!--........................................................-->
-        <pre>
+  <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //REGISTER WITH FACEBOOK
   $scope.facebook = function(){
     <b>$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect")</b>.then(function(res){
     });
   };
-        </pre>
+  </pre>
+  </div>
 <!--........................................................-->
-        </div>
-        <div id="console" class="z-depth-1">
+  <div id="console" class="z-depth-1">
+  <pre> <b>Console</b>
+    <span id="consoleCursor" class="blinking-cursor">_</span>
+    <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
+    <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
+    <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+  </pre>
+  </div>
 <!--........................................................-->
-<pre> <b>Console</b>
-  <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
-  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
-  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
-</pre>
-<!--........................................................-->
-        </div>
-      </div>
-    </div>
-
+  </div>
+</div>
 <!--FOOTER-->
 <br>
 <br>
 <footer id="footer" class="page-footer z-depth-1">
   <div class="container"></div>
 </footer>
+</div>
 
-<!--SCRIPTS-->
-
-
-<script src="./bower_components/angular-stamplay/angular-stamplay.js"></script>
-<script src="./bower_components/jquery/dist/jquery.js"></script>
-<script src="./public/js/materialize.min.js"></script>
-<script src="public/scripts/userController.js"></script>
-</body>
-</html>
+<!--JQUERY-->
+<script type="text/javascript">
+  jQuery('ul.tabs').tabs();
+  jQuery('.tooltipped').tooltip({delay: 50});
+  //DROPDOWN
+  jQuery('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    });
+</script>
