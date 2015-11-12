@@ -148,6 +148,10 @@ body, html {
 .outputData{
 	color: #414B82
 }
+#bookImage{
+	height: 100px;
+	width: 100px;
+}
 .input-field label {
      color: #000;
 }

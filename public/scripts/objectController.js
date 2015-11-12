@@ -27,6 +27,9 @@ $scope.fail = function (err) {
     console.error('Error!', err);
     };
 
+//GENERIC BOOK IMAGE
+$scope.bookImg = "public/images/book.jpg";
+
 //ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
   $scope.updateTitle = res.title;
@@ -50,6 +53,7 @@ $scope.createObject = function(){
   var author = $scope.objectAuthor;
   var objectPrice = $scope.objectPrice;
   var objectDate = document.getElementById('objectDate').value;
+  var image = $scope.imageURL;
   var price = parseFloat(objectPrice);
   var published = new Date(objectDate);
 
@@ -57,24 +61,27 @@ $scope.createObject = function(){
     title: title,
     author: author,
     price: price,
-    datePublished: published
+    datePublished: published,
+    bookImage: image
   };
 
-  $http.post("https://apiapp.stamplayapp.com/api/cobject/v1/book", newObject).success(function(res){
+  objectFactory.addBook(newObject).then(function(res){
     document.getElementById('consoleCursor').className = "hidden";
     document.getElementById('createConsoleStatus').className = "";
     document.getElementById('createConsoleBody').className = "";
     document.getElementById('createConsoleResponse').className = "";
     $scope.createBody = newObject;
     $scope.createResponse = res;
-    $scope.createTitle = res.title;
-    $scope.createAuthor = res.author;
-    $scope.createDate = res.dt_create;
-    $scope.createId = res._id;
+    $scope.createTitle = res.data.title;
+    $scope.createAuthor = res.data.author;
+    $scope.createDate = res.data.dt_create;
+    $scope.bookImg = res.data.bookImage;
+    $scope.createId = res.data._id;
     $scope.objectName = "";
     $scope.objectAuthor = "";
     $scope.objectPrice = "";
     var objectDate = document.getElementById('objectDate').value = "";
+    $scope.imageURL = "";
   });
 };
 
@@ -135,13 +142,18 @@ $scope.queryObject = function(){
 
 //RATE OBJECT
 $scope.rateFive = function(){
-  var a = document.getElementById("fiveStars").checked;
-  if(a === true) {
-    objectFactory.upvoteFive().then(function(res){
-      console.log(res);
-    });
-  }
+  var five = 5;
+  objectFactory.rate(five).then(function(res){
+    $scope.rateRatingsOutput = res.actions.ratings.avg;
+  });
 };
+$scope.rateFour = function(){
+  var four = 4;
+  objectFactory.rate(four).then(function(res){
+    $scope.rateRatingsOutput = res.actions.ratings.avg;
+  });
+};
+
 
 
 }

@@ -68,6 +68,9 @@
       <li class="collection-item center header">
         <b>New Book Data</b>
       </li>
+      <li class="collection-item data center">
+        <img ng-src="{{bookImg}}" class="outputData" id="bookImage"/>
+      </li>
       <li class="collection-item data">
         <b>Book Title:</b>
         <span class="outputData" id="objectOutputName">{{createTitle}}</span>
@@ -129,6 +132,15 @@
             type="date" 
             class="datepicker">
         </div>
+        <div 
+          id="input"
+          class="input-field col s12">
+          <input
+            ng-model="imageURL"  
+            placeholder="image URL..." 
+            id="objectImage" 
+            type="text">
+        </div>
       </div>
       <div class="row center">
         <div class="input-field col s12">
@@ -173,17 +185,27 @@
     var objectDate = document.getElementById('objectDate').value;
     var price = parseFloat(objectPrice);
     var published = new Date(objectDate);
+    var image = $scope.imageURL;
 
     var newObject = {
       title: title,
       author: author,
       price: price,
-      datePublished: published
+      datePublished: published,
+      bookImage: image
     };
 
-    <b>$http.post("https://apiapp.stamplayapp.com/api/cobject/v1/book", newObject)</b>.success(function(res){
+    objectFactory.addBook(newObject).then(function(res){
     });
   };
+
+  addBook: function(data){
+      var q = $q.defer();
+      <b>$http.post("https://apiapp.stamplayapp.com/api/cobject/v1/book", data)</b>.then(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    }
 </pre>
   </div>
 <!--........................................................-->
@@ -502,7 +524,7 @@
             <div class="input-field col s2">
               <p>
                 <input
-                  onclick = "rateFour()" 
+                  ng-click = "rateFour()" 
                   type="checkbox" 
                   id="fourStars" />
                   <label for="fourStars"> 4</label>
