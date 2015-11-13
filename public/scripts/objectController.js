@@ -16,7 +16,7 @@ jQuery('.datepicker').pickadate({
 //COPY TO CLIPBOARD FIELDS
 $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/cobject/v1/post";
 $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id";
-$scope.textToCopyQuery = "http://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
+$scope.textToCopyQuery = "https://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
 $scope.textToCopyRate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/rate";
  
 $scope.success = function () {
@@ -50,7 +50,7 @@ objectFactory.getRestaurant().then(function(res){
   $scope.rateLikesOutput = difference;
   var lastComment = res.data.actions.comments;
   var newComment = lastComment[lastComment.length - 1];
-  $scope.rateReviewOutput = newComment.text;
+  $scope.rateReviewOutput = '" ' + newComment.text + ' "';
 
 });
 
@@ -109,15 +109,17 @@ $scope.updateObject = function(){
     document.getElementById('updateConsoleStatus').className = "";
     document.getElementById('updateConsoleBody').className = "";
     document.getElementById('updateConsoleResponse').className = "";
+    console.log(res);
     $scope.updateBody = newData;
     $scope.updateResponse = res;
-    $scope.updateTitle = res.title;
-    $scope.updateAuthor = res.author;
-    $scope.updateDate = res.dt_update;
-    $scope.updateImg = res.bookImage;
-    $scope.updateId = res._id;
+    $scope.updateTitle = res.data.title;
+    $scope.updateAuthor = res.data.author;
+    $scope.updateDate = res.data.dt_update;
+    $scope.updateImg = res.data.bookImage;
+    $scope.updateId = res.data._id;
     $scope.newTitle = "";
     $scope.newAuthor = "";
+    $scope.newImage = "";
   });
 };
 
@@ -249,15 +251,17 @@ $scope.downvote = function(){
 $scope.review = function(){
   var review = $scope.newReview;
   objectFactory.placeReview(review).then(function(res){
+    console.log(res);
     document.getElementById('rateConsoleCursor').className = "hidden";
     document.getElementById('rateConsoleStatus').className = "";
     document.getElementById('rateConsoleBody').className = "";
     document.getElementById('rateConsoleResponse').className = "";
-    $scope.rateBody = review;
-    $scope.rateResponse = res;
+    $scope.rateBody = {"text": review};
+    $scope.rateResponse = res.data;
     var lastComment = res.data.actions.comments;
     var newComment = lastComment[lastComment.length - 1];
-    $scope.rateReviewOutput = newComment.text;
+    $scope.rateReviewOutput = '" ' + newComment.text + ' "';
+    $scope.newReview = "";
   });
 };
 

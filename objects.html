@@ -60,7 +60,7 @@
 <!--..............................TAB 1...............................-->
 <!--CREATED OBJECT OUTPUT-->
   <div id="create" class="row">
-    <div class="col s4">
+    <div id="createLeft" class="col s4">
   		<div class="chip">
           <i class="fa fa-eye"></i> User View
       </div>
@@ -155,7 +155,7 @@
     </div>
   </div>
 </div>
-<div class= "col s8">
+<div id="createRight" class= "col s8">
   <div class="chip">
     <i class="fa fa-code"></i> Code Details
   </div>
@@ -170,21 +170,22 @@
       on-error="fail(err)">
       <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
     </button>
+    <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
     <pre> API Request Path - Create Object<input class="left" type="text" ng-model="textToCopyCreate">
     </pre>
   </div>
 <!--........................................................-->
   <div id="sourceCodeCreate" class="z-depth-1 row">
-  <div class="col s12">
-  <ul id="testTab" class="tabs">
+    <div class="col s12 srcTab">
+      <ul class="tabs">
         <li class="tab col s4"><a class="active" href="#createCtrl">Controller.js</a></li>
         <li class="tab col s4"><a href="#createFactory">Factory.js</a></li>
         <li class="tab col s4"><a></a></li>
-  </ul>
-  </div>
-<div id="createCtrl" class="col s12">
+      </ul>
+    </div>
+    <div id="createCtrl" class="col s12">
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+  
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -220,7 +221,6 @@
   </div>
 <div id="createFactory" class="col s12">
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -259,7 +259,7 @@
 
 <!--UPDATED OBJECT OUTPUT-->
   <div id="update" class="row">
-	  <div class="col s4">
+	  <div id="updateLeft" class="col s4">
 		  <div class="chip">
         <i class="fa fa-eye"></i> User View
       </div>
@@ -332,7 +332,7 @@
       </div>
       <br>
     </div>
-    <div class= "col s8">
+    <div id="updateRight" class= "col s8">
       <div class="chip">
         <i class="fa fa-code"></i> Code Details
       </div>
@@ -347,21 +347,21 @@
           on-error="fail(err)">
           <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
         </button>
+        <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
         <pre> API Request Path - Update Object<input class="left" type="text" ng-model="textToCopyUpdate">
         </pre>
       </div>
 <!--........................................................-->
       <div id="sourceCodeUpdate" class="z-depth-1 row">
-        <div class="col s12">
+        <div class="col s12 srcTab">
           <ul id="testTab" class="tabs">
             <li class="tab col s4"><a class="active" href="#updateCtrl">Controller.js</a></li>
             <li class="tab col s4"><a href="#updateFactory">Factory.js</a></li>
             <li class="tab col s4"><a></a></li>
           </ul>
         </div>
-<div id="updateCtrl" class="col s12"> 
+        <div id="updateCtrl" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -391,7 +391,6 @@
       </div>
       <div id="updateFactory" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -415,7 +414,7 @@
   })();
 </pre>
       </div>
-      </div>
+    </div>
 <!--........................................................-->
       <div id="console" class="z-depth-1">
 <pre> <b>Console</b>
@@ -431,7 +430,7 @@
 <!--..............................TAB 3...............................-->
 <!--QUERY OUTPUT-->
   <div id="query" class="row">
-    <div class="col s4">
+    <div id="queryLeft" class="col s4">
       <div class="chip">
         <i class="fa fa-eye"></i> User View
       </div>
@@ -499,7 +498,7 @@
         </form>
       </div>
     </div>
-    <div class= "col s8">
+    <div id="queryRight" class= "col s8">
       <div class="chip">
         <i class="fa fa-code"></i> Code Details
       </div>
@@ -514,13 +513,14 @@
           on-error="fail(err)">
           <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
         </button>
+        <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
         <pre> API Request Path - Query Object<input class="left" type="text" ng-model="textToCopyQuery">
         </pre>
       </div>
 <!--........................................................-->
       <div id="sourceCodeQuery" class="z-depth-1 row">
-        <div class="col s12">
-          <ul id="testTab" class="tabs">
+        <div class="col s12 srcTab">
+          <ul class="tabs">
             <li class="tab col s4"><a class="active" href="#queryCtrl">Controller.js</a></li>
             <li class="tab col s4"><a href="#queryFactory">Factory.js</a></li>
             <li class="tab col s4"><a></a></li>
@@ -529,7 +529,6 @@
 
         <div id="queryCtrl" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -558,7 +557,6 @@
         </div>
         <div id="queryFactory" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -600,7 +598,7 @@
 <!--..............................TAB 4...............................-->
 <!--RATING/VOTING OUTPUT-->
   <div id="rate" class="row">
-    <div class="col s4">
+    <div id="rateLeft" class="col s4">
       <div class="chip">
         <i class="fa fa-eye"></i> User View
       </div>
@@ -736,7 +734,7 @@
         </form>
       </div>
     </div>
-    <div class= "col s8">
+    <div id="rateRight" class= "col s8">
       <div class="chip">
         <i class="fa fa-code"></i> Code Details
       </div>
@@ -751,12 +749,13 @@
           on-error="fail(err)">
           <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
         </button>
+        <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
         <pre> API Request Path - Rate Object<input class="left" type="text" ng-model="textToCopyRate">
         </pre>
       </div>
 <!--........................................................-->
       <div id="sourceCodeRate" class="z-depth-1 row">
-        <div class="col s12">
+        <div class="col s12 srcTab">
           <ul id="testTab" class="tabs">
             <li class="tab col s4"><a class="active" href="#rateCtrl">Controller.js</a></li>
             <li class="tab col s4"><a href="#rateFactory">Factory.js</a></li>
@@ -765,7 +764,6 @@
         </div>
         <div id="rateCtrl" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
 (function() {
   'use strict';
   angular.module('stamplay')
@@ -803,7 +801,6 @@
         </div>
         <div id="rateFactory" class="col s12"> 
 <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
 (function() {
   'use strict';
   angular.module('stamplay')
