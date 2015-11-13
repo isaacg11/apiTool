@@ -174,9 +174,6 @@
     </pre>
   </div>
 <!--........................................................-->
-
-      
- 
   <div id="sourceCodeCreate" class="z-depth-1 row">
   <div class="col s12">
   <ul id="testTab" class="tabs">
@@ -354,10 +351,25 @@
         </pre>
       </div>
 <!--........................................................-->
-      <div id="sourceCodeUpdate" class="z-depth-1"> 
+      <div id="sourceCodeUpdate" class="z-depth-1 row">
+        <div class="col s12">
+          <ul id="testTab" class="tabs">
+            <li class="tab col s4"><a class="active" href="#updateCtrl">Controller.js</a></li>
+            <li class="tab col s4"><a href="#updateFactory">Factory.js</a></li>
+            <li class="tab col s4"><a></a></li>
+          </ul>
+        </div>
+<div id="updateCtrl" class="col s12"> 
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
- //UPDATE BOOK OBJECT
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('objectController', objectController);
+  objectController.$inject = ['objectFactory', '$state',"$http","$scope", "$stamplay"];
+
+  function objectController(objectFactory, $state, $http, $scope, $stamplay){
+
   $scope.updateObject = function(){
     var title = $scope.newTitle;
     var author = $scope.newAuthor;
@@ -373,14 +385,36 @@
     });
   };
 
-  editObject: function(newData){
-    var q = $q.defer();
-    <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData)</b>.success(function(res){
-      q.resolve(res);
-    });
-      return q.promise;
   }
+  })();
 </pre>
+      </div>
+      <div id="updateFactory" class="col s12"> 
+<pre>
+  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('objectFactory', objectFactory);
+  objectFactory.$inject = ['$http', '$q'];
+
+  function objectFactory($http, $q) {
+  return {
+    editObject: function(newData){
+      var q = $q.defer();
+      var headers = { 
+        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+      };
+      <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData, headers)</b>.then(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    }
+  };
+  }
+  })();
+</pre>
+      </div>
       </div>
 <!--........................................................-->
       <div id="console" class="z-depth-1">
