@@ -605,7 +605,8 @@
           <div 
             id="input"
             class="input-field col s12">
-            <input  
+            <input
+              ng-model="newReview"  
               placeholder="Review..." 
               id="review" 
               type="text">
@@ -614,7 +615,7 @@
           <div class="row center">
             <div class="input-field col s12">
             <a 
-              onclick="review()" 
+              ng-click="review()" 
               id="btn" 
               class="waves-effect waves-light btn-large">
               <i class="fa fa-check-square-o right"></i>SUBMIT</a>

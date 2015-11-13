@@ -45,21 +45,13 @@ objectFactory.getRestaurant().then(function(res){
   $scope.rateRestaurantOutput = res.data.restaurant;
   $scope.rateRatingsOutput = res.data.actions.ratings.avg;
   var upvotes = res.data.actions.votes.users_upvote.length;
-  console.log(upvotes);
   var downvotes = res.data.actions.votes.users_downvote.length;
-  console.log(downvotes);
   var difference = upvotes - downvotes;
   $scope.rateLikesOutput = difference;
+  var lastComment = res.data.actions.comments;
+  var newComment = lastComment[lastComment.length - 1];
+  $scope.rateReviewOutput = newComment.text;
 
-
-
-  var arr = [];
-  if(res.data.actions.comments === arr){
-    $scope.rateReviewOutput = "";
-  }
-  else{
-    $scope.rateReviewOutput = res.data.actions.comments;
-  }
 });
 
 //CREATE OBJECT
@@ -211,6 +203,15 @@ $scope.downvote = function(){
   });
 };
 
+//REVIEW
+$scope.review = function(){
+  var review = $scope.newReview;
+  objectFactory.placeReview(review).then(function(res){
+    var lastComment = res.data.actions.comments;
+    var newComment = lastComment[lastComment.length - 1];
+    $scope.rateReviewOutput = newComment.text;
+  });
+};
 
 }
 })();

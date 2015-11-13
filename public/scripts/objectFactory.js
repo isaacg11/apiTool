@@ -87,6 +87,18 @@
         q.resolve(res);
       });
       return q.promise;
+    },
+    placeReview: function(review){
+      var data = {"text": review};
+      var headers = { 
+        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+      };
+      var q = $q.defer();
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment", data, headers)
+      .then(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
     }
 
 
