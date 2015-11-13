@@ -755,88 +755,118 @@
         </pre>
       </div>
 <!--........................................................-->
-      <div id="sourceCodeRate" class="z-depth-1"> 
+      <div id="sourceCodeRate" class="z-depth-1 row">
+        <div class="col s12">
+          <ul id="testTab" class="tabs">
+            <li class="tab col s4"><a class="active" href="#rateCtrl">Controller.js</a></li>
+            <li class="tab col s4"><a href="#rateFactory">Factory.js</a></li>
+            <li class="tab col s4"><a></a></li>
+          </ul>
+        </div>
+        <div id="rateCtrl" class="col s12"> 
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
-CONTROLLER
-//RATE OBJECT
-$scope.rateFive = function(){
-  var five = 5;
-  objectFactory.rate(five).then(function(res){
-  });
-};
-//UPVOTE OBJECT
-$scope.upvote = function(){
-  objectFactory.votePositive().then(function(res){
-  });
-};
-//DOWNVOTE OBJECT
-$scope.downvote = function(){
-  objectFactory.voteNegative().then(function(res){
-  });
-};
-//REVIEW OBJECT
-$scope.review = function(){
-  var review = $scope.newReview;
-  objectFactory.placeReview(review).then(function(res){
-  });
-};
+(function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('objectController', objectController);
+  objectController.$inject = ['objectFactory', '$state',"$http","$scope", "$stamplay"];
 
-FACTORY
-//RATE OBJECT
-rate: function(num){
-  var data = {"rate": num};
-  var headers = { 
-    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-  };
-  var q = $q.defer();
-  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)</b>
-  .then(function(res){
-    q.resolve(res);
-  });
-  return q.promise;
-}
-//UPVOTE OBJECT
-votePositive: function(){
-  var upvote = {"type": "upvote"};
-  var headers = { 
-    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-  };
-  var q = $q.defer();
-  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", upvote, headers)</b>
-  .then(function(res){
-    q.resolve(res);
-  });
-  return q.promise;
-}
-//DOWNVOTE OBJECT
-voteNegative: function(){
-  var downvote = {"type": "downvote"};
-  var headers = { 
-    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-  };
-  var q = $q.defer();
-  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", downvote, headers)</b>
-  .then(function(res){
-    q.resolve(res);
-  });
-  return q.promise;
-}
-//REVIEW OBJECT
-placeReview: function(review){
-  var data = {"text": review};
-  var headers = { 
-    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-  };
-  var q = $q.defer();
-  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment", data, headers)</b>
-  .then(function(res){
-    q.resolve(res);
-  });
-  return q.promise;
-}
+  function objectController(objectFactory, $state, $http, $scope, $stamplay){
 
+//RATE OBJECT
+  $scope.rateFive = function(){
+    var five = 5;
+    objectFactory.rate(five).then(function(res){
+    });
+  };
+//UPVOTE OBJECT
+  $scope.upvote = function(){
+    objectFactory.votePositive().then(function(res){
+    });
+  };
+//DOWNVOTE OBJECT
+  $scope.downvote = function(){
+    objectFactory.voteNegative().then(function(res){
+    });
+  };
+//REVIEW OBJECT
+  $scope.review = function(){
+    var review = $scope.newReview;
+    objectFactory.placeReview(review).then(function(res){
+    });
+  };
+
+}
+})();
 </pre>
+        </div>
+        <div id="rateFactory" class="col s12"> 
+<pre>
+  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+(function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('objectFactory', objectFactory);
+  objectFactory.$inject = ['$http', '$q'];
+
+  function objectFactory($http, $q) {
+
+    return {
+      rate: function(num){
+        var data = {"rate": num};
+        var headers = { 
+          "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+        };
+        var q = $q.defer();
+        <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)</b>
+        .then(function(res){
+          q.resolve(res);
+        });
+        return q.promise;
+      },
+      votePositive: function(){
+        var upvote = {"type": "upvote"};
+        var headers = { 
+          "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+        };
+        var q = $q.defer();
+        <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", upvote, headers)</b>
+        .then(function(res){
+          q.resolve(res);
+        });
+        return q.promise;
+      },
+      voteNegative: function(){
+        var downvote = {"type": "downvote"};
+        var headers = { 
+          "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+        };
+        var q = $q.defer();
+        <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", downvote, headers)</b>
+        .then(function(res){
+          q.resolve(res);
+        });
+        return q.promise;
+      },
+      placeReview: function(review){
+        var data = {"text": review};
+        var headers = { 
+          "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+        };
+        var q = $q.defer();
+        <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment", data, headers)</b>
+        .then(function(res){
+          q.resolve(res);
+        });
+        return q.promise;
+      }
+
+  };
+  }
+  })();
+</pre>
+        </div>
       </div>
 <!--........................................................-->
       <div id="console" class="z-depth-1">

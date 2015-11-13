@@ -216,8 +216,6 @@ body, html {
 	overflow: auto;
 	background-color: #FFFFE5;
 	border-radius: 4px;
-	padding-right: 10px;
-	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
@@ -226,9 +224,6 @@ body, html {
 #sourceCodeUpdate{
 	overflow: auto;
 	background-color: #FFFFE5;
-	border-radius: 4px;
-	padding-left: 10px;
-	padding-right: 10px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -239,9 +234,6 @@ body, html {
 	overflow: auto;
 	background-color: #FFFFE5;
 	border-radius: 4px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
@@ -250,9 +242,6 @@ body, html {
 #sourceCodeRate{
 	overflow: auto;
 	background-color: #FFFFE5;
-	border-radius: 4px;
-	padding-left: 10px;
-	padding-right: 10px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
