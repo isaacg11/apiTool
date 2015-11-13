@@ -51,7 +51,7 @@
         }, function error(err) {
           console.log(err);
         });
-        return q.promise;
+        // return q.promise;
     },
     findObject: function(queryParams){
       var q = $q.defer();

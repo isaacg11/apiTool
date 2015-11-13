@@ -57,13 +57,13 @@ $scope.logout = function(){
 	});
 };
 
+//SIGN UP WITH FACEBOOK
 $scope.facebook = function(){
-	console.log('hit');
-	$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
-		console.log(res);
-	});
+	
+	window.location.href="https://apiapp.stamplayapp.com/auth/v1/facebook/connect";
 };
 
+//COPY TO CLIPBOARD
 $scope.textToCopyEP = "https://[appid].stamplayapp.com/api/user/v1/users";
 $scope.textToCopy = "https://[appid].stamplayapp.com/auth/v1/facebook/connect";
  

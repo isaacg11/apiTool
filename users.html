@@ -63,7 +63,7 @@
  <!--EMAIL & PASSWORD USER OUTPUT SECTION-->
   <div class="col s4">
     <div class="chip">
-      <i class="fa fa-eye"></i>User View
+      <i class="fa fa-eye"></i> User View
     </div>
     <ul id="userOutput" class="collection z-depth-1">
       <li class="collection-item data"><b>Display Name: </b>
@@ -140,7 +140,7 @@
   </div>
   <div class= "col s8">
     <div class="chip">
-      <i class="fa fa-code"></i>Code Details
+      <i class="fa fa-code"></i> Code Details
     </div>
     <div class="z-depth-1 codeContent">
       <button
@@ -153,13 +153,13 @@
         on-error="fail(err)">
         <i class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
       </button>
+      <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span> 
       <pre> API Request Path - Create User<input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
       </pre>
     </div>
     <div id="sourceCode" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
-<i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span> 
  //REGISTER WITH EMAIL & PASSWORD
  $scope.signUp = function(){
 
@@ -204,7 +204,7 @@
 <div id="facebook" class="row">
   <div class="col s4">
     <div class="chip">
-      <i class="fa fa-eye"></i>User View
+      <i class="fa fa-eye"></i> User View
     </div>
     <ul id="userOutput" class="collection z-depth-1">
       <li class="collection-item data center">
@@ -212,19 +212,19 @@
         <img src="public/images/fb avatar.gif" id="fbPhoto"/>
       </li>
       <li class="collection-item data"><b>Display Name:</b>
-        <span class="fbprop" id="fbName"></span>
+        <span class="fbprop" id="fbName">{{fbName}}</span>
       </li>
       <li class="collection-item data"><b>Email: </b>
-        <span class="fbprop" id="fbEmail"></span>
+        <span class="fbprop" id="fbEmail">{{fbEmail}}</span>
       </li>
       <li class="collection-item data"><b>Gender: </b>
-        <span class="fbprop" id="fbGender"></span>
+        <span class="fbprop" id="fbGender">{{fbGender}}</span>
       </li>
       <li class="collection-item data"><b>Dt_Created: </b>
-        <span class="fbprop" id="fbDate"></span>
+        <span class="fbprop" id="fbDate">{{fbDate}}</span>
       </li>
       <li class="collection-item data"><b>ID: </b>
-        <span class="fbprop" id="fbID"></span>
+        <span class="fbprop" id="fbID">{{fbId}}</span>
       </li>
     </ul>
     <br>
@@ -240,7 +240,7 @@
   </div>
   <div class= "col s8">
     <div class="chip">
-      <i class="fa fa-code"></i>Code Details
+      <i class="fa fa-code"></i> Code Details
     </div>
   <div class="z-depth-1 codeContent">
     <button
@@ -252,13 +252,13 @@
       on-error="fail(err)">
       <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
     </button>
+    <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
     <pre> API Request Path - Create User<input class="left" type="text" ng-model="textToCopy">
     </pre>
   </div>
   <div id="sourceCode" class="z-depth-1"> 
 <!--........................................................-->
   <pre>
-  <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
  //REGISTER WITH FACEBOOK
   $scope.facebook = function(){
     <b>$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect")</b>.then(function(res){
