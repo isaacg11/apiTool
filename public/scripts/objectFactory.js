@@ -54,17 +54,35 @@
     },
     rate: function(num){
       var data = {"rate": num};
-      // var token = window.localStorage.getItem("x-stamplay-jwt");
-      // var headers = {
-      //   "x-stamplay-jwt" : token,
-      //   "Content-Type" : "application/json"
-      // };
       var headers = { 
         "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
       };
-      
       var q = $q.defer();
       $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)
+      .then(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    },
+    votePositive: function(){
+      var upvote = {"type": "upvote"};
+      var headers = { 
+        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+      };
+      var q = $q.defer();
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", upvote, headers)
+      .then(function(res){
+        q.resolve(res);
+      });
+      return q.promise;
+    },
+    voteNegative: function(){
+      var downvote = {"type": "downvote"};
+      var headers = { 
+        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+      };
+      var q = $q.defer();
+      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", downvote, headers)
       .then(function(res){
         q.resolve(res);
       });
