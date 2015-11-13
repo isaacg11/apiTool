@@ -155,37 +155,73 @@ $scope.queryObject = function(){
 $scope.rateFive = function(){
   var five = 5;
   objectFactory.rate(five).then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
     $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+    $scope.rateBody = {"rate": 5};
+    $scope.rateResponse = res;
   });
 };
 $scope.rateFour = function(){
   var four = 4;
   objectFactory.rate(four).then(function(res){
-    $scope.rateRatingsOutput = res.actions.ratings.avg;
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
+    $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+    $scope.rateBody = {"rate": 4};
+    $scope.rateResponse = res;
   });
 };
 $scope.rateThree = function(){
   var three = 3;
   objectFactory.rate(three).then(function(res){
-    $scope.rateRatingsOutput = res.actions.ratings.avg;
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
+    $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+    $scope.rateBody = {"rate": 3};
+    $scope.rateResponse = res;
   });
 };
 $scope.rateTwo = function(){
   var two = 2;
   objectFactory.rate(two).then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
     $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+    $scope.rateBody = {"rate": 2};
+    $scope.rateResponse = res;
   });
 };
 $scope.rateOne = function(){
   var one = 1;
   objectFactory.rate(one).then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
     $scope.rateRatingsOutput = res.data.actions.ratings.avg;
+    $scope.rateBody = {"rate": 1};
+    $scope.rateResponse = res;
   });
 };
 
 //UPVOTE
 $scope.upvote = function(){
   objectFactory.votePositive().then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
+    $scope.rateBody = {"type": "upvote"};
+    $scope.rateResponse = res;
     var upvotes = res.data.actions.votes.users_upvote.length;
     var downvotes = res.data.actions.votes.users_downvote.length;
     var difference = upvotes - downvotes;
@@ -196,6 +232,12 @@ $scope.upvote = function(){
 //DOWNVOTE
 $scope.downvote = function(){
   objectFactory.voteNegative().then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
+    $scope.rateBody = {"type": "downvote"};
+    $scope.rateResponse = res;
     var upvotes = res.data.actions.votes.users_upvote.length;
     var downvotes = res.data.actions.votes.users_downvote.length;
     var difference = upvotes - downvotes;
@@ -207,6 +249,12 @@ $scope.downvote = function(){
 $scope.review = function(){
   var review = $scope.newReview;
   objectFactory.placeReview(review).then(function(res){
+    document.getElementById('rateConsoleCursor').className = "hidden";
+    document.getElementById('rateConsoleStatus').className = "";
+    document.getElementById('rateConsoleBody').className = "";
+    document.getElementById('rateConsoleResponse').className = "";
+    $scope.rateBody = review;
+    $scope.rateResponse = res;
     var lastComment = res.data.actions.comments;
     var newComment = lastComment[lastComment.length - 1];
     $scope.rateReviewOutput = newComment.text;

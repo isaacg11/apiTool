@@ -646,20 +646,93 @@
       <div id="sourceCodeRate" class="z-depth-1"> 
 <pre>
   <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
- //RATE RESTAURANT OBJECT
-  $scope.facebook = function(){
-    $http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect").then(function(res){
-    });
+CONTROLLER
+//RATE OBJECT
+$scope.rateFive = function(){
+  var five = 5;
+  objectFactory.rate(five).then(function(res){
+  });
+};
+//UPVOTE OBJECT
+$scope.upvote = function(){
+  objectFactory.votePositive().then(function(res){
+  });
+};
+//DOWNVOTE OBJECT
+$scope.downvote = function(){
+  objectFactory.voteNegative().then(function(res){
+  });
+};
+//REVIEW OBJECT
+$scope.review = function(){
+  var review = $scope.newReview;
+  objectFactory.placeReview(review).then(function(res){
+  });
+};
+
+FACTORY
+//RATE OBJECT
+rate: function(num){
+  var data = {"rate": num};
+  var headers = { 
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
   };
+  var q = $q.defer();
+  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)</b>
+  .then(function(res){
+    q.resolve(res);
+  });
+  return q.promise;
+}
+//UPVOTE OBJECT
+votePositive: function(){
+  var upvote = {"type": "upvote"};
+  var headers = { 
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+  };
+  var q = $q.defer();
+  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", upvote, headers)</b>
+  .then(function(res){
+    q.resolve(res);
+  });
+  return q.promise;
+}
+//DOWNVOTE OBJECT
+voteNegative: function(){
+  var downvote = {"type": "downvote"};
+  var headers = { 
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+  };
+  var q = $q.defer();
+  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote", downvote, headers)</b>
+  .then(function(res){
+    q.resolve(res);
+  });
+  return q.promise;
+}
+//REVIEW OBJECT
+placeReview: function(review){
+  var data = {"text": review};
+  var headers = { 
+    "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+  };
+  var q = $q.defer();
+  <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment", data, headers)</b>
+  .then(function(res){
+    q.resolve(res);
+  });
+  return q.promise;
+}
+
 </pre>
       </div>
 <!--........................................................-->
       <div id="console" class="z-depth-1">
 <pre> <b>Console</b>
-  <span id="consoleCursor" class="blinking-cursor">_</span>
-  <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
-  <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
-  <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
+  <span id="rateConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="rateConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="rateConsoleBody" class="hidden"> Body: {{rateBody}}</span>
+  <br><span id="rateConsoleResponse" class="hidden"> Response: {{rateResponse}}</span>
 </pre>
       </div>
 <!--........................................................-->
