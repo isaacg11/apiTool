@@ -61,7 +61,7 @@
 <!--////////////////////////// EMAIL & PASSWORD TAB ///////////////////////////-->
 <div id="local" class="row">
  <!--EMAIL & PASSWORD USER OUTPUT SECTION-->
-  <div class="col s4">
+  <div id="userEPLeft" class="col s4">
     <div class="chip">
       <i class="fa fa-eye"></i> User View
     </div>
@@ -138,7 +138,7 @@
       </div>
     </div>
   </div>
-  <div class= "col s8">
+  <div id="userEPRight" class= "col s8">
     <div class="chip">
       <i class="fa fa-code"></i> Code Details
     </div>
@@ -202,7 +202,7 @@
 
 <!--FACEBOOK USER OUTPUT SECTION-->
 <div id="facebook" class="row">
-  <div class="col s4">
+  <div id="userFBLeft" class="col s4">
     <div class="chip">
       <i class="fa fa-eye"></i> User View
     </div>
@@ -238,7 +238,7 @@
       </a>
     </div>
   </div>
-  <div class= "col s8">
+  <div id="userFBRight" class= "col s8">
     <div class="chip">
       <i class="fa fa-code"></i> Code Details
     </div>
@@ -261,9 +261,9 @@
   <pre>
  //REGISTER WITH FACEBOOK
   $scope.facebook = function(){
-    <b>$http.get("https://apiapp.stamplayapp.com/auth/v1/facebook/connect")</b>.then(function(res){
-    });
-  };
+  
+  window.location.href=<b>"https://apiapp.stamplayapp.com/auth/v1/facebook/connect"</b>;
+};
   </pre>
   </div>
 <!--........................................................-->

@@ -4,10 +4,15 @@
 	'use strict';
 	angular.module('stamplay')
 	.controller('userController', userController);
-	userController.$inject = ['$state',"$http","$scope", "$stamplay"];
+	userController.$inject = ['$state',"$http","$scope", "$stamplay","userFactory"];
 
-function userController($state, $http, $scope, $stamplay){
+function userController($state, $http, $scope, $stamplay, userFactory){
 
+//ON PAGE LOAD GET ALL DATA FOR LOGGED IN USERS
+
+userFactory.getUsers().then(function(res){
+	console.log(res);
+});
 
 //REGISTER NEW USER
 $scope.signUp = function(){
@@ -49,12 +54,8 @@ $scope.reset = function(){
 
 //LOGOUT USER//
 $scope.logout = function(){
-	var token = window.localStorage.getItem("http://localhost:8080-jwt");
-	token.setToken("").then(function(res){
-		console.log(res);
-	}, function(err) {
-		console.error(err);
-	});
+	
+	window.location.href = "https://apiapp.stamplayapp.com/auth/v1/logout";
 };
 
 //SIGN UP WITH FACEBOOK
@@ -62,6 +63,8 @@ $scope.facebook = function(){
 	
 	window.location.href="https://apiapp.stamplayapp.com/auth/v1/facebook/connect";
 };
+
+
 
 //COPY TO CLIPBOARD
 $scope.textToCopyEP = "https://[appid].stamplayapp.com/api/user/v1/users";
@@ -74,6 +77,32 @@ $scope.success = function () {
 $scope.fail = function (err) {
     console.error('Error!', err);
     };
+
+}
+})();
+
+//FACTORY
+(function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('userFactory', userFactory);
+  userFactory.$inject = ['$http', '$q'];
+
+  function userFactory($http, $q) {
+
+  return {
+  	getUsers: function(){
+  		var q = $q.defer();
+  		$http.get("https://apiapp.stamplayapp.com/api/user/v1/getstatus")
+  		.then(function success(res){
+  			console.log(res);
+  			q.resolve(res);
+  		}, function error(err){
+  			console.log(err);
+  		});
+  		return q.promise;
+  	}
+  };
 
 }
 })();

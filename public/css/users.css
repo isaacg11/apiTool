@@ -89,6 +89,20 @@ body, html {
 #userOutput{
 	margin-top:15px;
 }
+#userEPLeft{
+	width: 30%;
+	margin-left: 25px;
+}
+#userEPRight{
+	width: 66%;
+}
+#userFBLeft{
+	width: 30%;
+	margin-left: 25px;
+}
+#userFBRight{
+	width: 66%;
+}
 .data{
 	color: #B0B2B5;
 }
