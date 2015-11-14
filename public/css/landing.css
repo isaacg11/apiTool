@@ -27,9 +27,15 @@
 .arrow{
 	color: #262D4D;
 }
-#navBoxHeader{
-	font-size: 20px;
-	font-weight: bold;
+#collectionHeader{
+	background-color: #EEEEEE;
+	height: 60px;
+}
+.navItem{
+	cursor: pointer;
+}
+.navItem:hover{
+	background-color: #FFFFE5;
 }
 .btn{
 	width: 80%;
