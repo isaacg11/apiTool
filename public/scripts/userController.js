@@ -10,9 +10,9 @@ function userController($state, $http, $scope, $stamplay, userFactory){
 
 //ON PAGE LOAD GET ALL DATA FOR LOGGED IN USERS
 
-userFactory.getUsers().then(function(res){
-	console.log(res);
-});
+// userFactory.getUsers().then(function(res){
+	// console.log(res);
+// });
 
 //REGISTER NEW USER
 $scope.signUp = function(){
@@ -24,7 +24,7 @@ $scope.signUp = function(){
 			};
 
 		$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData).then(function(res){
-			window.localStorage.setItem("x-stamplay-jwt", res.headers("x-stamplay-jwt"));
+			window.localStorage.setItem(window.location.origin+'-jwt', res.headers("x-stamplay-jwt"));
 			$scope.displayName = res.data.displayName;
 			$scope.userEmail = res.data.email;
 			$scope.userDtCreated = res.data.dt_create;

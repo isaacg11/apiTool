@@ -49,10 +49,10 @@
     <div class="col s12 tab-row">
       <ul class="tabs">
         <li class="tab col s3">
-        	<a href="#local">EMAIL & PASSWORD</a>
+        	<a class="active" href="#local">EMAIL & PASSWORD</a>
         </li>
         <li class="tab col s3">
-        	<a class="active" href="#facebook">FACEBOOK</a>
+        	<a href="#facebook">FACEBOOK</a>
        	</li>
       </ul>
     </div>
@@ -157,7 +157,7 @@
       <pre> API Request Path - Create User<input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
       </pre>
     </div>
-    <div id="sourceCode" class="z-depth-1"> 
+    <div id="sourceCodeEP" class="z-depth-1"> 
 <!--........................................................-->
 <pre>
  //REGISTER WITH EMAIL & PASSWORD
@@ -188,7 +188,7 @@
     <div id="console" class="z-depth-1">
 <!--........................................................-->
 <pre> <b>Console</b>
- <span id="consoleCursor" class="blinking-cursor">_</span>
+<span id="consoleCursor" class="blinking-cursor">_</span>
 <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
 <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
 <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
@@ -227,7 +227,6 @@
         <span class="fbprop" id="fbID">{{fbId}}</span>
       </li>
     </ul>
-    <br>
 <!--FACEBOOK USER SIGN UP SECTION-->
     <div class="z-depth-1 inputBoxFB">
       <a 
@@ -256,7 +255,7 @@
     <pre> API Request Path - Create User<input class="left" type="text" ng-model="textToCopy">
     </pre>
   </div>
-  <div id="sourceCode" class="z-depth-1"> 
+  <div id="sourceCodeFB" class="z-depth-1"> 
 <!--........................................................-->
   <pre>
  //REGISTER WITH FACEBOOK
@@ -269,7 +268,7 @@
 <!--........................................................-->
   <div id="console" class="z-depth-1">
   <pre> <b>Console</b>
-    <span id="consoleCursor" class="blinking-cursor">_</span>
+ <span id="consoleCursor" class="blinking-cursor">_</span>
     <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
     <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
     <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>

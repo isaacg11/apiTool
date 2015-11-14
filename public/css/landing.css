@@ -21,9 +21,11 @@
 }
 #navBox{
 	background-color: #EEEEEE;
-	height: 300px;
-	width: 40%;
+	width: 50%;
 	border-radius: 4px;
+}
+.arrow{
+	color: #262D4D;
 }
 #navBoxHeader{
 	font-size: 20px;
