@@ -19,6 +19,11 @@
 	font-family: "Roboto";
 	font-size: 40px;
 }
+#banner{
+	color: #FBC02D;
+	font-size: 17px;
+	font-weight: lighter;
+}
 #navBox{
 	background-color: #EEEEEE;
 	width: 50%;

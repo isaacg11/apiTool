@@ -4,7 +4,16 @@
 	var app = angular.module('stamplay', ['ui.router','ngStamplay','angular-clipboard'])
 	.config(Config);
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
-
+	app.run(function($location){
+		var params = window.location.href.split("?")[1];
+		console.log(params);
+		if(params) {
+			console.log("Login From Redirect.");
+			console.log(window.location.href.split("?"));
+		} else {
+			console.log("Not from redirect.");
+		}
+	});
 	app.config(function($httpProvider) {
   	$httpProvider.defaults.headers.common = {
     	"Content-Type" : "application/json",

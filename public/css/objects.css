@@ -19,10 +19,10 @@ body, html {
     height: 45px;
 	margin-top: 15px;
 }
-#lzHeader{
+/*#lzHeader{
 	margin-top: 8px;
 	font-family: "Roboto";
-}
+}*/
 #gradCap{
 	color: #FBC02D;
 }
@@ -45,6 +45,7 @@ body, html {
 #navSelectObjects{
 	background-color: #262D4D;
 	z-index: none;
+	font-weight: lighter;
 }
 #navSelectObjects:hover{
 	background-color: #262D4D;
@@ -110,6 +111,16 @@ body, html {
 }
 .indicator {
 	background-color: #FBC02D !important;
+}
+.moduleBackgroundObj{
+	min-height: 100vh;
+	background-color: #E4E4E4;
+	background-size: cover;
+	background-position: center center;
+	border-radius: 6px;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 10px; 
 }
 .createSection{
 	background-color: #FFFFFF;
@@ -395,8 +406,8 @@ body, html {
 	border-right: 2px solid #FBC02D; 
     border-bottom: 2px solid #FBC02D;
 }
-#footer{
-	background-color: #E4E4E4;
+#footerObj{
+	background-color: #272D4E;
 	display: flex;
     min-height: 7vh;
     flex-direction: column;
