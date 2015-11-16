@@ -59,13 +59,16 @@
 </div>
 
 <!--////////////////////////// EMAIL & PASSWORD TAB ///////////////////////////-->
-<div id="moduleBackground" id="local" class="row">
+<div id="local" class="row moduleBackgroundUserEP">
  <!--EMAIL & PASSWORD USER OUTPUT SECTION-->
   <div id="userEPLeft" class="col s4">
     <div class="chip">
       <i class="fa fa-eye"></i> User View
     </div>
     <ul id="userOutput" class="collection z-depth-1">
+      <li class="collection-item data center">
+          <span id="userOutputName"><b>User Data</b></span>
+      </li>
       <li class="collection-item data"><b>Display Name: </b>
           <span id="userOutputName">{{displayName}}</span>
       </li>
@@ -113,7 +116,6 @@
         </div>
         <div id="signUpBtn" class="row">
           <div class="input-field col s12 center">
-            <br>
             <br>
             <a 
               ng-click="signUp()" 
@@ -167,7 +169,7 @@
       displayName:$scope.name,
       email: $scope.email,
       password: $scope.password
-      };
+    };
 
     <b>$http.post("https://apiapp.stamplayapp.com/api/user/v1/users", registrationData);</b>
     });
@@ -188,7 +190,7 @@
     <div id="console" class="z-depth-1">
 <!--........................................................-->
 <pre> <b>Console</b>
-<span id="consoleCursor" class="blinking-cursor">_</span>
+<span id="consoleCursor" class="blinking-cursor"> _</span>
 <br><span id="consoleStatus" class="hidden"> Status: {{status}} {{text}}</span>
 <br><span id="consoleBody" class="hidden"> Body: {{body}}</span>
 <br><span id="consoleRes" class="hidden"> Response: {{response}}</span>
@@ -201,12 +203,15 @@
 <!--//////////////////////////FACEBOOK TAB///////////////////////////-->
 
 <!--FACEBOOK USER OUTPUT SECTION-->
-<div id="facebook" class="row">
+<div id="facebook" class="row moduleBackgroundFB">
   <div id="userFBLeft" class="col s4">
     <div class="chip">
       <i class="fa fa-eye"></i> User View
     </div>
     <ul id="userOutput" class="collection z-depth-1">
+      <li class="collection-item data center">
+        <span class="fbprop" id="fbName"><b>User Data</b></span>
+      </li>
       <li class="collection-item data center">
         <br>
         <img src="public/images/fb avatar.gif" id="fbPhoto"/>
