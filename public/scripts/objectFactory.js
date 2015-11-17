@@ -12,7 +12,7 @@
   return {
     getBook : function(){
       var q = $q.defer();
-      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88")
+      $http.get("https://apiapp.stamplayapp.com/api/cobject/v1/book/564a8ddf6f58fbac2fd34be4")
         .then(function success(res){
           q.resolve(res);
         }, function error(err) {
@@ -42,16 +42,23 @@
     },
     editObject: function(newData){
       var q = $q.defer();
-      var headers = { 
-        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-      };
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData, headers)
+
+      // console.log(headers);
+      $http({
+        method: "PUT",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/book/564a8ddf6f58fbac2fd34be4",
+        data : newData,
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+        }
+      })
         .then(function success(res){
+          console.log(res);
           q.resolve(res);
         }, function error(err) {
           console.log(err);
         });
-        // return q.promise;
+        return q.promise;
     },
     findObject: function(queryParams){
       var q = $q.defer();

@@ -482,7 +482,7 @@
           <br>
         </div>
       </div>
-<!--QUERY INPUT-->
+<!--QUERY BUTTON-->
       <div class="row z-depth-1 createSection">
         <form class="col s12">
           <div class="row">
@@ -537,20 +537,21 @@
 
   function objectController(objectFactory, $state, $http, $scope, $stamplay){
 
-    var selectCuisine = document.getElementById("cuisineDropdown");
-    var cuisine = selectCuisine.options[selectCuisine.selectedIndex].value;
+    $scope.queryObject = function(){
+      var selectCuisine = document.getElementById("cuisineDropdown");
+      var cuisine = selectCuisine.options[selectCuisine.selectedIndex].value;
 
-    var selectCity = document.getElementById("cityDropdown");
-    var city = selectCity.options[selectCity.selectedIndex].value;
+      var selectCity = document.getElementById("cityDropdown");
+      var city = selectCity.options[selectCity.selectedIndex].value;
 
-    var queryParams = {
-      cuisine: cuisine,
-      city: city
-    };
+      var queryParams = {
+        cuisine: cuisine,
+        city: city
+      };
 
-    objectFactory.findObject(queryParams).then(function(res){
-    });
-
+      objectFactory.findObject(queryParams).then(function(res){
+      });
+    }
   }
   })();
 </pre>

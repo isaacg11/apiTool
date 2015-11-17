@@ -67,7 +67,7 @@
     </div>
     <ul id="userOutput" class="collection z-depth-1">
       <li class="collection-item data center">
-          <span id="userOutputName"><b>User Data</b></span>
+          <span class="userOutputHeader"><b>User Data</b></span>
       </li>
       <li class="collection-item data"><b>Display Name: </b>
           <span id="userOutputName">{{displayName}}</span>
@@ -116,7 +116,6 @@
         </div>
         <div id="signUpBtn" class="row">
           <div class="input-field col s12 center">
-            <br>
             <a 
               ng-click="signUp()" 
               id="btn" 
@@ -156,7 +155,7 @@
         <i class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
       </button>
       <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span> 
-      <pre> API Request Path - Create User<input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
+      <pre> <b>API Request Path - Create User</b><input id="copyInputEP" class="left" type="text" ng-model="textToCopyEP">
       </pre>
     </div>
     <div id="sourceCodeEP" class="z-depth-1"> 
@@ -203,14 +202,14 @@
 <!--//////////////////////////FACEBOOK TAB///////////////////////////-->
 
 <!--FACEBOOK USER OUTPUT SECTION-->
-<div id="facebook" class="row moduleBackgroundFB">
+<div id="facebook" class="row moduleBackgroundUserFB">
   <div id="userFBLeft" class="col s4">
     <div class="chip">
       <i class="fa fa-eye"></i> User View
     </div>
     <ul id="userOutput" class="collection z-depth-1">
       <li class="collection-item data center">
-        <span class="fbprop" id="fbName"><b>User Data</b></span>
+        <span class="userOutputHeader" id="fbName"><b>User Data</b></span>
       </li>
       <li class="collection-item data center">
         <br>
@@ -257,7 +256,7 @@
       <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
     </button>
     <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
-    <pre> API Request Path - Create User<input class="left" type="text" ng-model="textToCopy">
+    <pre> <b>API Request Path - Create User</b><input class="left" type="text" ng-model="textToCopy">
     </pre>
   </div>
   <div id="sourceCodeFB" class="z-depth-1"> 

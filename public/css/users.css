@@ -112,6 +112,9 @@ body, html {
 	padding-right: 20px;
 	padding-left: 20px;
 }
+.userOutputHeader{
+	color: #262D4D;
+}
 #userOutput{
 	margin-top:15px;
 }
@@ -229,7 +232,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	max-height: 41vh;
+	max-height: 45vh;
 }
 #console{
 	background-color: #FFFFFF;
