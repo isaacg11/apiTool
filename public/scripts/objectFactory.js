@@ -121,13 +121,15 @@
         return q.promise;
     },
     placeReview: function(review){
-      var data = {"text": review};
-      var headers = { 
-        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-      };
       var q = $q.defer();
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment", data, headers)
-        .then(function success(res){
+      $http({
+        method: "PUT",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment",
+        data : {"text": review},
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+        }
+      }).then(function success(res){
           q.resolve(res);
         }, function error(err) {
           console.log(err);
