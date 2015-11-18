@@ -47,7 +47,7 @@
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/book/564a8ddf6f58fbac2fd34be4",
         data : newData,
         headers : { 
-          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
         }
       })
         .then(function success(res){
@@ -76,7 +76,7 @@
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate",
         data : {"rate": num},
         headers : { 
-          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
         }
       }).then(function success(res){
           q.resolve(res);
@@ -93,7 +93,7 @@
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote",
         data : {"type": "upvote"},
         headers : { 
-          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
         }
       }).then(function success(res){
           q.resolve(res);
@@ -110,7 +110,7 @@
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/vote",
         data : {"type": "downvote"},
         headers : { 
-          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
         }
       }).then(function success(res){
           q.resolve(res);
@@ -127,7 +127,7 @@
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/comment",
         data : {"text": review},
         headers : { 
-          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
         }
       }).then(function success(res){
           q.resolve(res);
