@@ -401,10 +401,14 @@
   return {
     editObject: function(newData){
       var q = $q.defer();
-      var headers = { 
-        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-      };
-      <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/book/564273fad53d37e40ef1ae88", newData, headers)</b>.then(function(res){
+      <b>$http({
+        method: "PUT",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/book/564a8ddf6f58fbac2fd34be4",
+        data : newData,
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+        }
+      })</b>.then(function(res){
         q.resolve(res);
       });
       return q.promise;
@@ -816,13 +820,15 @@
 
     return {
       rate: function(num){
-        var data = {"rate": num};
-        var headers = { 
-          "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-        };
         var q = $q.defer();
-        <b>$http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)</b>
-        .then(function(res){
+        <b>$http({
+        method: "PUT",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate",
+        data : {"rate": num},
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+        }
+      })</b>.then(function(res){
           q.resolve(res);
         });
         return q.promise;

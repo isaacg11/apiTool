@@ -42,8 +42,6 @@
     },
     editObject: function(newData){
       var q = $q.defer();
-
-      // console.log(headers);
       $http({
         method: "PUT",
         url : "https://apiapp.stamplayapp.com/api/cobject/v1/book/564a8ddf6f58fbac2fd34be4",
@@ -72,13 +70,19 @@
       return q.promise;
     },
     rate: function(num){
-      var data = {"rate": num};
-      var headers = { 
-        "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
-      };
+      // var data = {"rate": num};
+      // var headers = { 
+      //   "x-stamplay-jwt" : window.localStorage.getItem("x-stamplay-jwt")
+      // };
       var q = $q.defer();
-      $http.put("https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate", data, headers)
-        .then(function success(res){
+      $http({
+        method: "PUT",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/rate",
+        data : {"rate": num},
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem("http://localhost:8080-jwt")
+        }
+      }).then(function success(res){
           q.resolve(res);
         }, function error(err) {
           Materialize.toast('Only 1 rating per user!', 3000, 'rounded');
