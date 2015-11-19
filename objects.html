@@ -908,16 +908,16 @@
   </div>
 <!--..............................TAB 5...............................-->
 <div class="row" id="activities">
-  <div class="col s4">
+  <div id="activityLeft" class="col s4">
     <div class="chip">
         <i class="fa fa-eye"></i> User View
       </div>
       <ul id="queryResults" class="collection z-depth-1">
         <li class="collection-item center queryheader">
-          <b>Object Activity History</b>
+          <b>Activity</b>
         </li>
         <li class="collection-item category center">
-          <img id="rateRestaurant" ng-src="{{rateRestaurant}}" class="queryheader" id="rateOutputName"/>
+          <img id="rateRestaurant" ng-src="{{activityImg}}" class="queryheader" id="rateOutputName"/>
         </li>
         <li class="collection-item category">
           <b>Rates:</b>
@@ -940,21 +940,33 @@
           </span>
         </li>
       </ul>
-
-
-      <div id="optionsActivity" class="z-depth-1">
-        <div class="input-field col s12 z-depth-1">
-          <p class="center queryheader"><b>Search activity history!</b></p>
-          <br>
-          <select id="cuisineDropdown">
-            <option id="cuisineOption" value="" disabled selected>Name</option>
-            <option value="American">American</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Italian">Italian</option>
-            <option value="Mexican">Mexican</option>
+      <div id="options">
+        <div class="input-field col s12">
+          <select id="selectName">
+            <option value="" disabled selected>Choose a restuarant...</option>
+            <option value="56428cefd53d37e40ef1aed9">Golden Palace</option>
+            <option value="56428ccbd53d37e40ef1aed8">McDonalds</option>
+            <option value="56428d05d53d37e40ef1aeda">Montebello</option>
+            <option value="56428d2cd53d37e40ef1aedb">El Burrito's</option>
           </select>
         </div>
       </div>
+<!--QUERY BUTTON-->
+      <div class="row z-depth-1 createSection">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <a 
+                ng-click="getActivity()" 
+                id="btn" 
+                class="waves-effect waves-light btn-large">
+                <i class="fa fa-pie-chart right"></i>Get Activity
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      
 
   </div>
 </div>

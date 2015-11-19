@@ -19,10 +19,6 @@ body, html {
     height: 45px;
 	margin-top: 15px;
 }
-/*#lzHeader{
-	margin-top: 8px;
-	font-family: "Roboto";
-}*/
 #gradCap{
 	color: #FBC02D;
 }
@@ -155,6 +151,13 @@ body, html {
 	margin-left: 25px;
 }
 #rateRight{
+	width: 66%;
+}
+#activityLeft{
+	width: 30%;
+	margin-left: 25px;
+}
+#activityRight{
 	width: 66%;
 }
 #btn{

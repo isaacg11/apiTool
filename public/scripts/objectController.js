@@ -31,6 +31,7 @@ $scope.fail = function (err) {
 $scope.bookImg = "public/images/book.jpg";
 $scope.restaurantImg = "public/images/food.png";
 $scope.rateRestaurant = "public/images/rateRes.jpg";
+$scope.activityImg = "public/images/activity.jpg";
 
 //ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
@@ -271,29 +272,47 @@ var upvotesCounter = 0;
 var downvotesCounter = 0;
 var commentsCounter = 0;
 
-var id = '56428cefd53d37e40ef1aed9';
-objectFactory.getActivites(id).then(function(res){
-  var activity = res.data.data;
-  for(var i = 0; i < activity.length; i++){
-    var action = activity[i].activity;
-    if(action === "rated"){
-      ratesCounter = ratesCounter + 1;
-      $scope.rates = ratesCounter;
-    }
-    else if(action === "upvoted"){
-      upvotesCounter = upvotesCounter + 1;
-      $scope.upvotes = upvotesCounter;
-    }
-    else if(action === "downvoted"){
-      downvotesCounter = downvotesCounter + 1;
-      $scope.downvotes = downvotesCounter;
-    }
-    else if(action === "commented"){
-      commentsCounter = commentsCounter + 1;
-      $scope.comments = commentsCounter;
-    }
-  }
-});
+$scope.getActivity = function() {
+  var selectName = document.getElementById("selectName");
+  var id = selectName.options[selectName.selectedIndex].value;
+
+  objectFactory.getActivites(id).then(function(res){
+    objectFactory.getImage(id).then(function(img){
+      
+      $scope.activityImg = img.data.restaurantImage;
+
+      var activity = res.data.data;
+
+      if(res.data.data.length === 0){
+        $scope.rates = 0;
+        $scope.upvotes = 0;
+        $scope.downvotes = 0;
+        $scope.comments = 0;
+      }
+      for(var i = 0; i < activity.length; i++){
+        var action = activity[i].activity;
+
+        if(action === "rated"){
+          ratesCounter = ratesCounter + 1;
+          $scope.rates = ratesCounter;
+        }
+        else if(action === "upvoted"){
+          upvotesCounter = upvotesCounter + 1;
+          $scope.upvotes = upvotesCounter;
+        }
+        else if(action === "downvoted"){
+          downvotesCounter = downvotesCounter + 1;
+          $scope.downvotes = downvotesCounter;
+        }
+        else if(action === "commented"){
+          commentsCounter = commentsCounter + 1;
+          $scope.comments = commentsCounter;
+        }
+      }
+    });
+  });
+};
+
 
 }
 })();
