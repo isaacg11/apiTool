@@ -266,25 +266,31 @@ $scope.review = function(){
 };
 
 //ACTIVITES
-var counter = 0;
+var ratesCounter = 0;
+var upvotesCounter = 0;
+var downvotesCounter = 0;
+var commentsCounter = 0;
+
 var id = '56428cefd53d37e40ef1aed9';
 objectFactory.getActivites(id).then(function(res){
   var activity = res.data.data;
   for(var i = 0; i < activity.length; i++){
     var action = activity[i].activity;
     if(action === "rated"){
-      counter = counter + 1;
-      console.log(counter);
-      $scope.rates = counter;
+      ratesCounter = ratesCounter + 1;
+      $scope.rates = ratesCounter;
     }
     else if(action === "upvoted"){
-      $scope.upvotes = action;
+      upvotesCounter = upvotesCounter + 1;
+      $scope.upvotes = upvotesCounter;
     }
     else if(action === "downvoted"){
-      $scope.downvotes = action;
+      downvotesCounter = downvotesCounter + 1;
+      $scope.downvotes = downvotesCounter;
     }
     else if(action === "commented"){
-      $scope.comments = action;
+      commentsCounter = commentsCounter + 1;
+      $scope.comments = commentsCounter;
     }
   }
 });
