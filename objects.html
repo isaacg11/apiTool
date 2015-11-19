@@ -634,7 +634,7 @@
           </span>
         </li>
         <li class="collection-item category">
-          <b>Review: </b>
+          <b>Comment: </b>
           <span class="queryheader" id="rateOutputReview">{{rateReviewOutput}}
           </span>
         </li>
@@ -718,7 +718,7 @@
         <form class="col s12">
           <div class="row">
             <p class="center ptag">
-              <b class='queryheader'>Leave a review</b>
+              <b class='queryheader'>Leave a comment</b>
             </p>
           </div>
           <div class="row">
@@ -1065,6 +1065,207 @@
     </div>
 </div>
 
+<!--..............................TAB 6...............................-->
+<div class="row moduleBackgroundObj" id="activities">
+  <div id="activityLeft" class="col s4">
+    <div class="chip">
+        <i class="fa fa-eye"></i> User View
+      </div>
+      <ul id="queryResults" class="collection z-depth-1 itemBorder">
+        <li id="viewHeaderActivity" class="collection-item center queryheader">
+          <b>Email</b>
+        </li>
+        <li class="collection-item category center">
+          <img id="rateRestaurant" ng-src="{{emailImg}}" class="queryheader" id="rateOutputName"/>
+        </li>
+        <li class="collection-item category">
+          <b>To:</b>
+          <span class="queryheader" id="rates">{{to}}
+          </span>
+        </li>
+        <li class="collection-item category">
+          <b>From: </b>
+          <span class="queryheader" id="rateOutputRatings">{{from}}
+          </span>
+        </li>
+        <li class="collection-item category">
+          <b>Subject: </b>
+          <span class="queryheader" id="rateOutputLikes">{{subject}}
+          </span>
+        </li>
+        <li class="collection-item category">
+          <b>Body: </b>
+          <span class="queryheader" id="rateOutputReview">{{body}}
+          </span>
+        </li>
+      </ul>
+<!--GET ACTIVITY BUTTON-->
+    <div class="row z-depth-1 createSection itemBorder">
+    <div class="col s12">
+      <div class='row'>
+        <p class="center header"><b>Send yourself an email!</b></p>
+      </div>
+      <div class="row">
+        <div 
+          id="input"
+          class="input-field col s12">
+          <textarea
+            ng-model="emailTo"  
+            placeholder="To (email)..." 
+            id="emailTo" 
+            type="email">
+          </textarea>
+        </div>
+        <div 
+          id="input"
+          class="input-field col s12">
+          <textarea
+            ng-model="emailFrom"  
+            placeholder="From (email)..." 
+            id="emailFrom" 
+            type="text">
+          </textarea>
+        </div>
+        <div 
+          id="input"
+          class="input-field col s12">
+          <textarea
+            ng-model="emailSubject"  
+            placeholder="Subject..." 
+            id="emailSubject" 
+            type="text">
+          </textarea>
+        </div>
+        <div 
+          id="input"
+          class="input-field col s12">
+          <textarea
+            ng-model="emailBody"  
+            placeholder="Body..." 
+            id="emailBody" 
+            type="text">
+          </textarea>
+        </div>
+      </div>
+      <div class="row center">
+        <div class="input-field col s12">
+          <a 
+            ng-click="sendEmail()" 
+            id="btn" 
+            class="waves-effect waves-light btn-large">
+            <i class="fa fa-paper-plane-o right"></i>Send
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div id="activityRight" class= "col s8">
+      <div class="chip">
+        <i class="fa fa-code"></i> Code Details
+      </div>
+      <div class="z-depth-1 codeContent">
+        <button
+          type="btn"
+          id="copyBtn"
+          class="right" 
+          clipboard 
+          text="textToCopyEmail" 
+          on-copied="success()" 
+          on-error="fail(err)">
+          <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
+        </button>
+        <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+        <pre> <b>API Request Path - Email</b><input class="left" type="text" ng-model="textToCopyEmail">
+        </pre>
+      </div>
+<!--........................................................-->
+      <div id="sourceCodeActivity" class="z-depth-1 row">
+        <div class="col s12 srcTab">
+          <ul class="tabs">
+            <li class="tab col s4"><a class="active" href="#emailCtrl">Controller.js</a></li>
+            <li class="tab col s4"><a href="#emailFactory">Factory.js</a></li>
+            <li class="tab col s4"><a></a></li>
+          </ul>
+        </div>
+
+        <div id="emailCtrl" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('objectController', objectController);
+  objectController.$inject = ['objectFactory', '$state',"$http","$scope", "$stamplay"];
+
+  function objectController(objectFactory, $state, $http, $scope, $stamplay){
+
+    $scope.sendEmail = function(){
+      var to = $scope.emailTo;
+      var from = $scope.emailFrom;
+      var subject = $scope.emailSubject;
+      var body = $scope.emailBody;
+
+      var email = {
+        to: to,
+        from: from,
+        subject: subject,
+        body: body
+      };
+
+      objectFactory.Mail(email).then(function(res){
+      });
+    };
+  }
+  })();
+</pre>
+        </div>
+        <div id="emailFactory" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('objectFactory', objectFactory);
+  objectFactory.$inject = ['$http', '$q'];
+
+  function objectFactory($http, $q) {
+
+    return {
+      Mail: function(email){
+        var q = $q.defer();
+        var data = {
+          "to": email.to,
+          "from": email.from,
+          "subject": email.subject,
+          "body": email.body
+        };
+
+        <b>$http.post("https://apiapp.stamplayapp.com/api/email/v1/send", data)</b>
+          .then(function success(res){
+            q.resolve(res);
+          }, function error(err) {
+            console.log(err);
+          });
+          return q.promise;
+        }
+      };
+    }
+  })();
+</pre>
+        </div>
+      </div>
+<!--........................................................-->
+      <div id="console" class="z-depth-1">
+<pre> <b>Console</b>
+  <span id="emailConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="emailConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="emailConsoleBody" class="hidden"> Body: {{emailConsoleBody}}</span>
+  <br><span id="emailConsoleResponse" class="hidden"> Response: {{emailResponse}}</span>
+</pre>
+      </div>
+<!--........................................................-->
+    </div>
+</div>
 
 
 

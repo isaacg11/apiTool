@@ -19,6 +19,7 @@ $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/i
 $scope.textToCopyQuery = "https://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
 $scope.textToCopyRate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/rate";
 $scope.textToCopyActivity = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/activities";
+$scope.textToCopyEmail = "https://[appid].stamplayapp.com/api/email/v1/send";
 $scope.success = function () {
     Materialize.toast('Copied to clipboard!', 3000, 'rounded');
     };
@@ -32,6 +33,7 @@ $scope.bookImg = "public/images/book.jpg";
 $scope.restaurantImg = "public/images/food.png";
 $scope.rateRestaurant = "public/images/rateRes.jpg";
 $scope.activityImg = "public/images/activity.jpg";
+$scope.emailImg = "public/images/email.jpg";
 
 //ON PAGE LOAD GET & DISPLAY DATA FOR QUERIES
 objectFactory.getBook().then(function(res){
@@ -316,6 +318,40 @@ $scope.getActivity = function() {
   });
 };
 
+//EMAIL
+  $scope.sendEmail = function(){
+    var to = $scope.emailTo;
+    var from = $scope.emailFrom;
+    var subject = $scope.emailSubject;
+    var body = $scope.emailBody;
+
+    var email = {
+      to: to,
+      from: from,
+      subject: subject,
+      body: body
+    };
+
+    objectFactory.Mail(email).then(function(res){
+      document.getElementById('emailConsoleCursor').className = "hidden";
+      document.getElementById('emailConsoleStatus').className = "";
+      document.getElementById('emailConsoleBody').className = "";
+      document.getElementById('emailConsoleResponse').className = "";
+      $scope.to = email.to;
+      $scope.from = email.from;
+      $scope.subject = email.subject;
+      $scope.body = email.body;
+      $scope.emailConsoleBody = email;
+      $scope.emailResponse = res;
+      document.getElementById('emailTo').value = "";
+      document.getElementById('emailFrom').value = "";
+      document.getElementById('emailSubject').value = "";
+      document.getElementById('emailBody').value = "";
+      Materialize.toast('Send successful!', 3000, 'rounded');
+    });
+
+
+  };
 
 }
 })();

@@ -161,6 +161,23 @@
           console.log(err);
         });
         return q.promise;
+    },
+    Mail: function(email){
+      var q = $q.defer();
+      var data = {
+        "to": email.to,
+        "from": email.from,
+        "subject": email.subject,
+        "body": email.body
+      };
+
+      $http.post("https://apiapp.stamplayapp.com/api/email/v1/send", data)
+        .then(function success(res){
+          q.resolve(res);
+        }, function error(err) {
+          console.log(err);
+        });
+        return q.promise;
     }
 
 

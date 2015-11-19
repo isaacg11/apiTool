@@ -480,6 +480,9 @@ body, html {
 	border-right: 2px solid #FBC02D; 
     border-bottom: 2px solid #FBC02D;
 }
+textarea{
+	border-color: #cccccc;
+}
 #footerObj{
 	background-color: #272D4E;
 	display: flex;
