@@ -907,7 +907,7 @@
     </div>
   </div>
 <!--..............................TAB 5...............................-->
-<div class="row" id="activities">
+<div class="row moduleBackgroundObj" id="activities">
   <div id="activityLeft" class="col s4">
     <div class="chip">
         <i class="fa fa-eye"></i> User View
@@ -942,8 +942,9 @@
       </ul>
       <div id="options">
         <div class="input-field col s12">
+        <p class="queryheader center"><b>Choose a restaurant!</b></p>
           <select id="selectName">
-            <option value="" disabled selected>Choose a restuarant...</option>
+            <option value="" disabled selected>Restuarant...</option>
             <option value="56428cefd53d37e40ef1aed9">Golden Palace</option>
             <option value="56428ccbd53d37e40ef1aed8">McDonalds</option>
             <option value="56428d05d53d37e40ef1aeda">Montebello</option>
@@ -966,9 +967,101 @@
           </div>
         </form>
       </div>
-      
-
   </div>
+  <div id="activityRight" class= "col s8">
+      <div class="chip">
+        <i class="fa fa-code"></i> Code Details
+      </div>
+      <div class="z-depth-1 codeContent">
+        <button
+          type="btn"
+          id="copyBtn"
+          class="right" 
+          clipboard 
+          text="textToCopyActivity" 
+          on-copied="success()" 
+          on-error="fail(err)">
+          <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
+        </button>
+        <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></span>
+        <pre> API Request Path - Get Activity<input class="left" type="text" ng-model="textToCopyActivity">
+        </pre>
+      </div>
+<!--........................................................-->
+      <div id="sourceCodeActivity" class="z-depth-1 row">
+        <div class="col s12 srcTab">
+          <ul class="tabs">
+            <li class="tab col s4"><a class="active" href="#activityCtrl">Controller.js</a></li>
+            <li class="tab col s4"><a href="#activityFactory">Factory.js</a></li>
+            <li class="tab col s4"><a></a></li>
+          </ul>
+        </div>
+
+        <div id="activityCtrl" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('objectController', objectController);
+  objectController.$inject = ['objectFactory', '$state',"$http","$scope", "$stamplay"];
+
+  function objectController(objectFactory, $state, $http, $scope, $stamplay){
+
+    $scope.getActivity = function() {
+      var selectName = document.getElementById("selectName");
+      var id = selectName.options[selectName.selectedIndex].value;
+
+      objectFactory.getActivites(id).then(function(res){
+      }
+    }
+  }
+  })();
+</pre>
+        </div>
+        <div id="activityFactory" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('objectFactory', objectFactory);
+  objectFactory.$inject = ['$http', '$q'];
+
+  function objectFactory($http, $q) {
+
+    return {
+    getActivites: function(id){
+      var q = $q.defer();
+      <b>$http({
+        method: "GET",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/"+id+"/activities",
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
+        }
+      })</b>
+      .then(function success(res){
+          q.resolve(res);
+        }, function error(err) {
+          console.log(err);
+        });
+        return q.promise;
+      }
+    };
+  }
+  })();
+</pre>
+        </div>
+      </div>
+<!--........................................................-->
+      <div id="console" class="z-depth-1">
+<pre> <b>Console</b>
+  <span id="activityConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="activityConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="activityConsoleBody" class="hidden"> Body: {{activityBody}}</span>
+  <br><span id="activityConsoleResponse" class="hidden"> Response: {{activityResponse}}</span>
+</pre>
+      </div>
+<!--........................................................-->
+    </div>
 </div>
 
 

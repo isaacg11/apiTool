@@ -18,7 +18,7 @@ $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/cobject/v1/post";
 $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id";
 $scope.textToCopyQuery = "https://[appid].stamplayapp.com/api/cobject/v1/post?propertyField=value";
 $scope.textToCopyRate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/rate";
- 
+$scope.textToCopyActivity = "https://[appid].stamplayapp.com/api/cobject/v1/post/id/activities";
 $scope.success = function () {
     Materialize.toast('Copied to clipboard!', 3000, 'rounded');
     };
@@ -252,7 +252,6 @@ $scope.downvote = function(){
 $scope.review = function(){
   var review = $scope.newReview;
   objectFactory.placeReview(review).then(function(res){
-    console.log(res);
     document.getElementById('rateConsoleCursor').className = "hidden";
     document.getElementById('rateConsoleStatus').className = "";
     document.getElementById('rateConsoleBody').className = "";
@@ -278,11 +277,15 @@ $scope.getActivity = function() {
 
   objectFactory.getActivites(id).then(function(res){
     objectFactory.getImage(id).then(function(img){
-      
+      document.getElementById('activityConsoleCursor').className = "hidden";
+      document.getElementById('activityConsoleStatus').className = "";
+      document.getElementById('activityConsoleBody').className = "";
+      document.getElementById('activityConsoleResponse').className = "";
+      $scope.activityBody = { };
+      $scope.activityResponse = res.data;
       $scope.activityImg = img.data.restaurantImage;
 
       var activity = res.data.data;
-
       if(res.data.data.length === 0){
         $scope.rates = 0;
         $scope.upvotes = 0;
