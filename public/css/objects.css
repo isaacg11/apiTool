@@ -143,37 +143,48 @@ body, html {
 #createLeft{
 	width: 30%;
 	margin-left: 25px;
+	padding-right: 5px; 
 }
 #createRight{
 	width: 66%;
+	padding-left: 0px;
+
 }
 #updateLeft{
 	width: 30%;
 	margin-left: 25px;
+	padding-right: 5px; 
 }
 #updateRight{
 	width: 66%;
+	padding-left: 0px;
 }
 #queryLeft{
 	width: 30%;
 	margin-left: 25px;
+	padding-right: 5px; 
 }
 #queryRight{
 	width: 66%;
+	padding-left: 0px;
 }
 #rateLeft{
 	width: 30%;
 	margin-left: 25px;
+	padding-right: 5px; 
 }
 #rateRight{
 	width: 66%;
+	padding-left: 0px;
 }
 #activityLeft{
 	width: 30%;
 	margin-left: 25px;
+	padding-right: 5px; 
 }
 #activityRight{
 	width: 66%;
+	padding-left: 0px;
 }
 #btn{
 	background-color: #7A7F99;
@@ -181,6 +192,7 @@ body, html {
 }
 .objectOutput{
 	margin-top: 15px;
+	margin-bottom: 5px;
 }
 #input{
 	padding-left: 25px;
@@ -225,14 +237,26 @@ body, html {
 #updateImage{
 	height: 100px;
 	width: 100px;
+	border-radius: 4px;
+	border:4px solid;
+	border-color: #E4E4E4;
+	border-style:double;
 }
 #restaurantImage{
 	height: 150px;
 	width: 250px;
+	border-radius: 4px;
+	border:4px solid;
+	border-color: #E4E4E4;
+	border-style:double;
 }
 #rateRestaurant{
 	height: 150px;
 	width: 250px;
+	border-radius: 4px;
+	border:4px solid;
+	border-color: #E4E4E4;
+	border-style:double;
 }
 .input-field label {
      color: #000;
@@ -271,6 +295,7 @@ body, html {
 }
 .codeContent{
 	margin-top: 15px;
+	margin-bottom: 5px;
 	overflow: auto;
 	height: 100px;
 	background-color: #FFFFFF;
@@ -285,6 +310,7 @@ body, html {
 #sourceCodeCreate{
 	overflow: auto;
 	background-color: #FFFFE5;
+	margin-bottom: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -294,6 +320,7 @@ body, html {
 #sourceCodeUpdate{
 	overflow: auto;
 	background-color: #FFFFE5;
+	margin-bottom: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -303,6 +330,7 @@ body, html {
 #sourceCodeQuery{
 	overflow: auto;
 	background-color: #FFFFE5;
+	margin-bottom: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -312,6 +340,7 @@ body, html {
 #sourceCodeRate{
 	overflow: auto;
 	background-color: #FFFFE5;
+	margin-bottom: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -321,6 +350,7 @@ body, html {
 #sourceCodeActivity{
 	overflow: auto;
 	background-color: #FFFFE5;
+	margin-bottom: 5px;
 	border-radius: 4px;
 	border:7px solid;
 	border-color: #EEEEEE;
@@ -334,6 +364,10 @@ body, html {
 	padding-right: 5px;
 	height: 205px;
 	overflow: auto;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
 }
 .github{
 	color: #3D3F4D;
@@ -415,6 +449,7 @@ body, html {
 }
 #queryResults{
 	margin-top: 15px;
+	margin-bottom: 5px;
 }
 .ptag{
 	padding-top: 10px;
@@ -426,10 +461,12 @@ body, html {
 #voteSection{
 	background-color: #FFFFFF;
 	padding-bottom: 15px;
+	margin-bottom: 5px;
 }
 #ratingSection{
 	background-color: #FFFFFF;
 	padding-bottom: 15px;
+	margin-bottom: 5px;
 }
 .thumbs{
 	background-color: #7A7F99;
