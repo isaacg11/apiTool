@@ -135,6 +135,22 @@
           console.log(err);
         });
         return q.promise;
+    },
+    getActivites: function(id){
+      var q = $q.defer();
+      $http({
+        method: "GET",
+        url : "https://apiapp.stamplayapp.com/api/cobject/v1/restaurant/56428cefd53d37e40ef1aed9/activities",
+        headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
+        }
+      })
+      .then(function success(res){
+          q.resolve(res);
+        }, function error(err) {
+          console.log(err);
+        });
+        return q.promise;
     }
 
 
