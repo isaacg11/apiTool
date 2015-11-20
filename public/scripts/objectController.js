@@ -347,6 +347,7 @@ $scope.getActivity = function() {
       document.getElementById('emailFrom').value = "";
       document.getElementById('emailSubject').value = "";
       document.getElementById('emailBody').value = "";
+      $scope.emailImg = "public/images/sent.png";
       Materialize.toast('Send successful!', 3000, 'rounded');
     });
 
