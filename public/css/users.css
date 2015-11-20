@@ -240,7 +240,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	height: 40vh;
+	height: 44vh;
 }
 #sourceCodeFB{
 	overflow: auto;
@@ -253,7 +253,7 @@ body, html {
 	border:7px solid;
 	border-color: #EEEEEE;
 	border-style:double;
-	height: 26vh;
+	height: 29vh;
 }
 #console{
 	background-color: #FFFFFF;
