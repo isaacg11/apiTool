@@ -13,6 +13,12 @@ jQuery('.datepicker').pickadate({
     selectYears: 15 
 });
 
+//MODAL
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+
 //COPY TO CLIPBOARD FIELDS
 $scope.textToCopyCreate = "https://[appid].stamplayapp.com/api/cobject/v1/post";
 $scope.textToCopyUpdate = "https://[appid].stamplayapp.com/api/cobject/v1/post/id";
@@ -56,6 +62,39 @@ objectFactory.getRestaurant().then(function(res){
   $scope.rateReviewOutput = '" ' + newComment.text + ' "';
 
 });
+
+//CATELOG ANIMATIONS
+$scope.zipDownloadUser = function(){
+  document.getElementById('userSignUp').className = "fa fa-users large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadSocial = function(){
+  document.getElementById('socialLogin').className = "fa fa-facebook large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadCreateUpdate = function(){
+  document.getElementById('createUpdate').className = "fa fa-plus large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadQuery = function(){
+  document.getElementById('queryObject').className = "fa fa-search large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadRate = function(){
+  document.getElementById('rateObject').className = "fa fa-star large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadVote = function(){
+  document.getElementById('voteObject').className = "fa fa-thumbs-up large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadComment = function(){
+  document.getElementById('objectComment').className = "fa fa-commenting large categoryIcons animated pulse";
+};
+
+$scope.zipDownloadActions = function(){
+  document.getElementById('objectActions').className = "fa fa-bolt large categoryIcons animated pulse";
+};
 
 //CREATE OBJECT
 $scope.createObject = function(){

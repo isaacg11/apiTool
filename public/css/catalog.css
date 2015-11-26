@@ -48,6 +48,9 @@
 	font-weight: lighter;
 	margin-bottom: 0px;
 }
+.categoryTitle{
+	color: #000;
+}
 .categoryIcons{
 	color: #3D3F4D;
 }

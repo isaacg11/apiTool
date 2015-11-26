@@ -1,7 +1,7 @@
 
 <div ng-controller="objectController">
 <!--NAVBAR-->
-<nav>
+  <nav>
     <div id="navbar" class="nav-wrapper z-depth-2">
       <a href="https://apiapp.stamplayapp.com/#/">
         <img id="wordLogo" src="public/images/logo_White.png"/>
@@ -19,10 +19,10 @@
         </li>
       </ul>
     </div>
-</nav>
+  </nav>
 
 <!--TEMPLATES-->
-<div class="row center animated fadeIn categoryRow">
+  <div class="row center animated fadeIn categoryRow">
     <br>
     <br>
     <br>
@@ -31,72 +31,85 @@
     <br>
     <br>
     <div class="col s2">.</div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-User-signUp/zipball/master" onclick="zipDownloadUser()" id="userSignUp">
-          <i class="fa fa-users large categoryIcons"></i>
-        </a>
-        <p>User Signup</p>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-User-signUp-API/zipball/master"ng-click="zipDownloadUser()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="userSignUp" class="fa fa-users large categoryIcons"></i>
+          <p class="categoryTitle" >User Signup</p>
+        </div>
       </div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Social-Login/zipball/master" onclick="zipDownloadSocial()" id="socialLogin">
-          <i class="fa fa-facebook large categoryIcons"></i>
-        </a>
-        <p>Social Login</p>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Social-Login-API/zipball/master"ng-click="zipDownloadSocial()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="socialLogin" class="fa fa-facebook large categoryIcons"></i>
+          <p class="categoryTitle">Social Login</p>
+        </div>
       </div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object/zipball/master" onclick="zipDownloadCreateUpdate()" id="createUpdate">
-          <i class="fa fa-plus large categoryIcons"></i>
-        </a>
-        <p>Create/Update Object</p></div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Query-Object/zipball/master" onclick="zipDownloadQuery()" id="queryObject">
-          <i class="fa fa-search large categoryIcons"></i>
-        </a>
-        <p>Query Object</p>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API/zipball/master" 
+      ng-click="zipDownloadCreateUpdate()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="createUpdate" class="fa fa-plus large categoryIcons"></i>
+          <p class="categoryTitle">Create/Update Object</p>
+        </div>
       </div>
-    </div>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Query-Object-API/zipball/master"ng-click="zipDownloadQuery()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="queryObject" class="fa fa-search large categoryIcons"></i>
+          <p class="categoryTitle">Query Object</p>
+        </div>
+      </div>
+    </a>
     <div class="col s2">.</div>
   </div>
+
   <div class="row center animated fadeIn">
     <div class="col s2">.</div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Rate-Object/zipball/master" onclick="zipDownloadRate()" id="rateObject">
-          <i class="fa fa-star large categoryIcons"></i>
-        </a>
-        <p>Rate Object</p>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Rate-Object-API/zipball/master"ng-click="zipDownloadRate()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="rateObject" class="fa fa-star large categoryIcons"></i>
+          <p class="categoryTitle">Rate Object</p>
+        </div>
       </div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Vote-Object/zipball/master" onclick="zipDownloadVote()" id="voteObject">
-          <i class="fa fa-thumbs-up large categoryIcons"></i>
-        </a>
-        <p>Vote Object</p>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Vote-Object-API/zipball/master"ng-click="zipDownloadVote()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="voteObject" class="fa fa-thumbs-up large categoryIcons"></i>
+          <p class="categoryTitle">Vote Object</p>
+        </div>
       </div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Object-Comments/zipball/master" onclick="zipDownloadComment()" id="objectComment">
-          <i class="fa fa-commenting large categoryIcons"></i>
-        </a>
-        <p>Object Comment</p></div>
-    </div>
-    <div class="col s2 categorySelector z-depth-1 hoverable">
-      <div class="categoryBtn">
-        <a href="https://github.com/isaacg11/starterTemplate-Object-Actions/zipball/master" onclick="zipDownloadActions()" id="objectActions">
-          <i class="fa fa-bolt large categoryIcons"></i>
-        </a>
-        <p>Object Actions</p>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Object-Comments/zipball/master"ng-click="zipDownloadComment()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="objectComment" class="fa fa-commenting large categoryIcons"></i>
+          <p class="categoryTitle">Object Comment</p>
+        </div>
       </div>
-    </div>
+    </a>
+    <a 
+      href="https://github.com/isaacg11/starterTemplate-Object-Actions-API/zipball/master" 
+      ng-click="zipDownloadActions()">
+      <div class="col s2 categorySelector z-depth-1 hoverable">
+        <div class="categoryBtn">
+          <i id="objectActions" class="fa fa-bolt large categoryIcons"></i>
+          <p class="categoryTitle">Object Actions</p>
+        </div>
+      </div>
+    </a>
     <div class="col s2">.</div>
   </div>
 <!--MODAL-->
