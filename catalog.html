@@ -1,0 +1,132 @@
+
+<div ng-controller="objectController">
+<!--NAVBAR-->
+<nav>
+    <div id="navbar" class="nav-wrapper z-depth-2">
+      <a href="https://apiapp.stamplayapp.com/#/">
+        <img id="wordLogo" src="public/images/logo_White.png"/>
+      </a>
+      <a id="lzHeader" class="brand-logo center hide-on-med-and-down">
+        <i id="gradCap" class="fa fa-graduation-cap"> 
+          <span id="lz">Learning Zone</span>
+        </i>
+      </a>
+      <ul id="resourceMenu" class="right">
+        <li>
+          <a ui-sref="Objects">
+            <i id="backArrow" class="fa fa-reply"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<!--TEMPLATES-->
+<div class="row center animated fadeIn categoryRow">
+    <br>
+    <br>
+    <br>
+    <p id="questionHeader" class="center">Please choose a Rest API template.</p>
+    <a class="modal-trigger" href="#modal1">How to use [ ? ]</a>
+    <br>
+    <br>
+    <div class="col s2">.</div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-User-signUp/zipball/master" onclick="zipDownloadUser()" id="userSignUp">
+          <i class="fa fa-users large categoryIcons"></i>
+        </a>
+        <p>User Signup</p>
+      </div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Social-Login/zipball/master" onclick="zipDownloadSocial()" id="socialLogin">
+          <i class="fa fa-facebook large categoryIcons"></i>
+        </a>
+        <p>Social Login</p>
+      </div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object/zipball/master" onclick="zipDownloadCreateUpdate()" id="createUpdate">
+          <i class="fa fa-plus large categoryIcons"></i>
+        </a>
+        <p>Create/Update Object</p></div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Query-Object/zipball/master" onclick="zipDownloadQuery()" id="queryObject">
+          <i class="fa fa-search large categoryIcons"></i>
+        </a>
+        <p>Query Object</p>
+      </div>
+    </div>
+    <div class="col s2">.</div>
+  </div>
+  <div class="row center animated fadeIn">
+    <div class="col s2">.</div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Rate-Object/zipball/master" onclick="zipDownloadRate()" id="rateObject">
+          <i class="fa fa-star large categoryIcons"></i>
+        </a>
+        <p>Rate Object</p>
+      </div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Vote-Object/zipball/master" onclick="zipDownloadVote()" id="voteObject">
+          <i class="fa fa-thumbs-up large categoryIcons"></i>
+        </a>
+        <p>Vote Object</p>
+      </div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Object-Comments/zipball/master" onclick="zipDownloadComment()" id="objectComment">
+          <i class="fa fa-commenting large categoryIcons"></i>
+        </a>
+        <p>Object Comment</p></div>
+    </div>
+    <div class="col s2 categorySelector z-depth-1 hoverable">
+      <div class="categoryBtn">
+        <a href="https://github.com/isaacg11/starterTemplate-Object-Actions/zipball/master" onclick="zipDownloadActions()" id="objectActions">
+          <i class="fa fa-bolt large categoryIcons"></i>
+        </a>
+        <p>Object Actions</p>
+      </div>
+    </div>
+    <div class="col s2">.</div>
+  </div>
+<!--MODAL-->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="center">How to use a template</h4>
+      <br>
+      <p>Once the zip file is installed, follow these steps:</p>
+      <p>1) <u>Initialize the front-end of your app with Stamplay</u></p>
+      <ul>
+        <li>- Go to your command line and enter <b>stamplay init</b></li>
+        <li>- When prompted, enter your <b>appID & API Key</b></li>
+      </ul>
+      <p>2) <u>Initialize the SDK library in your app</u></p>
+      <ul>
+        <li>- In your Javascript file, enter the initialization script at the top of the file <b>Stamplay.init('yourAppId');</b></li>
+      </ul>
+      <p>3) <u>Configure to your app</u></p>
+      <ul>
+        <li>- Change model parameters <b>new Stamplay.Cobject('yourObjectModel').model</b>
+        </li>
+        <li>- Change collection parameters <b>new Stamplay.Cobject('yourObjectModel').collection</b>
+        </li>
+        <li>- Change id parameters <b>fetch('yourObjectId')</b>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+<!--CLOSING DIV-->
+ </div>

@@ -38,6 +38,11 @@ function Config($stateProvider, $urlRouterProvider) {
 		templateUrl: '/objects.html',
 		controller: 'objectController'
 	});
+	$stateProvider.state('Catalog',{
+		url: '/catalog',
+		templateUrl: '/catalog.html',
+		controller: 'objectController'
+	});
 	$urlRouterProvider.otherwise('/');
 	}
 

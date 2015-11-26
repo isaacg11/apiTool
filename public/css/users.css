@@ -34,6 +34,17 @@ body, html {
 	margin-top: 10px;
 	margin-right: 10px;
 }
+#catelogNav{
+	font-weight: lighter;
+	padding-right: 50px;
+	cursor: pointer;
+}
+#catelogNav:hover{
+	padding-right: 50px;
+	cursor: pointer;
+	color: #FBC02D;
+	background-color: #262D4D !important;
+}
 #objAPI{
 	font-size: 20px;
 }
