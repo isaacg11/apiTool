@@ -43,6 +43,11 @@ function Config($stateProvider, $urlRouterProvider) {
 		templateUrl: '/catalog.html',
 		controller: 'objectController'
 	});
+	$stateProvider.state('Stripe',{
+		url: '/stripe',
+		templateUrl: '/stripe.html',
+		controller: 'stripeController'
+	});
 	$urlRouterProvider.otherwise('/');
 	}
 

@@ -1,0 +1,236 @@
+<div ng-controller="stripeController" class="animated fadeIn">
+	<nav>
+    	<div id="navbarObjects" class="nav-wrapper z-depth-2">
+    		<a ui-sref="Landing">
+        		<img id="wordLogo" src="public/images/logo_White.png"/>
+      		</a>
+      		<a id="lzHeader" class="brand-logo center hide-on-med-and-down">
+		    	<i id="gradCap" class="fa fa-child"> <b id="lz">Playground</b></i>
+      		</a>
+      		<ul id="resourceMenuObjects" class="right">
+        		<li>
+          			<a id="catelogNav" ui-sref="Catalog">CATALOG</a>
+       			</li>
+        		<li>
+          			<a
+            		id="navSelectObjects" 
+            		class='dropdown-button' 
+            		href='#' 
+            		data-activates='dropdown1'>
+            			<i class="fa fa-caret-down right"></i>Rest API - Objects
+          			</a>
+          		<ul id='dropdown1' class='dropdown-content'>
+            		<li class="dropdownitem">
+              			<a id="dropdownText1" ui-sref="Landing">Main Menu</a>
+            		</li>
+            		<li class="divider"></li>
+            		<li class="dropdownitem">
+              			<a id="dropdownText2" ui-sref="Users">
+              				<i id="userAPI" class="fa fa-user right"></i>[API] - Users
+              			</a>
+            		</li>
+            		<li class="divider"></li>
+            		<li class="dropdownitem">
+              			<a 
+              			id="dropdownText2" 
+              			href="https://sdktool.stamplayapp.com/index.html">
+              				<i id="userSDK" class="fa fa-user right"></i>[SDK] - Users
+              			</a>
+            		</li>
+            		<li class="divider"></li>
+            		<li class="dropdownitem">
+              			<a 
+              			id="dropdownText3" 
+              			href="https://sdktool.stamplayapp.com/objects.html">
+              				<i id="objSDK" class="fa fa-cubes right"></i>[SDK] - Objects</a>
+            		</li>
+          		</ul> 
+        		</li>
+      		</ul>
+    	</div>
+  	</nav>
+<!--TABS-->
+  	<div class="row">
+    	<div class="col s12 tab-row">
+      		<ul class="tabs">
+        		<li class="tab col s2">
+          			<a href="#addCustomer" class="active truncate">ADD CUSTOMER</a></li>
+        		<li class="tab col s2">
+          			<a href="#addCard" class="truncate">ADD CARD</a></li>
+        		<li class="tab col s2">
+          			<a href="#updateCard" class="truncate">UPDATE CARD</a></li>
+        		<li class="tab col s2">
+          			<a href="#chargeCard" class="truncate">CHARGE CARD</a></li>
+        		<li class="tab col s2">
+          			<a href="#createSub" class="truncate">CREATE SUBSCRIPTION</a></li>
+        		<li class="tab col s2">
+          			<a href="#updateSub" class="truncate">UPDATE SUBSCRIPTION</a></li>
+      		</ul>
+    	</div>
+  	</div>
+<!--..............................TAB 1...............................-->
+<!--ADD CUSTOMER-->
+<div id="addCustomer" class="row moduleBackgroundObj">
+    <div id="queryLeft" class="col s4">
+      <div class="chip">
+        <i class="fa fa-eye"></i> User View
+      </div>
+      <ul id="queryResults" class="collection z-depth-1 itemBorder">
+        <li id="viewHeaderQuery" class="collection-item center queryheader">
+          <b>New Customer</b>
+        </li>
+        <li class="collection-item category center">
+          <img id="restaurantImage" ng-src="{{stripeImg}}" class="queryheader" id="queryOutputName"/>
+        </li>
+        <li class="collection-item category">
+          <b>Customer Id:</b>
+          <span class="queryheader" id="queryOutputName">{{addCustomerIdOutput}}</span>
+        </li>
+        <li class="collection-item category">
+          <b>Dt_created: </b>
+          <span class="queryheader" id="queryOutputPhone">{{addCustomerDtCreated}}</span>
+        </li>
+      </ul>
+<!--CUSTOMER OPTIONS-->
+      <div id="options itemBorder">
+        <div class="input-field col s12">
+          <p class="center queryheader"><b>Add a customer!</b></p>
+          <br>
+          <select id="cuisineDropdown">
+            <option id="cuisineOption" value="" disabled selected>Users...</option>
+            <option value="564c1b5bbdaf632f5e7eed0d">Jack</option>
+            <option value="56561136ad28648774466055">Sally</option>
+            <option value="515653639dad28648774466012">George</option>
+            <option value="56536358ad28648774466011">Bill</option>
+          </select>
+        </div>
+      </div>
+<!--ADD BUTTON-->
+      <div class="row z-depth-1 createSection itemBorder">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <a 
+                ng-click="addCustomer()" 
+                id="btn" 
+                class="waves-effect waves-light btn-large">
+                <i class="fa fa-plus right"></i>Add Customer
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="queryRight" class= "col s8">
+      <div class="chip">
+        <i class="fa fa-code"></i> Code Details
+      </div>
+      <div class="z-depth-1 codeContent">
+        <button
+          type="btn"
+          id="copyBtn"
+          class="right" 
+          clipboard 
+          text="textToCopyStripeAddCustomer" 
+          on-copied="success()" 
+          on-error="fail(err)">
+          <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
+        </button>
+        <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Query-Object-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span><a target="_blank" href="https://youtu.be/3b9vWMsaAJQ"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
+        <pre> <b>API Request Path - Add Customer</b><input class="left" type="text" ng-model="textToCopyStripeAddCustomer">
+        </pre>
+      </div>
+<!--........................................................-->
+      <div id="sourceCodeQuery" class="z-depth-1 row">
+        <div class="col s12 srcTab">
+          <ul class="tabs">
+            <li class="tab col s4"><a class="active" href="#addCustomerCtrl">Controller.js</a></li>
+            <li class="tab col s4"><a href="#addCustomerFactory">Factory.js</a></li>
+            <li class="tab col s4"><a></a></li>
+          </ul>
+        </div>
+
+        <div id="addCustomerCtrl" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('stripeController', stripeController);
+  stripeController.$inject = ['stripeFactory', '$state',"$http","$scope", "$stamplay"];
+
+  function stripeController(stripeFactory, $state, $http, $scope, $stamplay){
+
+  $scope.addCustomer = function(){
+    var selectUser = document.getElementById("cuisineDropdown");
+    var userId = selectUser.options[selectUser.selectedIndex].value;
+
+    stripeFactory.newCustomer(userId).then(function(res){
+    });
+  };
+}
+})();
+</pre>
+        </div>
+        <div id="addCustomerFactory" class="col s12"> 
+<pre>
+ (function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('stripeFactory', stripeFactory);
+  stripeFactory.$inject = ['$http', '$q'];
+
+  function stripeFactory($http, $q) {
+
+    return {
+      newCustomer : function(userId){
+          var q = $q.defer();
+          var id = {"userId": userId};
+          $http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/", id)
+          .then(function success(res){
+              q.resolve(res);
+          }, function error(err) {
+              console.log(err);
+          });
+            return q.promise;
+      }
+  };
+}
+})();
+</pre>
+        </div>
+      </div>
+<!--........................................................-->
+      <div id="console" class="z-depth-1">
+<pre> <b>Console</b>
+  <span id="consoleCursor" class="blinking-cursor">_</span>
+  <br><span id="addCustomerConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="addCustomerConsoleBody" class="hidden"> Body: {{addCustomerBody}}</span>
+  <br><span id="addCustomerConsoleResponse" class="hidden"> Response: {{addCustomerResponse}}</span>
+</pre>
+      </div>
+<!--........................................................-->
+    </div>
+  </div>
+
+
+<!--CLOSING DIV-->
+</div>
+
+<!--JQUERY-->
+<script type="text/javascript">
+  jQuery('ul.tabs').tabs();
+  jQuery('.tooltipped').tooltip({delay: 50});
+  //DROPDOWN
+  jQuery('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    });
+  jQuery(document).ready(function() {
+    jQuery('select').material_select();
+  });
+</script>
