@@ -20,10 +20,23 @@
         	});
         		return q.promise;
     	},
-    	newCard : function(token){
+    	newCard : function(token, id){
+  			console.log(id);
       		var q = $q.defer();
       		var cardToken = {"token": token};
-      		$http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/564c1c45bdaf632f5e7eed0f/cards", cardToken)
+      		$http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+id+"/cards", cardToken)
+        	.then(function success(res){
+          		q.resolve(res);
+        	}, function error(err) {
+          		console.log(err);
+        	});
+        		return q.promise;
+    	},
+    	editCard : function(token, id){
+  			console.log(id);
+      		var q = $q.defer();
+      		var cardToken = {"token": token};
+      		$http.put("https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+id+"/cards", cardToken)
         	.then(function success(res){
           		q.resolve(res);
         	}, function error(err) {

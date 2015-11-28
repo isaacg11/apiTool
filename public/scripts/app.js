@@ -6,7 +6,6 @@
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 	app.run(function($location){
 		var params = window.location.href.split("?")[1];
-		console.log(params);
 		if(params) {
 			console.log("Login From Redirect.");
 			console.log(window.location.href.split("?"));

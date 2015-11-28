@@ -16,21 +16,19 @@
 	//COPY TO CLIPBOARD FIELDS
 	$scope.textToCopyStripeAddCustomer = "https://[appid].stamplayapp.com/api/stripe/v1/customers";
 	$scope.textToCopyStripeAddCard = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/cards";
+
 	$scope.success = function () {
     	Materialize.toast('Copied to clipboard!', 3000, 'rounded');
     };
- 
 	$scope.fail = function (err) {
     	console.error('Error!', err);
     };
 
 	//ADD NEW CUSTOMER
   	$scope.addCustomer = function(){
-  		var selectUser = document.getElementById("cuisineDropdown");
-  		var userId = selectUser.options[selectUser.selectedIndex].value;
-
+  		var userId = $scope.customerId;
   		stripeFactory.newCustomer(userId).then(function(res){
-  			document.getElementById('consoleCursor').className = "hidden";
+  			document.getElementById('addCustomerConsoleCursor').className = "hidden";
     		document.getElementById('addCustomerConsoleStatus').className = "";
     		document.getElementById('addCustomerConsoleBody').className = "";
     		document.getElementById('addCustomerConsoleResponse').className = "";
@@ -38,6 +36,7 @@
     		$scope.addCustomerResponse = res;
     		$scope.addCustomerIdOutput = res.data.customer_id;
     		$scope.addCustomerDtCreated = res.data.dt_create;
+    		$scope.customerId = "";
   		});
   	};
 
@@ -47,15 +46,16 @@
     	cvc: '',
     	exp_month: '',
     	exp_year: ''
-  	};
+  	};  	
 
   	$scope.addCard = function(){
+  		var id = $scope.addCardUserId;
   		Stripe.card.createToken($scope.card, function(status, response){
       		if (response.error) {
         		console.log('error', response.error);
       		} else {
         		var token = response.id;
-        		stripeFactory.newCard(token)
+        		stripeFactory.newCard(token, id)
         		.then(function (res) {
         			console.log(res);
         			document.getElementById('addCardConsoleCursor').className = "hidden";
@@ -73,6 +73,38 @@
     				$scope.card.cvc = "";
     				$scope.card.exp_month = "";
     				$scope.card.exp_year = "";
+  					$scope.addCardUserId = "";
+        		});
+      		}
+    	});
+  	};
+
+  	$scope.updateCard = function(){
+  		var id = $scope.addCardUserId;
+  		Stripe.card.createToken($scope.card, function(status, response){
+      		if (response.error) {
+        		console.log('error', response.error);
+      		} else {
+        		var token = response.id;
+        		stripeFactory.editCard(token, id)
+        		.then(function (res) {
+        			console.log(res);
+        			document.getElementById('addCardConsoleCursor').className = "hidden";
+    				document.getElementById('addCardConsoleStatus').className = "";
+    				document.getElementById('addCardConsoleBody').className = "";
+    				document.getElementById('addCardConsoleResponse').className = "";
+    				var body = $scope.card;
+    				$scope.addCardBody = body;
+    				$scope.addCardResponse = res;
+    				$scope.cardBrand = res.data.brand;
+    				$scope.cardId = res.data.card_id;
+    				$scope.cardCountry = res.data.country;
+    				$scope.cardLast4 = res.data.last4;
+    				$scope.card.number = "";
+    				$scope.card.cvc = "";
+    				$scope.card.exp_month = "";
+    				$scope.card.exp_year = "";
+  					$scope.addCardUserId = "";
         		});
       		}
     	});
