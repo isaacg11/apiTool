@@ -19,6 +19,17 @@
           		console.log(err);
         	});
         		return q.promise;
+    	},
+    	newCard : function(token){
+      		var q = $q.defer();
+      		var cardToken = {"token": token};
+      		$http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/564c1c45bdaf632f5e7eed0f/cards", cardToken)
+        	.then(function success(res){
+          		q.resolve(res);
+        	}, function error(err) {
+          		console.log(err);
+        	});
+        		return q.promise;
     	}
 	};
 }
