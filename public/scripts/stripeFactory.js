@@ -21,7 +21,6 @@
         		return q.promise;
     	},
     	newCard : function(token, id){
-  			console.log(id);
       		var q = $q.defer();
       		var cardToken = {"token": token};
       		$http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+id+"/cards", cardToken)
@@ -47,6 +46,16 @@
           q.resolve(res);
         }, function error(err) {
           console.log(err);
+        });
+        return q.promise;
+      },
+      newCharge : function(chargeInfo){
+        var q = $q.defer();
+        $http.post("https://apiapp.stamplayapp.com/api/stripe/v1/charges", chargeInfo)
+        .then(function success(res){
+            q.resolve(res);
+        }, function error(err) {
+            console.log(err);
         });
         return q.promise;
       }
