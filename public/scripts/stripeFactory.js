@@ -69,6 +69,26 @@
             console.log(err);
         });
         return q.promise;
+      },
+      editSubscription: function(updatedInfo){
+        var q = $q.defer();
+        var request = {"options":{
+            "plan":updatedInfo.updatePlan
+        }};
+        $http({
+          method: "PUT",
+          url : "https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+updatedInfo.userId+"/subscriptions/"+updatedInfo.subscriptionId+" ",
+          data : request,
+          headers : { 
+          "x-stamplay-jwt" : window.localStorage.getItem(window.location.origin+'-jwt')
+          }
+        })
+        .then(function success(res){
+          q.resolve(res);
+        }, function error(err) {
+          console.log(err);
+        });
+        return q.promise;
       }
 	 };
 

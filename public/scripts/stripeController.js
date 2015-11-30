@@ -17,7 +17,8 @@
 	  $scope.textToCopyStripeAddCustomer = "https://[appid].stamplayapp.com/api/stripe/v1/customers";
     $scope.textToCopyStripeAddCard = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/cards";
     $scope.textToCopyStripeChargeCard = "https://[appid].stamplayapp.com/api/stripe/v1/charges";
-	  $scope.textToCopyStripeNewSubscription = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/subscriptions";
+    $scope.textToCopyStripeNewSubscription = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/subscriptions";
+	  $scope.textToCopyStripeUpdateSubscription = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/subscriptions/:subscriptionId";
 
 	  $scope.success = function () {
     	Materialize.toast('Copied to clipboard!', 3000, 'rounded');
@@ -180,7 +181,32 @@
         $scope.newSubscriptionPlanId = "";
       });
     };
-
+//UPDATE SUBSCRIPTION
+    $scope.updateSubscription = function(){
+      var updatedInfo = {
+        userId: $scope.updateSubscriptionUserId,
+        subscriptionId: $scope.updateSubscriptionId,
+        updatePlan: $scope.updatePlan
+      };
+      stripeFactory.editSubscription(updatedInfo)
+      .then(function (res) {
+        console.log(res);
+        document.getElementById('updateSubscriptionConsoleCursor').className = "hidden";
+        document.getElementById('updateSubscriptionConsoleStatus').className = "";
+        document.getElementById('updateSubscriptionConsoleBody').className = "";
+        document.getElementById('updateSubscriptionConsoleResponse').className = "";
+        var body = updatedInfo;
+        $scope.updateSubscriptionConsoleBody = body;
+        $scope.updateSubscriptionConsoleResponse = res;
+        $scope.updateSubscriptionIdOutput = res.data.id;
+        $scope.updateSubscriptionPlanStarts = res.data.current_period_start;
+        $scope.updateSubscriptionPlanEnds = res.data.current_period_end;
+        $scope.updateSubscriptionUserId = "";
+        $scope.updateSubscriptionId = "";
+        $scope.updatePlan = "";
+      });
+    };
+  
 
 //CLOSING BRACKETS
 }
