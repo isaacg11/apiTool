@@ -440,19 +440,19 @@
       </li>
       <li class="collection-item data">
         <b>Brand:</b>
-        <span class="outputData" id="objectOutputName">{{cardBrand}}</span>
+        <span class="outputData" id="objectOutputName">{{updateBrand}}</span>
       </li>
       <li class="collection-item data">
         <b>Card Id:</b>
-        <span class="outputData" id="objectOutputAuthor">{{cardId}}</span>
+        <span class="outputData" id="objectOutputAuthor">{{updateCardId}}</span>
       </li>
       <li class="collection-item data">
         <b>Country: </b>
-        <span class="outputData" id="objectOutputDate">{{cardCountry}}</span>
+        <span class="outputData" id="objectOutputDate">{{updateCardCountry}}</span>
       </li>
       <li class="collection-item data">
         <b>Last 4: </b>
-        <span class="outputData" id="objectOutputId">{{cardLast4}}</span>
+        <span class="outputData" id="objectOutputId">{{updateCardLast4}}</span>
       </li>
     </ul>
 <!--UPDATE CARD INPUT-->
@@ -468,7 +468,7 @@
           <input
             placeholder="User Id..."
             type="text"
-            ng-model="addCardUserId"
+            ng-model="updateCardUserId"
             class="form-control"
             id="text"
             autocomplete="off">
@@ -629,10 +629,10 @@
 <!--........................................................-->
   <div id="console" class="z-depth-1">
 <pre> <b>Console</b>
-  <span id="addCardConsoleCursor" class="blinking-cursor">_</span>
-  <br><span id="addCardConsoleStatus" class="hidden"> Status: 200 OK</span>
-  <br><span id="addCardConsoleBody" class="hidden"> Body: {{addCardBody}}</span>
-  <br><span id="addCardConsoleResponse" class="hidden"> Response: {{addCardResponse}}</span>
+  <span id="updateCardConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="updateCardConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="updateCardConsoleBody" class="hidden"> Body: {{updateCardBody}}</span>
+  <br><span id="updateCardConsoleResponse" class="hidden"> Response: {{updateCardResponse}}</span>
 </pre>
   </div>
 <!--........................................................-->

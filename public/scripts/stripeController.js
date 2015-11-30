@@ -80,7 +80,7 @@
   	};
 
   	$scope.updateCard = function(){
-  		var id = $scope.addCardUserId;
+  		var id = $scope.updateCardUserId;
   		Stripe.card.createToken($scope.card, function(status, response){
       		if (response.error) {
         		console.log('error', response.error);
@@ -88,23 +88,22 @@
         		var token = response.id;
         		stripeFactory.editCard(token, id)
         		.then(function (res) {
-        			console.log(res);
-        			document.getElementById('addCardConsoleCursor').className = "hidden";
-    				document.getElementById('addCardConsoleStatus').className = "";
-    				document.getElementById('addCardConsoleBody').className = "";
-    				document.getElementById('addCardConsoleResponse').className = "";
-    				var body = $scope.card;
-    				$scope.addCardBody = body;
-    				$scope.addCardResponse = res;
-    				$scope.cardBrand = res.data.brand;
-    				$scope.cardId = res.data.card_id;
-    				$scope.cardCountry = res.data.country;
-    				$scope.cardLast4 = res.data.last4;
+        		document.getElementById('updateCardConsoleCursor').className = "hidden";
+    				document.getElementById('updateCardConsoleStatus').className = "";
+    				document.getElementById('updateCardConsoleBody').className = "";
+    				document.getElementById('updateCardConsoleResponse').className = "";
+    				var body = $scope.updateCardUserId;
+    				$scope.updateCardBody = body;
+    				$scope.updateCardResponse = res;
+    				$scope.updateBrand = res.data.brand;
+    				$scope.updateCardId = res.data.card_id;
+    				$scope.updateCardCountry = res.data.country;
+    				$scope.updateCardLast4 = res.data.last4;
     				$scope.card.number = "";
     				$scope.card.cvc = "";
     				$scope.card.exp_month = "";
     				$scope.card.exp_year = "";
-  					$scope.addCardUserId = "";
+  					$scope.updateCardUserId = "";
         		});
       		}
     	});
