@@ -874,11 +874,173 @@
   </div>
 </div>
 
+<!--..............................TAB 5...............................-->
+<!--ENROLL NEW SUBSCRIPTION-->
+<div id="createSub" class="row moduleBackgroundObj">
+    <div id="createLeft" class="col s4">
+      <div class="chip">
+          <i class="fa fa-eye"></i> User View
+      </div>
+    <ul class="collection z-depth-1 objectOutput itemBorder">
+      <li id="viewHeaderCreate" class="collection-item center header">
+        <b>New Subscription</b>
+      </li>
+      <li class="collection-item category center">
+          <img id="restaurantImage" ng-src="{{stripeImg}}" class="queryheader" id="queryOutputName"/>
+      </li>
+      <li class="collection-item data">
+        <b>Subscription Id:</b>
+        <span class="outputData" id="objectOutputName">{{newSubscriptionId}}</span>
+      </li>
+      <li class="collection-item data">
+        <b>Plan Starts:</b>
+        <span class="outputData" id="objectOutputAuthor">{{newSubscriptionPlanStarts}}</span>
+      </li>
+      <li class="collection-item data">
+        <b>Plan Ends: </b>
+        <span class="outputData" id="objectOutputDate">{{newSubscriptionPlanEnds}}</span>
+      </li>
+    </ul>
+<!--ENROLLMENT INFORMATION INPUT-->
+  <div class="row z-depth-1 createSection itemBorder">
+    <form class="col s12" ng-submit="newSubscription()">
+      <div class='row'>
+        <p class="center header"><b>Customer Info</b></p>
+      </div>
+      <div class="row">
+        <div 
+          id="input"
+          class="col s12">
+          <input
+            placeholder="User Id..."
+            type="text"
+            ng-model="newSubscriptionUserId"
+            class="form-control"
+            id="text"
+            autocomplete="off">
+        </div>
+        <div 
+          id="input"
+          class="col s12">
+          <input
+            placeholder="Plan Id..."
+            type="text"
+            ng-model="newSubscriptionPlanId"
+            class="form-control"
+            id="text"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="row center">
+        <div class="input-field col s12">
+          <button
+            type="submit" 
+            id="btn" 
+            class="waves-effect waves-light btn-large">
+            <i class="fa fa-credit-card right"></i>Enroll
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="createRight" class= "col s8">
+  <div class="chip">
+    <i class="fa fa-code"></i> Code Details
+  </div>
+  <div class="z-depth-1 codeContent">
+    <button
+      type="btn"
+      id="copyBtn"
+      class="right" 
+      clipboard 
+      text="textToCopyStripeNewSubscription" 
+      on-copied="success()" 
+      on-error="fail(err)">
+      <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
+    </button>
+    <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span>
+    <a target="_blank" href="https://youtu.be/38KvboCtfWU"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
+    <pre> <b>API Request Path - New Subscription ('POST')</b><input class="left" type="text" ng-model="textToCopyStripeNewSubscription">
+    </pre>
+  </div>
+<!--........................................................-->
+  <div id="sourceCodeCreate" class="z-depth-1 row">
+    <div class="col s12 srcTab">
+      <ul class="tabs">
+        <li class="tab col s4"><a class="active" href="#newSubscriptionCtrl">Controller.js</a></li>
+        <li class="tab col s4"><a href="#newSubscriptionFactory">Factory.js</a></li>
+        <li class="tab col s4"><a></a></li>
+      </ul>
+    </div>
+    <div id="newSubscriptionCtrl" class="col s12">
+<pre>
+  
+(function() {
+  'use strict';
+  angular.module('stamplay')
+  .controller('stripeController', stripeController);
+  stripeController.$inject = ['$rootScope','stripeFactory', '$state',"$http","$scope", "$stamplay"];
+
+  function stripeController($rootScope, stripeFactory, $state, $http, $scope, $stamplay){
+
+  $scope.newSubscription = function(){
+      var subscriptionInfo = {
+        userId: $scope.newSubscriptionUserId,
+        planId: $scope.newSubscriptionPlanId
+      };
+      stripeFactory.addSubscription(subscriptionInfo)
+      .then(function (res) {
+      });
+    };
+})();
+</pre>
+  </div>
+<div id="newSubscriptionFactory" class="col s12">
+<pre>
+(function() {
+  'use strict';
+  angular.module('stamplay')
+  .factory('stripeFactory', stripeFactory);
+  stripeFactory.$inject = ['$http', '$q'];
+
+  function stripeFactory($http, $q) {
+
+    return {
+      addSubscription : function(subscriptionInfo){
+        var plan = {"planId":subscriptionInfo.planId};
+        var q = $q.defer();
+        <b>$http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+subscriptionInfo.userId+"/subscriptions", plan)</b>
+        .then(function success(res){
+            q.resolve(res);
+        }, function error(err) {
+            console.log(err);
+        });
+        return q.promise;
+      }
+    };
+  }
+})();
+</pre>
+  </div>
+  </div>
+<!--........................................................-->
+  <div id="console" class="z-depth-1">
+<pre> <b>Console</b>
+  <span id="newSubscriptionConsoleCursor" class="blinking-cursor">_</span>
+  <br><span id="newSubscriptionConsoleStatus" class="hidden"> Status: 200 OK</span>
+  <br><span id="newSubscriptionConsoleBody" class="hidden"> Body: {{newSubscriptionConsoleBody}}</span>
+  <br><span id="newSubscriptionConsoleResponse" class="hidden"> Response: {{newSubscriptionConsoleResponse}}</span>
+</pre>
+  </div>
+<!--........................................................-->
+  </div>
+</div>
+
 <!--CLOSING DIV-->
 </div>
 
 <!--JQUERY-->
-
 <script type="text/javascript">
 
   jQuery('ul.tabs').tabs();

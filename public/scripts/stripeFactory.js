@@ -58,8 +58,20 @@
             console.log(err);
         });
         return q.promise;
+      },
+      addSubscription : function(subscriptionInfo){
+        var plan = {"planId":subscriptionInfo.planId};
+        var q = $q.defer();
+        $http.post("https://apiapp.stamplayapp.com/api/stripe/v1/customers/"+subscriptionInfo.userId+"/subscriptions", plan)
+        .then(function success(res){
+            q.resolve(res);
+        }, function error(err) {
+            console.log(err);
+        });
+        return q.promise;
       }
+	 };
 
-	};
+//CLOSING BRACKETS
 }
 })();

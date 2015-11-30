@@ -6,26 +6,27 @@
   stripeController.$inject = ['$rootScope','stripeFactory', '$state',"$http","$scope", "$stamplay"];
 
   function stripeController($rootScope, stripeFactory, $state, $http, $scope, $stamplay){
-  	//STRIPE
+//STRIPE
   	Stripe.setPublishableKey('pk_test_HPR6tudq146rHCAxtjl84xm3');
 
 
-  	//PLACEHOLDER IMAGES
-	$scope.stripeImg = "public/images/stripe.png";
+//PLACEHOLDER IMAGES
+	  $scope.stripeImg = "public/images/stripe.png";
 
-	//COPY TO CLIPBOARD FIELDS
-	$scope.textToCopyStripeAddCustomer = "https://[appid].stamplayapp.com/api/stripe/v1/customers";
-  $scope.textToCopyStripeAddCard = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/cards";
-	$scope.textToCopyStripeChargeCard = "https://[appid].stamplayapp.com/api/stripe/v1/charges";
+//COPY TO CLIPBOARD FIELDS
+	  $scope.textToCopyStripeAddCustomer = "https://[appid].stamplayapp.com/api/stripe/v1/customers";
+    $scope.textToCopyStripeAddCard = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/cards";
+    $scope.textToCopyStripeChargeCard = "https://[appid].stamplayapp.com/api/stripe/v1/charges";
+	  $scope.textToCopyStripeNewSubscription = "https://[appid].stamplayapp.com/api/stripe/v1/customers/:userId/subscriptions";
 
-	$scope.success = function () {
+	  $scope.success = function () {
     	Materialize.toast('Copied to clipboard!', 3000, 'rounded');
     };
-	$scope.fail = function (err) {
+	  $scope.fail = function (err) {
     	console.error('Error!', err);
     };
 
-	//ADD NEW CUSTOMER
+//ADD NEW CUSTOMER
   	$scope.addCustomer = function(){
   		var userId = $scope.customerId;
   		stripeFactory.newCustomer(userId).then(function(res){
@@ -41,7 +42,7 @@
   		});
   	};
 
-	//ADD NEW CARD
+//ADD NEW CARD
   	$scope.card = {
     	number: '',
     	cvc: '',
@@ -79,7 +80,7 @@
     	 });
   	};
 
-    //UPDATE CARD
+//UPDATE CARD
   	$scope.updateCard = function(){
   		var id = $scope.updateCardUserId;
   		Stripe.card.createToken($scope.card, function(status, response){
@@ -110,7 +111,7 @@
     	});
   	};
 
-    //CHARGE CARD
+//CHARGE CARD
     $scope.card = {
       number: '',
       cvc: '',
@@ -118,7 +119,7 @@
       exp_year: ''
     };
 
-      $scope.chargeCard = function(){
+    $scope.chargeCard = function(){
       var amount = parseInt($scope.amount);
       Stripe.card.createToken($scope.card, function(status, response){
           if (response.error) {
@@ -156,5 +157,31 @@
       });
     };
 
+//NEW SUBSCRIPTION
+    $scope.newSubscription = function(){
+      var subscriptionInfo = {
+        userId: $scope.newSubscriptionUserId,
+        planId: $scope.newSubscriptionPlanId
+      };
+      stripeFactory.addSubscription(subscriptionInfo)
+      .then(function (res) {
+        console.log(res);
+        document.getElementById('newSubscriptionConsoleCursor').className = "hidden";
+        document.getElementById('newSubscriptionConsoleStatus').className = "";
+        document.getElementById('newSubscriptionConsoleBody').className = "";
+        document.getElementById('newSubscriptionConsoleResponse').className = "";
+        var body = subscriptionInfo;
+        $scope.newSubscriptionConsoleBody = body;
+        $scope.newSubscriptionConsoleResponse = res;
+        $scope.newSubscriptionId = res.data.id;
+        $scope.newSubscriptionPlanStarts = res.data.current_period_start;
+        $scope.newSubscriptionPlanEnds = res.data.current_period_end;
+        $scope.newSubscriptionUserId = "";
+        $scope.newSubscriptionPlanId = "";
+      });
+    };
+
+
+//CLOSING BRACKETS
 }
 })();
