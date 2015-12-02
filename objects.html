@@ -12,9 +12,6 @@
           <a id="catelogNav" ui-sref="Catalog">CATALOG</a>
         </li>
         <li>
-          <a id="catelogNav" ui-sref="Stripe">STRIPE</a>
-        </li>
-        <li>
           <a
             id="navSelectObjects" 
             class='dropdown-button' 
@@ -25,6 +22,12 @@
           <ul id='dropdown1' class='dropdown-content'>
             <li class="dropdownitem">
               <a id="dropdownText1" ui-sref="Landing">Main Menu</a>
+            </li>
+            <li class="divider"></li>
+            <li class="dropdownitem">
+              <a id="dropdownText2" ui-sref="Stripe">
+              <i id="userAPI" class="fa fa-credit-card right"></i>[API] - Stripe
+              </a>
             </li>
             <li class="divider"></li>
             <li class="dropdownitem">
@@ -59,7 +62,7 @@
         <li class="tab col s2">
           <a href="#query" class="truncate">QUERIES</a></li>
         <li class="tab col s2">
-          <a href="#rate" class="truncate">ACTIONS</a></li>
+          <a href="#rate" class="truncate">SOCIAL ACTIONS</a></li>
         <li class="tab col s2">
           <a href="#activities" class="truncate">ACTIVITIES</a></li>
         <li class="tab col s2">
@@ -622,9 +625,6 @@
         <li id="viewHeaderRate" class="collection-item center queryheader">
           <b>Example Resturaunt Data</b>
         </li>
-        <li class="collection-item category center">
-          <img id="rateRestaurant" ng-src="{{rateRestaurant}}" class="queryheader" id="rateOutputName"/>
-        </li>
         <li class="collection-item category">
           <b>Resturaunt:</b>
           <span class="queryheader" id="rateOutputName">{{rateRestaurantOutput}}
@@ -756,8 +756,8 @@
         <i class="fa fa-code"></i> Code Details
       </div>
       <span class="center"> 
-        <b> NOTE</b>: YOU MUST GO TO 
-          <a ui-sref="Users">[API]- USERS</a> AND LOGIN TO USE THIS SECTION
+        <b> NOTE</b>: Go to 
+          <a ui-sref="Users">[API]- USERS</a> & login for this section. When a social action is made, the action is tracked by the userId.
       </span>
       <div class="z-depth-1 codeContent">
         <button

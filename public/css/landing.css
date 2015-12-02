@@ -40,7 +40,7 @@
 	height: 170px;
 	padding-top: 30px;
 	border-radius: 7px;
-	border:4px double #cccccc;
+	border:4px double #FBC02D;
 	/*margin-right: 10px;*/
 	cursor: pointer;
 	color: #000;
@@ -62,7 +62,7 @@
 	height: 170px;
 	padding-top: 30px;
 	border-radius: 7px;
-	border:4px double #cccccc;
+	border:4px double #FBC02D;
 	margin-left: 20px;
 	cursor: pointer;
 	color: #000;
@@ -86,7 +86,7 @@
 	height: 170px;
 	padding-top: 30px;
 	border-radius: 7px;
-	border:4px double #cccccc;
+	border:4px double #FBC02D;
 	/*margin-right: 10px;*/
 	margin-top: 0px;
 	cursor: pointer;
@@ -110,7 +110,7 @@
 	height: 170px;
 	padding-top: 30px;
 	border-radius: 7px;
-	border:4px double #cccccc;
+	border:4px double #FBC02D;
 	margin-left: 20px;
 	margin-top: 0px;
 	cursor: pointer;
