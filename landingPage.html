@@ -13,16 +13,51 @@
   <br>
 
   <!--NAV SECTION-->
-  <ul id="navBox" class="collection container">
+  <div class="row topRow center">
+    <div class="col s4">.</div>
+    <div ui-sref="Users" id="selectCourseBtn1" class="col s2 z-depth-1 center hoverable">
+      <img src="public/images/user.png"/>
+      <p>[Rest API] Users</p>
+    </div>
+    <div ui-sref="Objects" id="selectCourseBtn2" class="col s2 z-depth-1 center hoverable">
+      <img src="public/images/object.png" class="objectImg"/>
+      <p>[Rest API] Objects</p>
+    </div>
+    <div class="col s4">.</div>
+  </div>
+
+  <div class="row">
+    <div class="col s4">.</div>
+      <a href="https://sdktool.stamplayapp.com/">
+        <div id="selectCourseBtn3" class="col s2 z-depth-1 center hoverable">
+          <img src="public/images/user.png"/>
+          <p>[SDK] Users</p>
+        </div>
+      </a>
+      <a href="https://sdktool.stamplayapp.com/objects.html">
+        <div id="selectCourseBtn4" class="col s2 z-depth-1 center hoverable">
+          <img src="public/images/object.png" class="objectImg"/>
+          <p>[SDK] Objects</p>
+        </div>
+      </a>
+    <div class="col s4">.</div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!--   <ul id="navBox" class="collection container">
     <li id="collectionHeader" class="collection-item">
       <p class="center"><b>DEVELOPER COURSES</b></p>
     </li>
-    <li ui-sref="Users" class="collection-item avatar navItem">
-      <img src="public/images/userBot.jpg" alt="" class="circle">
-      <span class="title"></span>
-      <p><b>[Rest API]</b> <br>
-         Users
-      </p>
+    <li ui-sref="Users" class="collection-item navItem">
+      <img src="public/images/user.png"><span><b>[Rest API]</b></span>
       <a class="secondary-content">
         <i class="fa fa-sign-in small arrow"></i>
       </a>
@@ -71,7 +106,7 @@
         <i class="fa fa-sign-in small arrow"></i>
       </a>
     </li>
-  </ul>
+  </ul> -->
 
 
 </div>

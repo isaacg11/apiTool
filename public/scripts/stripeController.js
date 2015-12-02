@@ -7,9 +7,7 @@
 
   function stripeController($rootScope, stripeFactory, $state, $http, $scope, $stamplay){
 //STRIPE
-  	Stripe.setPublishableKey('pk_test_HPR6tudq146rHCAxtjl84xm3');
-
-
+Stripe.setPublishableKey('pk_test_HPR6tudq146rHCAxtjl84xm3');
 //PLACEHOLDER IMAGES
 	  $scope.stripeImg = "public/images/stripe.png";
 

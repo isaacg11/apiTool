@@ -1,0 +1,76 @@
+#sourceCodeStripeCreateCustomer{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 38vh;
+}
+#sourceCodeAddCard{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 69vh;
+}
+#sourceCodeUpdateCard{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 69vh;
+}
+#sourceCodeChargeCard{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 80vh;
+}
+#sourceCodeNewSubscription{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 47vh;
+}
+#sourceCodeUpdateSubscription{
+	overflow: auto;
+	background-color: #FFFFE5;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border:7px solid;
+	border-color: #EEEEEE;
+	border-style:double;
+	height: 55vh;
+}
+.input-field label {
+     color: #000;
+}
+.input-field input[type=text]:focus + label {
+     color: #000;
+}
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #FFD700;
+     box-shadow: 0 1px 0 0 #FFD700;
+}
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 1.2rem;
+    color: #414b82;
+    display: block;
+    padding: 1rem 1rem;
+}

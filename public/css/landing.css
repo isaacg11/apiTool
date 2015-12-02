@@ -24,7 +24,107 @@
 	font-size: 17px;
 	font-weight: lighter;
 }
-#navBox{
+#selectCourseBtn1{
+	/*background-image: url('/public/images/lego.jpg');*/
+	/*background-color: #EEEEEE;*/
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	/*margin-right: 10px;*/
+	cursor: pointer;
+	color: #fff;
+}
+#selectCourseBtn1:hover{
+	background-color: #f2f2f2;
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	/*margin-right: 10px;*/
+	cursor: pointer;
+	color: #000;
+
+}
+#selectCourseBtn2{
+	/*background-color: #EEEEEE;*/
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	margin-left: 20px;
+	cursor: pointer;
+	color: #fff;
+
+}
+#selectCourseBtn2:hover{
+	background-color: #f2f2f2;
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	margin-left: 20px;
+	cursor: pointer;
+	color: #000;
+
+}
+#selectCourseBtn3{
+	/*background-color: #EEEEEE;*/
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	/*margin-right: 10px;*/
+	margin-top: 0px;
+	cursor: pointer;
+	color: #fff;
+
+
+}
+#selectCourseBtn3:hover{
+	background-color: #f2f2f2;
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	/*margin-right: 10px;*/
+	margin-top: 0px;
+	cursor: pointer;
+	color: #000;
+
+}
+#selectCourseBtn4{
+	/*background-color: #EEEEEE;*/
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	margin-left: 20px;
+	margin-top: 0px;
+	cursor: pointer;
+	color: #fff;
+
+}
+#selectCourseBtn4:hover{
+	background-color: #f2f2f2;
+	height: 170px;
+	padding-top: 30px;
+	border-radius: 7px;
+	border:4px double #cccccc;
+	margin-left: 20px;
+	margin-top: 0px;
+	cursor: pointer;
+	color: #000;
+	
+}
+.topRow{
+	margin-bottom: 0px;
+}
+.objectImg{
+	height: 80px;
+	width: 80px;
+}
+/*#navBox{
 	background-color: #EEEEEE;
 	width: 50%;
 	border-radius: 4px;
@@ -38,6 +138,7 @@
 }
 .navItem{
 	cursor: pointer;
+	padding-left: 5px;
 }
 .navItem:hover{
 	background-color: #FFFFE5;
@@ -56,5 +157,5 @@
 }
 .sdkTitle{
 	color: #000;
-}
+}*/
 
