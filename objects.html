@@ -9,9 +9,6 @@
       </a>
       <ul id="resourceMenuObjects" class="right">
         <li>
-          <a id="catelogNav" ui-sref="Catalog">CATALOG</a>
-        </li>
-        <li>
           <a
             id="navSelectObjects" 
             class='dropdown-button' 
@@ -185,7 +182,7 @@
     </button>
     <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span>
     <a target="_blank" href="https://youtu.be/38KvboCtfWU"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-    <pre> <b>API Request Path - Create Object</b><input class="left" type="text" ng-model="textToCopyCreate">
+    <pre> <b>API Request Path - Create Object ('POST')</b><input class="left" type="text" ng-model="textToCopyCreate">
     </pre>
   </div>
 <!--........................................................-->
@@ -199,6 +196,7 @@
     </div>
     <div id="createCtrl" class="col s12">
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
   
  (function() {
   'use strict';
@@ -235,6 +233,8 @@
   </div>
 <div id="createFactory" class="col s12">
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -362,7 +362,7 @@
           <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom" data-delay="50" data-tooltip="copy"></i>
         </button>
         <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span><a target="_blank" href="https://youtu.be/xpCJoc1lgUU"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-        <pre> <b>API Request Path - Update Object</b><input class="left" type="text" ng-model="textToCopyUpdate">
+        <pre> <b>API Request Path - Update Object ('PUT')</b><input class="left" type="text" ng-model="textToCopyUpdate">
         </pre>
       </div>
 <!--........................................................-->
@@ -376,6 +376,8 @@
         </div>
         <div id="updateCtrl" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -405,6 +407,8 @@
       </div>
       <div id="updateFactory" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Create-Update-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -532,7 +536,7 @@
           <i id="clipboard1PS" class="fa fa-clipboard tooltipped" data-position="bottom"data-delay="50" data-tooltip="copy"></i>
         </button>
         <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Query-Object-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span><a target="_blank" href="https://youtu.be/3b9vWMsaAJQ"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-        <pre> <b>API Request Path - Query Object</b><input class="left" type="text" ng-model="textToCopyQuery">
+        <pre> <b>API Request Path - Query Object ('GET')</b><input class="left" type="text" ng-model="textToCopyQuery">
         </pre>
       </div>
 <!--........................................................-->
@@ -547,6 +551,8 @@
 
         <div id="queryCtrl" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Query-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -576,6 +582,8 @@
         </div>
         <div id="queryFactory" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Query-Object-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -772,7 +780,7 @@
         </button>
         <a target="_blank" href="https://github.com/isaacg11/starterTemplate-Object-Actions-API"><i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i></a><span>
         <a target="_blank" href="https://youtube.com/channel/UCRmh5SUBcrb04EZgRFl_-2A"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-        <pre> <b>API Request Path - Rate Object</b><input class="left" type="text" ng-model="textToCopyRate">
+        <pre> <b>API Request Path - Rate Object ('PUT')</b><input class="left" type="text" ng-model="textToCopyRate">
         </pre>
       </div>
 <!--........................................................-->
@@ -786,6 +794,8 @@
         </div>
         <div id="rateCtrl" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Object-Actions-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
 (function() {
   'use strict';
   angular.module('stamplay')
@@ -810,7 +820,7 @@
     objectFactory.voteNegative().then(function(res){
     });
   };
-//REVIEW OBJECT
+//COMMENT OBJECT
   $scope.review = function(){
     var review = $scope.newReview;
     objectFactory.placeReview(review).then(function(res){
@@ -823,6 +833,8 @@
         </div>
         <div id="rateFactory" class="col s12"> 
 <pre>
+<a href="https://github.com/isaacg11/starterTemplate-Object-Actions-API/zipball/master" class="waves-effect waves-light btn">Get this code!</a>
+
 (function() {
   'use strict';
   angular.module('stamplay')
@@ -994,7 +1006,7 @@
         </button>
         <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span>
         <a target="_blank" href="https://youtu.be/XdTOsBwH3XU"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-        <pre> <b>API Request Path - Get Activity</b><input class="left" type="text" ng-model="textToCopyActivity">
+        <pre> <b>API Request Path - Get Activity ('GET')</b><input class="left" type="text" ng-model="textToCopyActivity">
         </pre>
       </div>
 <!--........................................................-->
@@ -1009,6 +1021,8 @@
 
         <div id="activityCtrl" class="col s12"> 
 <pre>
+<a class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -1030,6 +1044,8 @@
         </div>
         <div id="activityFactory" class="col s12"> 
 <pre>
+<a class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -1186,7 +1202,7 @@
         </button>
         <i class="fa fa-github small right github tooltipped" data-position="bottom" data-delay="50" data-tooltip="view full code"></i><span>
         <a target="blank" href="https://youtu.be/AOUvHEyqgwc"><i class="fa fa-youtube-square small right youtube tooltipped" data-position="bottom" data-delay="50" data-tooltip="view tutorial"></i></a></span>
-        <pre> <b>API Request Path - Email</b><input class="left" type="text" ng-model="textToCopyEmail">
+        <pre> <b>API Request Path - Email ('POST')</b><input class="left" type="text" ng-model="textToCopyEmail">
         </pre>
       </div>
 <!--........................................................-->
@@ -1201,6 +1217,8 @@
 
         <div id="emailCtrl" class="col s12"> 
 <pre>
+<a class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')
@@ -1231,6 +1249,8 @@
         </div>
         <div id="emailFactory" class="col s12"> 
 <pre>
+<a class="waves-effect waves-light btn">Get this code!</a>
+
  (function() {
   'use strict';
   angular.module('stamplay')

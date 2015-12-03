@@ -304,6 +304,16 @@ body, html {
 	border-color: #FFFFFF;
 	border:none;
 }
+.btn{
+	background-color: #EEEEEE;
+	color: #000;
+	border-radius: 4px;
+}
+.btn:hover{
+	background-color: #7a7f99;
+	color: #fff;
+}
+
 .codeContent{
 	margin-top: 15px;
 	margin-bottom: 5px;
